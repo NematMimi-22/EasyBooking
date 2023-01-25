@@ -4,7 +4,6 @@
 
 <?php 
  session_start();
-
 require ('inc/head.php'); ?>
 
 <body>
@@ -23,16 +22,13 @@ $sql="SELECT * FROM halls";
 $query1=mysqli_query($conn,$sql);
 $halls=mysqli_fetch_all($query1,MYSQLI_ASSOC);
 
-
 $sql = "SELECT subhalls.*, halls.city, halls.name AS hall_name FROM subhalls JOIN halls ON subhalls.hall_id = halls.id ORDER BY subhalls.num_of_reservation DESC LIMIT 3";
 $result = $conn->query($sql);
-
 
 require("admin/handlers/get-feature.php");
 $sql="SELECT * FROM features";
 $query3=mysqli_query($conn,$sql);
 $features=mysqli_fetch_all($query3,MYSQLI_ASSOC);
-
 
 ?>
 
@@ -169,7 +165,7 @@ require ('inc/LoginHeader.php');
                 </div>
              </div>
 
-            <div class="row g-4 justify-content-center">
+             <div class="row g-4 justify-content-center">
              <?php
 
             if(isset($halls)){
@@ -262,8 +258,6 @@ require ('inc/LoginHeader.php');
         </div>
     </div>
     <!-- ========== Home1 Feature end============= -->
-
-    <!-- ========== Home1 Room start============= -->
     <div class="our-room-section mb-120">
         <div class="container">
              <div class="row">
@@ -275,61 +269,53 @@ require ('inc/LoginHeader.php');
                 </div>
              </div>
 
-            <div class="row g-4 justify-content-center">
+             <div class="row g-4 justify-content-center">
              <?php
 
-
-
-
-
-if ($result->num_rows > 0) { 
-    // echo "hello";
-    //print_r($hall);
-     while($hall = mysqli_fetch_assoc($result)) {
-         //echo "hello";*/                                                  
-?>
-     <div class="col-lg-4 col-md-6">
-         <div class="single-room">
-             <img class="img-fluid" src="admin/HallsImages/<?php echo $hall['image_view']?>" alt="">
-             <div class="background"></div>
-             <div class="room-content">   
-                 <h3><a href="subhall-details.php?shallId=<?= $hall['id'];?>"><?php echo $hall['name']?></a></h3>                           
-                 <div class="bed-and-person d-flex align-items-center">
+            if($result->num_rows > 0){
+                while($hall = mysqli_fetch_assoc($result)){?>
+             
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-room">
+                        <img class="img-fluid" src="admin/HallsImages/<?php echo $hall['image_view']?>" alt="">
+                        <div class="background"></div>
+                        <div class="room-content">
+                            
+                        <h3><a href="subhall-details.php?shallId=<?= $hall['id'];?>"><?php echo $hall['name']?></a></h3>                           
+                        <div class="bed-and-person d-flex align-items-center">
                     
-                    <div class="persons">
+                        <div class="persons">
                          <p><img src="assets/images/icons/town-hall.svg" alt=""><?php echo $hall['hall_name']?></p>
-                    </div>
+                        </div>
 
-                    <div class="persons">
+                         <div class="persons">
                          <p><img src="assets/images/icons/location-svgrepo-com.svg" alt=""><?php echo $hall['city']?></p>
-                    </div>                               
-                 </div>                                            
+                        </div>                               
+                        </div>                                            
                  <div class="book-btn">
                      <a class="btn--primary2" href="subhall-details.php?shallId=<?= $hall['id'];?>">View Now</a>
                  </div>
-             </div>
-         </div>
-     </div>
-  <?php } }
+                        </div>
+                    </div>
+                </div>
+             
 
- else{?>
-     <tr>
-       <td colspan="6" class="text-center">No Halls Added</td>
-     </tr>
-     <?php
- }//}           
-  ?>
-            
+             <?php }
+
+
+
+            }   
+            else{?>
+                <tr>
+                  <td colspan="6" class="text-center">No Halls Added</td>
+                </tr>
+                <?php
+            } ?>
+
+            </div>
+           
         </div>
     </div>
-    <!-- ========== Home1 Room end============= -->
-<br>
-</br>
-<br>
-</br>
-<br>
-</br>
-
    
     <!-- ========== Home1 Testimonial Start============= -->
     <div class="home-one-testimonial mb-120">
@@ -401,7 +387,7 @@ foreach($feedbackData as $index=>$users){?>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-center">
                     <div class="contents">
-                        <p>We always keep them happy</p>
+                        <p>We are always keep them happy</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
