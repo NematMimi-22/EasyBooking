@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 21, 2023 at 05:05 PM
+-- Generation Time: Jan 25, 2023 at 12:41 PM
 -- Server version: 8.0.13
 -- PHP Version: 8.1.10
 
@@ -118,7 +118,8 @@ INSERT INTO `feedback_subhall` (`id`, `feedback`, `user_id`, `hall_id`) VALUES
 (4, 'Amazing!', 35, 63),
 (5, 'best hall ever', 35, 63),
 (6, 'not bad', 35, 63),
-(7, 'nice', 35, 65);
+(7, 'nice', 35, 65),
+(8, 'nice, nemat wedding was there', 41, 66);
 
 -- --------------------------------------------------------
 
@@ -196,11 +197,12 @@ CREATE TABLE `reservations` (
 
 INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`) VALUES
 (1, '2', 2, '2023-01-10', '09:00:00', '05:00:00', '', 61, 37, 'approved'),
-(2, '3', 10, '2023-01-16', '14:00:00', '16:00:00', '', 65, 35, 'canceled'),
 (3, '3', 5, '2023-01-18', '14:00:00', '16:00:00', 'my party', 61, 35, 'approved'),
 (4, '3', 10, '2023-01-21', '16:00:00', '18:00:00', 'birthday', 63, 35, 'approved'),
 (5, '3', 50, '2023-01-22', '12:00:00', '15:00:00', '', 63, 35, 'approved'),
-(6, '2', 20, '2023-01-26', '02:00:00', '09:00:00', '', 66, 35, 'approved');
+(6, '2', 20, '2023-01-26', '02:00:00', '09:00:00', '', 66, 35, 'approved'),
+(8, '2', 50, '2023-01-27', '16:00:00', '20:00:00', 'nqaa wedding', 65, 35, 'approved'),
+(9, '2', 50, '2023-01-28', '14:00:00', '16:00:00', 'nemat wedding', 66, 41, 'approved');
 
 -- --------------------------------------------------------
 
@@ -217,18 +219,19 @@ CREATE TABLE `subhalls` (
   `hall_describtion` varchar(500) NOT NULL,
   `services` varchar(500) NOT NULL,
   `image_view` varchar(300) NOT NULL,
-  `hall_id` int(11) NOT NULL
+  `hall_id` int(11) NOT NULL,
+  `num_of_reservation` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `subhalls`
 --
 
-INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `price`, `hall_describtion`, `services`, `image_view`, `hall_id`) VALUES
-(61, 'rayahall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steatRamallah em alsharayet steat', '63b92f1722916.jpg', 74),
-(63, 'Ownerhall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b92f905615b.jpg', 75),
-(65, 'ownerhall2', 1, 5007, 600, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b9c6b5c9fb2.jpg', 75),
-(66, 'test-1-', 1, 500, 6000, 'testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt', 'testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt', '63be94bf7df3f.jpg', 76);
+INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `price`, `hall_describtion`, `services`, `image_view`, `hall_id`, `num_of_reservation`) VALUES
+(61, 'rayahall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steatRamallah em alsharayet steat', '63b92f1722916.jpg', 74, 0),
+(63, 'Ownerhall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b92f905615b.jpg', 75, 2),
+(65, 'ownerhall2', 1, 5007, 600, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b9c6b5c9fb2.jpg', 75, 1),
+(66, 'test-1-', 1, 500, 6000, 'testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt', 'testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt', '63be94bf7df3f.jpg', 76, 1);
 
 -- --------------------------------------------------------
 
@@ -274,7 +277,8 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`, `type`, `status`, `creat
 (37, 'owner', '$2y$10$FhLmn9UB/hf4R6T1nJerf.rAwjYEik/eLRECmjsmiqxUKsECBZS2u', 'owner@gmail.com', 'owner', 1, '2022-12-28 22:55:30'),
 (38, 'raya', '$2y$10$736vC9QBmOlM4WLS5tNO0eDnku.ueVloJvcRgzGftA4jtFn5JR86i', 'raya@gmail.com', 'owner', 1, '2022-12-29 00:33:36'),
 (39, 'status', '$2y$10$NDm9fSWBuuBkgVKlqfxjb.DS7tINhOCfvmcgL1wzNgq5qt6w1DPO2', 'status@gmail.com', 'user', 0, '2023-01-01 00:26:27'),
-(40, 'Dina', '$2y$10$Eh87rJiQY8cOdtSInrkDDujSDSnk4sHX/P4hQ3i0aOOxVas32/cKK', 'dina@gmail.com', 'user', 1, '2023-01-02 14:40:05');
+(40, 'Dina', '$2y$10$Eh87rJiQY8cOdtSInrkDDujSDSnk4sHX/P4hQ3i0aOOxVas32/cKK', 'dina@gmail.com', 'user', 1, '2023-01-02 14:40:05'),
+(41, 'lara', '$2y$10$c3x57hXt35UTb1cdBjrSaOD8Unc/2CUukH7ofyu0Dhk4JLLAqCqrK', 'lara@gmail.com', 'user', 1, '2023-01-25 13:58:48');
 
 --
 -- Indexes for dumped tables
@@ -364,7 +368,7 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `feedback_subhall`
 --
 ALTER TABLE `feedback_subhall`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `halls`
@@ -382,7 +386,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `subhalls`
@@ -394,7 +398,7 @@ ALTER TABLE `subhalls`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Constraints for dumped tables

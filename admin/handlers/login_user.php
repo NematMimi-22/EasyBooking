@@ -57,6 +57,7 @@ if(empty($email)){
                if (( $_SESSION['usertype']== "owner")){
                 $_SESSION['booklogin']=null;
                 $_SESSION['fb_sb_login'] =null;
+                $_SESSION['$flag'] = null;
                 header("location: ../../index.php");
           //      header("Refresh:0;URL=../createhall.php");
                 
@@ -80,9 +81,16 @@ if(empty($email)){
              if($_SESSION['fb_sb_login']== true){
 
                $shallId = $_SESSION['shallId'];
-
-               header("location: ../../FeedBack_subhall.php?shallId=$shallId ");
-               $_SESSION['fb_sb_login']= false;
+                if($_SESSION['$flag']==true){
+                  header("location: ../../FeedBack_subhall.php?shallId=$shallId ");
+                  $_SESSION['$flag']=false;
+                  }
+                  else{
+                    header("location: ../../subhall-details.php?shallId=$shallId ");
+                    $_SESSION['errors_h']="To give feedback you have to reserve this hall first";
+                  } 
+                  
+                  $_SESSION['fb_sb_login']= false;
 
              }
 

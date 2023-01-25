@@ -116,8 +116,6 @@ else{?>
 
                 </tbody>
             </table>
-            <button onclick="history.back()"  class="btn btn-dark">Back to Hall list</button>
-
             <ul class="navbar-nav mr-auto">
                
        

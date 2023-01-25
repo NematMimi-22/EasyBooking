@@ -1,6 +1,9 @@
 <?php
       session_start();
-      $shallId=$_POST['subhall'];
+      if(isset($_POST['subhall'])){
+      $shallId=$_POST['subhall']; }
+      elseif(isset($_GET['shallId'])){
+      $shallId=$_GET['shallId']; }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +35,7 @@
     
   
     
-   
+
   
     require("admin/handlers/db.php");
     $sql="SELECT * FROM subhalls where id=$shallId ";
@@ -241,8 +244,8 @@ foreach($feedbackData as $index=>$users){?>
             foreach($reservations as $index=> $reservation){
 
                 if($reservation['status']=='approved'){
-                 $flag= true;
-                }
+                 $_SESSION['$flag']= true;
+                } 
              }
             
             ?>
@@ -251,11 +254,12 @@ foreach($feedbackData as $index=>$users){?>
 
             <div class="col-13">
                     <div class="section-title1 text-center">
-                      
-                      <span> <a class="btn--primary6" 
-                      <?php if(isset($flag)){ ?>
-                      href="admin/handlers/feedback_subhall_chlogin.php?shallId=<?= $shallId ?>"<?php } else { ?>
-                      <?php $_SESSION['errors']="To give feedback you have to reserve this hall first";  } ?>> Give FeedBack </a> </span>
+                      <span> <a class="btn--primary6" href="admin/handlers/feedback_subhall_chlogin.php?shallId=<?= $shallId ?>"> Give FeedBack </a> </span>
+                    </div>
+                    <div class="section-title1 text-center">
+                    <?php if(isset( $_SESSION['errors_h'])){?>
+                    <div class="alert alert-danger" role="alert"> <?php echo $_SESSION['errors_h'];?> </div>
+                    <?php unset($_SESSION['errors_h']); }?>
                     </div>
                     
             </div>

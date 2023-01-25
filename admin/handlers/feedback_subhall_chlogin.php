@@ -10,7 +10,14 @@ if(!isset($_SESSION['userId'])){
   }
 
 else{
+    if($_SESSION['$flag']==true){
     header("location: ../../FeedBack_subhall.php?shallId=$shallId ");
+    $_SESSION['$flag']=false;
+    }
+    else{
+      header("location: ../../subhall-details.php?shallId=$shallId ");
+      $_SESSION['errors_h']="To give feedback you have to reserve this hall first";
+    }
 }
 
 

@@ -3,7 +3,7 @@ require("handlers/db.php");
 require("handlers/get-subhall.php");
 $hallId=$_GET['hallId'];
 
-$sql="SELECT h.id,h.name,h.type,h.number_of_guests,h.price,h.hall_describtion,h.services FROM subhalls h where h.hall_id = '$hallId' ";
+$sql="SELECT h.id,h.name,h.type,h.number_of_guests,h.price,h.hall_describtion,h.services,h.num_of_reservation FROM subhalls h where h.hall_id = '$hallId' ";
 $query=mysqli_query($conn,$sql);
 
 
@@ -59,7 +59,8 @@ require("inc/header.php");
                     <th scope="col">Price</th>
                     <th scope="col"style="width:40%">Hall describtion</th>
                     <th scope="col"> services</th>
-                    <th scope="col"> status</th>
+                    <th scope="col"> Number of Reservations</th>
+                    
                  
                     <th scope="col">Show Images for hall</th>
 
