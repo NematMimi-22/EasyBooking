@@ -46,11 +46,31 @@ $_SESSION['hall_id']=$_GET['hallId'];
    
   </select>
 </div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Type</label>
+  </div>
+  <select name ="number_of_guests"class="custom-select" id="inputGroupSelect01">
+    <option value="0">Choose...</option>
 
-                <div class="form-group">
-                    <label for="name">Number of guests</label>
-                    <input type="text" name="number_of_guests"class="form-control" id="name" placeholder="Enter Number of guests" value= <?php if( isset($_SESSION['formhalldata']['number_of_guests'])) echo $_SESSION['formhalldata']['number_of_guests']?>>
-                </div>
+
+
+
+    <option value="100">from 50-100</option>
+    <option value="200">from 100-200</option>
+                                   <option value="500">from 200-500</option>
+                                   <option value="1000">from 500-1000</option>
+
+
+
+    <option value="100"  >Up to 100</option>
+    <option value="200"  >Up to 200</option> 
+    <option value="500"  >Up to 500</option>
+    <option value="1000" >Up to 1000</option>
+   
+  </select>
+</div>
+               
                 <div class="form-group">
                     <label for="name">Price</label>
                     <input type="text" name="price"class="form-control" id="name" placeholder="Enter price " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>

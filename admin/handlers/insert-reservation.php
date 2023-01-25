@@ -32,15 +32,9 @@ if($type=='1'){
 $errors[]="Event type is required";
 }
 
-if(empty($number_of_guests)){
-    $errors[]="number of guests is required";
-    }elseif(is_decimal($number_of_guests)){
-    
-    $errors[]="number of guests must be an integer";
-    }elseif(!is_numeric($number_of_guests) ){
-        $errors[]="number of guests must be only numbers";
-    
-    }elseif($number_of_guests > $hallData['number_of_guests']){
+if($number_of_guests=='1'){
+    $errors[]="Number of guests is required";
+    }   elseif($number_of_guests > $hallData['number_of_guests']){
         $errors[]="This hall is not suitable for your guests number!";
 
     }

@@ -104,18 +104,44 @@ require ('inc/head.php'); ?>
                                     <option selected value="1">choose event type</option>
                                     <?php if($hallData['type']!="meetings" ) { ?>
                                     <option value="2">Wedding</option>
-                                    <option value="3">Party</option>
+                                    <option value="3">Birthday Party</option>
+                                    
                                     <option value="4">Consolation</option>
+                                    <option value="5">Shower Party</option>
+                                    <option value="6">Graduation party</option>
+                                    <option value="7">Welcome party</option>
+                                    <option value="8">Gender reveal party</option>
+
+                                    
+
+                                    Honoring Ceremony
                                     <?php } if($hallData['type']=="weddings&meetings" or $hallData['type']=="meetings"){?>
-                                    <option value="5">Meeting</option> <?php } ?>
+                                    <option value="9">Meeting</option>
+                                    <option value="10"> Honoring Ceremony</option>
+                                    <?php } ?>
                                 </select>
                                  </div>
 
-                                <div class="wp-block-text__inside-wrapper ">
-                                <i class='bx bx-user'></i>
-                                <input type="text" name="number_guest" placeholder="Number of Guests">
-                                <input type="hidden"  name="shallId" value="<?= $hallData['id'];?>" >
+
+
+                                 <div class="wp-block-text__inside-wrapper select-items">
+                                 <input type="hidden"  name="shallId" value="<?= $hallData['id'];?>" >
+
+                               <select name ="number_guest" class="custom-select" id="inputGroupSelect01" >
+                                   <option selected value="1">Number of Guests</option>
+                                   
+                                   <option value="100">from 50 to 100 guests</option>
+                                   <option value="200">from 100 to 200 guests</option>
+                                   <option value="500">from 200 to 500 guests</option>
+                                   <option value="1000">from 500 to 1000 guests</option>
+                                 
+                               </select>
                                 </div>
+
+
+
+
+                              
 
                             
                            

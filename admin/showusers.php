@@ -129,15 +129,6 @@ else{?>
         ?>
             <h1>List of Owners</h1>          
 
-
-
-
-
-
-
-
-
-       
                 <br>
             
             <table class="table table-bordered text-center justify-content-start">
