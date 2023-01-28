@@ -102,7 +102,7 @@ require ('inc/head.php'); ?>
                                
                                 <select name ="event_type" class="custom-select" id="inputGroupSelect01" >
                                     <option selected value="1">choose event type</option>
-                                    <?php if($hallData['type']!="meetings" ) { ?>
+                                    <?php if($hallData['type']!='2' ) { ?>
                                     <option value="2">Wedding</option>
                                     <option value="3">Birthday Party</option>
                                     
@@ -114,8 +114,8 @@ require ('inc/head.php'); ?>
 
                                     
 
-                                    Honoring Ceremony
-                                    <?php } if($hallData['type']=="weddings&meetings" or $hallData['type']=="meetings"){?>
+                                 
+                                    <?php } if($hallData['type']=='3' or $hallData['type']=='2'){?>
                                     <option value="9">Meeting</option>
                                     <option value="10"> Honoring Ceremony</option>
                                     <?php } ?>

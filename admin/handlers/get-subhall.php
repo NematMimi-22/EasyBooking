@@ -4,7 +4,7 @@ $hall_id=$_GET['hallId'];
 
 $test= $hall_id;
 
-$sql="SELECT h.id,h.name,h.type, h.number_of_guests,h.price,h.hall_describtion,h.services FROM subhalls h where h.hall_id ='$test'";
+$sql="SELECT h.id,h.name,h.type, h.number_of_guests,h.price,h.hall_describtion,h.services,h.num_of_reservation FROM subhalls h where h.hall_id ='$test'";
 
 //here query that get data from sql
 //sqlResult that going to database and put data in it

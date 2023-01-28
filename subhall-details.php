@@ -47,7 +47,7 @@
     
     require("admin/handlers/get_feedback_subhall.php");
 
-    $sql1="SELECT * FROM feedback_subhall Where hall_id=$shallId";
+    $sql1="SELECT * FROM feedback_subhall Where hall_id=$shallId ORDER BY id DESC";
     $query1=mysqli_query($conn,$sql1);
     $users=mysqli_fetch_all($query1,MYSQLI_ASSOC);
     

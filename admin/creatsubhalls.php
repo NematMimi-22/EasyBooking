@@ -3,6 +3,11 @@ require("handlers/db.php");
 require("inc/header.php");
 
 $_SESSION['hall_id']=$_GET['hallId'];
+$id= $_SESSION['hall_id'];
+$sql="SELECT * FROM halls where id='$id'";
+   $sqlResult=mysqli_query($conn,$sql);
+   $hall=mysqli_fetch_assoc($sqlResult);
+  
 
 ?>
 
@@ -39,16 +44,18 @@ $_SESSION['hall_id']=$_GET['hallId'];
   </div>
   <select name ="type"class="custom-select" id="inputGroupSelect01">
     <option value="0">Choose...</option>
-    <option value="1" <?php if( isset($_SESSION['formhalldata']['type']))if($_SESSION['formhalldata']['type']==1) echo "selected"?> value="1">Weddings</option>
-    <option value="2" <?php if( isset($_SESSION['formhalldata']['type']))if($_SESSION['formhalldata']['type']==2) echo "selected" ?> value="2">Meetings</option>
-    <option value="3" <?php if( isset($_SESSION['formhalldata']['type']))if($_SESSION['formhalldata']['type']==3) echo "selected" ?> value="3">Weddings and Meetings</option>
-  
+    <?php if($hall['type']== '1' or $hall['type']== '3'){ ?>
+    <option value="1" <?php if( isset($_SESSION['formhalldata']['type']))if($_SESSION['formhalldata']['type']==1) echo "selected"?> value="1">Weddings</option> <?php }?>
+    <?php if($hall['type']== '2' or $hall['type']== '3'){ ?>
+    <option value="2" <?php if( isset($_SESSION['formhalldata']['type']))if($_SESSION['formhalldata']['type']==2) echo "selected" ?> value="2">Meetings</option> <?php }?>
+    <?php if($hall['type']== '3'){ ?>
+    <option value="3" <?php if( isset($_SESSION['formhalldata']['type']))if($_SESSION['formhalldata']['type']==3) echo "selected" ?> value="3">Weddings and Meetings</option> <?php } ?>
    
   </select>
 </div>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Type</label>
+    <label class="input-group-text" for="inputGroupSelect01">Number of Guests</label>
   </div>
   <select name ="number_of_guests"class="custom-select" id="inputGroupSelect01">
     <option value="0">Choose...</option>

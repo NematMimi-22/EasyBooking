@@ -2,8 +2,7 @@
 $sql="SELECT f.id, f.feedback, u.name
 FROM feedback_subhall f
 INNER JOIN users u
-ON f.user_id = u.id where f.hall_id=$shallId";
-
+ON f.user_id = u.id where f.hall_id=$shallId ORDER BY f.id DESC";
 //here query that get data from sql
 //sqlResult that going to database and put data in it
 $sqlResult=mysqli_query($conn,$sql);

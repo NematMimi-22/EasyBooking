@@ -1,8 +1,13 @@
 <?php ob_start();
 session_start();
+$id= $_SESSION['userId'];
 require("handlers/db.php");
 require("handlers/get-reservation.php");
-$sql="SELECT * FROM reservations";
+$sql= "SELECT s.name,r.event_type,r.number_guests,r.date,r.start_time,r.end_time,r.notes,r.status,r.user_id,r.id
+FROM reservations r
+JOIN subhalls s ON r.hall_id = s.id
+JOIN halls h ON s.hall_id = h.id
+WHERE h.user_id = '$id' ";
 $query=mysqli_query($conn,$sql);
 if(mysqli_num_rows($query)>0){
 $reservation=mysqli_fetch_all($query,MYSQLI_ASSOC);
@@ -27,15 +32,15 @@ require("inc/header.php");
                 <thead  class="table-dark">
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Hall id</th>
+                    <th scope="col">Hall name</th>
                     <th scope="col">Event Type</th>  
                     <th scope="col">Number of guests</th>        
-                    <th scope="col">Date</th>
+                    <th scope="col"style="width:17%">Date</th>
                     <th scope="col">Starting Time</th>
                     <th scope="col">Ending Time</th>
                     <th scope="col">Notes</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col"style="width:17%">Action</th>
                    
                  
                     
@@ -55,7 +60,26 @@ foreach($reservationData as $index=>$reservation){?>
     <tr>
     <td><?=$index+1;?></td>
     <td><?=$reservation[0];?></td>
-    <td><?=$reservation[1];?></td>
+    <td><?php if($reservation[1]=='2'){
+      echo "Wedding";}
+      else if($reservation[1]=='3'){
+        echo "Birthday Party";}
+        else if($reservation[1]=='4'){
+          echo "Consolation";}
+          else if($reservation[1]=='5'){
+            echo "Shower Party";}
+            else if($reservation[1]=='6'){
+              echo "Graduation party";}
+              else if($reservation[1]=='7'){
+                echo "Welcome party";}
+                else if($reservation[1]=='8'){
+                  echo "Gender reveal party";}
+                  else if($reservation[1]=='9'){
+                    echo "Meeting";}
+                    else if($reservation[1]=='10'){
+                      echo "Honoring Ceremony";}?></td>
+    
+
     <td><?=$reservation[2];?></td>
     <td><?=$reservation[3];?></td>
     <td><?=$reservation[4];?></td>

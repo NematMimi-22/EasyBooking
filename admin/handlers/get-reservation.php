@@ -1,8 +1,9 @@
 <?php
-$sql="SELECT hall_id,event_type,number_guests,date,start_time,end_time,notes,status,user_id,id
-
-FROM reservations"
-;
+$sql= "SELECT s.name,r.event_type,r.number_guests,r.date,r.start_time,r.end_time,r.notes,r.status,r.user_id,r.id
+FROM reservations r
+JOIN subhalls s ON r.hall_id = s.id
+JOIN halls h ON s.hall_id = h.id
+WHERE h.user_id = '$id' ";
 
 //here query that get data from sql
 //sqlResult that going to database and put data in it

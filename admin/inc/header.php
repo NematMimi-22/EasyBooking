@@ -144,7 +144,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Add new hall</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="showlistFeedBacksubhall.php" class="nav-link  ">
+                  <i class="far fa-circle nav-icon "></i>
+                  <p>show Halls FeedBack</p>
+                </a>
+  
+              </li>
+              <li class="nav-item">
+                <a href="ShowReservations.php" class="nav-link ">
+                  <i class="far fa-circle nav-icon "></i>
+                  <p>Reservation Requests</p>
+                </a>
+  
+              </li>
 
+           
       
               
               <li class="nav-item">
@@ -154,6 +169,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
   
               </li>
+
+              
+            
+              
+  
+            
               
   
             
@@ -206,7 +227,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="ShowFeedBack.php" class="nav-link active ">
                   <i class="far fa-circle nav-icon "></i>
-                  <p>show FeedBack</p>
+                  <p>show FeedBack For Website</p>
+                </a>
+  
+              </li>
+              <li class="nav-item">
+                <a href="showfeedbacksubhallAdmin.php" class="nav-link active ">
+                  <i class="far fa-circle nav-icon "></i>
+                  <p>show FeedBack For Halls</p>
                 </a>
   
               </li>
@@ -215,26 +243,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
 
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Reservations pages
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="ShowReservations.php" class="nav-link active ">
-                  <i class="far fa-circle nav-icon "></i>
-                  <p>show Reservations</p>
-                </a>
-  
-              </li>
-              
-  
-            </ul>
-          </li>
+       
 
           <li class="nav-item">
             <a href="#" class="nav-link">

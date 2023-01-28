@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 25, 2023 at 12:41 PM
+-- Generation Time: Jan 28, 2023 at 04:37 PM
 -- Server version: 8.0.13
 -- PHP Version: 8.1.10
 
@@ -136,17 +136,18 @@ CREATE TABLE `halls` (
   `hall_describtion` varchar(500) NOT NULL,
   `image` varchar(500) NOT NULL,
   `image_view` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `status` enum('pending','approved','canceled') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `halls`
 --
 
-INSERT INTO `halls` (`id`, `name`, `type`, `city`, `address`, `hall_describtion`, `image`, `image_view`, `user_id`) VALUES
-(74, 'rayahall', 1, 'Ramallah', 'Ramallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b92f0708571.pdf', '63b92f070856e.jpg', 38),
-(75, 'Ownerhall', 2, 'Birzeit', 'near to Birzeit school', 'hall in Birzeit hall in Birzeit hall in Birzeit hall in Birzeit', '63b92f7ebcf4e.pdf', '63b92f7ebcf4b.jpg', 37),
-(76, 'test', 2, 'Ramallah', 'testttttttttttttttY', 'testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt', '63be94aef0a20.pdf', '63be94aef0a1b.jpg', 37);
+INSERT INTO `halls` (`id`, `name`, `type`, `city`, `address`, `hall_describtion`, `image`, `image_view`, `user_id`, `status`) VALUES
+(74, 'rayahall', 1, 'Ramallah', 'Ramallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b92f0708571.pdf', '63b92f070856e.jpg', 38, 'approved'),
+(75, 'Ownerhall', 2, 'Birzeit', 'near to Birzeit school', 'hall in Birzeit hall in Birzeit hall in Birzeit hall in Birzeit', '63b92f7ebcf4e.pdf', '63b92f7ebcf4b.jpg', 37, 'approved'),
+(77, 'test', 2, 'Ramallah', 'Ramallah', 'test test test test test test test test test test test test test test test test test test test test test test test test', '63d54c8214532.pdf', '63d54c8214522.jpg', 37, 'approved');
 
 -- --------------------------------------------------------
 
@@ -169,8 +170,7 @@ INSERT INTO `images` (`id`, `image`, `uploaded_on`, `subhall_id`) VALUES
 (64, '63b92f215eda4.jpg', '2023-01-07 10:36:49', 61),
 (66, '63b92f95185a1.jpg', '2023-01-07 10:38:45', 63),
 (68, '63b9c6c2d4bf9.jpg', '2023-01-07 21:23:46', 65),
-(69, '63be8e24c79d9.jpg', '2023-01-11 12:23:32', 63),
-(70, '63be94ce3da0d.jpg', '2023-01-11 12:51:58', 66);
+(69, '63be8e24c79d9.jpg', '2023-01-11 12:23:32', 63);
 
 -- --------------------------------------------------------
 
@@ -196,13 +196,14 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`) VALUES
-(1, '2', 2, '2023-01-10', '09:00:00', '05:00:00', '', 61, 37, 'approved'),
+(1, '2', 2, '2023-01-10', '09:00:00', '05:00:00', '', 61, 37, 'pending'),
 (3, '3', 5, '2023-01-18', '14:00:00', '16:00:00', 'my party', 61, 35, 'approved'),
 (4, '3', 10, '2023-01-21', '16:00:00', '18:00:00', 'birthday', 63, 35, 'approved'),
 (5, '3', 50, '2023-01-22', '12:00:00', '15:00:00', '', 63, 35, 'approved'),
 (6, '2', 20, '2023-01-26', '02:00:00', '09:00:00', '', 66, 35, 'approved'),
 (8, '2', 50, '2023-01-27', '16:00:00', '20:00:00', 'nqaa wedding', 65, 35, 'approved'),
-(9, '2', 50, '2023-01-28', '14:00:00', '16:00:00', 'nemat wedding', 66, 41, 'approved');
+(9, '2', 50, '2023-01-28', '14:00:00', '16:00:00', 'nemat wedding', 66, 41, 'approved'),
+(10, '5', 100, '2023-01-27', '20:00:00', '22:00:00', '', 65, 41, 'pending');
 
 -- --------------------------------------------------------
 
@@ -231,7 +232,7 @@ INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `price`, `hall
 (61, 'rayahall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steatRamallah em alsharayet steat', '63b92f1722916.jpg', 74, 0),
 (63, 'Ownerhall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b92f905615b.jpg', 75, 2),
 (65, 'ownerhall2', 1, 5007, 600, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b9c6b5c9fb2.jpg', 75, 1),
-(66, 'test-1-', 1, 500, 6000, 'testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt', 'testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt', '63be94bf7df3f.jpg', 76, 1);
+(67, 'test1', 2, 100, 1000, 'test test test test test test test test test test test', 'test test test test test test test test test', '63d54d2f09a8d.jpg', 77, 0);
 
 -- --------------------------------------------------------
 
@@ -374,7 +375,7 @@ ALTER TABLE `feedback_subhall`
 -- AUTO_INCREMENT for table `halls`
 --
 ALTER TABLE `halls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `images`
@@ -386,13 +387,13 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `subhalls`
 --
 ALTER TABLE `subhalls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `users`

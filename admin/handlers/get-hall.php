@@ -1,6 +1,6 @@
 <?php
 
-$sql="SELECT id,name,type,city,address,hall_describtion FROM halls";
+$sql="SELECT id,name,type,city,address,hall_describtion,status FROM halls";
 
 //here query that get data from sql
 //sqlResult that going to database and put data in it

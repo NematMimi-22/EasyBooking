@@ -1,6 +1,6 @@
 <?php
 $test= $_SESSION['userId'];
-$sql="SELECT h.id,h.name,h.type,h.city,h.address, h.hall_describtion FROM halls h where h.user_id ='$test'";
+$sql="SELECT h.id,h.name,h.type,h.city,h.address, h.hall_describtion,h.status FROM halls h where h.user_id ='$test'";
 
 
 //here query that get data from sql

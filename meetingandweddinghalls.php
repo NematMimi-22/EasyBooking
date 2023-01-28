@@ -116,7 +116,7 @@ if(isset($_POST['cities'])){
 
   //  print_r ($_POST['cities']);
     $city=$_POST['cities'];
-    $sql1="SELECT * FROM halls where (type='2' or type='3')  and city='$city'";
+    $sql1="SELECT * FROM halls where (type='2' or type='3')  and city='$city' and status='approved'";
     $query1=mysqli_query($conn,$sql1);
     $halls=mysqli_fetch_all($query1,MYSQLI_ASSOC);
  //   print_r ($halls);
