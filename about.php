@@ -234,7 +234,7 @@ if(isset($users)){
 //ican sent more than one parametrers by &
  /*sent data in get way in search*/
 
-foreach($userData as $index=>$users){?>
+foreach($feedbackData as $index=>$users){?>
 
 
                         <div class="swiper-slide">

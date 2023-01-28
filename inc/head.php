@@ -1,4 +1,30 @@
 <head>
+<style>
+      /* CSS for table styling */
+      table {
+        width: 100%;
+       
+    border-collapse: collapse;
+        text-align: center;
+        
+      }
+      th, td {
+    
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+        font-family: Verdana;
+        
+        
+      }
+      th {
+        background-color: #3CAA9F;
+        font-family: Verdana;
+        text-align: center;
+        color:aliceblue;
+        
+      }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

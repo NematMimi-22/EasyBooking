@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 28, 2023 at 04:37 PM
--- Server version: 8.0.13
--- PHP Version: 8.1.10
+-- Generation Time: Jan 28, 2023 at 09:37 PM
+-- Server version: 8.0.21
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` char(200) NOT NULL,
   `email` char(255) NOT NULL,
   `password` char(200) NOT NULL,
-  `type` tinyint(4) NOT NULL DEFAULT '1',
+  `type` tinyint NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -59,7 +59,7 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`, `type`, `created_at`) V
 --
 
 CREATE TABLE `features` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(200) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `icon` varchar(500) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
@@ -81,9 +81,9 @@ INSERT INTO `features` (`id`, `name`, `icon`) VALUES
 --
 
 CREATE TABLE `feedbacks` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `FeedBack` varchar(500) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -92,8 +92,7 @@ CREATE TABLE `feedbacks` (
 
 INSERT INTO `feedbacks` (`id`, `FeedBack`, `user_id`) VALUES
 (27, 'What can I say?\r\n\r\nI have celebrated my birthday at the Deluxe Banquet Hall, Deluxe Lounge or Olivia for the last three years! I have celebrated other family and friend functions at this location including my children’s Christening and my family only plans their events at Deluxe! Thank you for making our events so special. You food is great, your service is the best and your hall is beautiful! The spinning chandelier is one of a kind for sure! Second to none!\r\n\r\nThank you! ', 32),
-(28, 'We celebrated our moms-grandmas 90th birthday at De Luxe and we are so grateful for Albert & Raffis help for making that celebration a very memorable. Three weeks later and everyone is still raving about it! The venue is beautiful, our friends and families kept taking pictures in front of the curtains and wall decor. Everyone enjoyed the delicious food and the staff was very attentive and kind as well. We look forward to working with them again in the near future.', 40),
-(29, 'I had my engagement party at De Luxe and let me tell you everybody fell in love with the hall. The food was delicious, the service was outstanding, and the decor was so lush and elegant. People will not stop telling me how gorgeous everything was. Thank you De Luxe for making my occasion so beautiful and fun!!!! I will definitely be having more parties here to come!!!', 19);
+(28, 'We celebrated our moms-grandmas 90th birthday at De Luxe and we are so grateful for Albert & Raffis help for making that celebration a very memorable. Three weeks later and everyone is still raving about it! The venue is beautiful, our friends and families kept taking pictures in front of the curtains and wall decor. Everyone enjoyed the delicious food and the staff was very attentive and kind as well. We look forward to working with them again in the near future.', 40);
 
 -- --------------------------------------------------------
 
@@ -102,24 +101,11 @@ INSERT INTO `feedbacks` (`id`, `FeedBack`, `user_id`) VALUES
 --
 
 CREATE TABLE `feedback_subhall` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `feedback` varchar(500) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `hall_id` int(11) NOT NULL
+  `user_id` int NOT NULL,
+  `hall_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `feedback_subhall`
---
-
-INSERT INTO `feedback_subhall` (`id`, `feedback`, `user_id`, `hall_id`) VALUES
-(1, 'NICE Hall', 35, 63),
-(3, 'wow', 12, 63),
-(4, 'Amazing!', 35, 63),
-(5, 'best hall ever', 35, 63),
-(6, 'not bad', 35, 63),
-(7, 'nice', 35, 65),
-(8, 'nice, nemat wedding was there', 41, 66);
 
 -- --------------------------------------------------------
 
@@ -128,15 +114,15 @@ INSERT INTO `feedback_subhall` (`id`, `feedback`, `user_id`, `hall_id`) VALUES
 --
 
 CREATE TABLE `halls` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(200) NOT NULL,
-  `type` int(11) NOT NULL,
+  `type` int NOT NULL,
   `city` enum('Ramallah','Al-Bireh','Birzeit') NOT NULL,
   `address` varchar(255) NOT NULL,
   `hall_describtion` varchar(500) NOT NULL,
   `image` varchar(500) NOT NULL,
   `image_view` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int NOT NULL,
   `status` enum('pending','approved','canceled') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -156,10 +142,10 @@ INSERT INTO `halls` (`id`, `name`, `type`, `city`, `address`, `hall_describtion`
 --
 
 CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `image` varchar(255) NOT NULL,
   `uploaded_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `subhall_id` int(11) NOT NULL
+  `subhall_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -168,9 +154,7 @@ CREATE TABLE `images` (
 
 INSERT INTO `images` (`id`, `image`, `uploaded_on`, `subhall_id`) VALUES
 (64, '63b92f215eda4.jpg', '2023-01-07 10:36:49', 61),
-(66, '63b92f95185a1.jpg', '2023-01-07 10:38:45', 63),
-(68, '63b9c6c2d4bf9.jpg', '2023-01-07 21:23:46', 65),
-(69, '63be8e24c79d9.jpg', '2023-01-11 12:23:32', 63);
+(68, '63b9c6c2d4bf9.jpg', '2023-01-07 21:23:46', 65);
 
 -- --------------------------------------------------------
 
@@ -179,15 +163,15 @@ INSERT INTO `images` (`id`, `image`, `uploaded_on`, `subhall_id`) VALUES
 --
 
 CREATE TABLE `reservations` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `event_type` varchar(255) NOT NULL,
-  `number_guests` int(11) NOT NULL,
+  `number_guests` int NOT NULL,
   `date` date NOT NULL,
   `start_time` time NOT NULL,
   `end_time` time NOT NULL,
   `notes` varchar(1000) NOT NULL,
-  `hall_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `hall_id` int NOT NULL,
+  `user_id` int NOT NULL,
   `status` enum('pending','approved','canceled') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -203,7 +187,8 @@ INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_
 (6, '2', 20, '2023-01-26', '02:00:00', '09:00:00', '', 66, 35, 'approved'),
 (8, '2', 50, '2023-01-27', '16:00:00', '20:00:00', 'nqaa wedding', 65, 35, 'approved'),
 (9, '2', 50, '2023-01-28', '14:00:00', '16:00:00', 'nemat wedding', 66, 41, 'approved'),
-(10, '5', 100, '2023-01-27', '20:00:00', '22:00:00', '', 65, 41, 'pending');
+(10, '5', 100, '2023-01-27', '20:00:00', '22:00:00', '', 65, 41, 'approved'),
+(11, '3', 200, '2023-01-28', '19:40:00', '20:40:00', 'm', 65, 38, 'approved');
 
 -- --------------------------------------------------------
 
@@ -212,16 +197,16 @@ INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_
 --
 
 CREATE TABLE `subhalls` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(200) NOT NULL,
-  `type` int(11) NOT NULL,
-  `number_of_guests` int(11) NOT NULL,
+  `type` int NOT NULL,
+  `number_of_guests` int NOT NULL,
   `price` float NOT NULL,
   `hall_describtion` varchar(500) NOT NULL,
   `services` varchar(500) NOT NULL,
   `image_view` varchar(300) NOT NULL,
-  `hall_id` int(11) NOT NULL,
-  `num_of_reservation` int(11) NOT NULL DEFAULT '0'
+  `hall_id` int NOT NULL,
+  `num_of_reservation` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -230,7 +215,6 @@ CREATE TABLE `subhalls` (
 
 INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `price`, `hall_describtion`, `services`, `image_view`, `hall_id`, `num_of_reservation`) VALUES
 (61, 'rayahall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steatRamallah em alsharayet steat', '63b92f1722916.jpg', 74, 0),
-(63, 'Ownerhall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b92f905615b.jpg', 75, 2),
 (65, 'ownerhall2', 1, 5007, 600, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b9c6b5c9fb2.jpg', 75, 1),
 (67, 'test1', 2, 100, 1000, 'test test test test test test test test test test test', 'test test test test test test test test test', '63d54d2f09a8d.jpg', 77, 0);
 
@@ -241,7 +225,7 @@ INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `price`, `hall
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(200) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `password` varchar(200) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `email` varchar(200) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
@@ -308,7 +292,8 @@ ALTER TABLE `feedbacks`
 -- Indexes for table `feedback_subhall`
 --
 ALTER TABLE `feedback_subhall`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `hall_id` (`hall_id`);
 
 --
 -- Indexes for table `halls`
@@ -328,7 +313,8 @@ ALTER TABLE `images`
 -- Indexes for table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `subhalls`
@@ -351,55 +337,55 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `feedback_subhall`
 --
 ALTER TABLE `feedback_subhall`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `halls`
 --
 ALTER TABLE `halls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `subhalls`
 --
 ALTER TABLE `subhalls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Constraints for dumped tables
@@ -412,10 +398,22 @@ ALTER TABLE `feedbacks`
   ADD CONSTRAINT `feedbacks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 --
+-- Constraints for table `feedback_subhall`
+--
+ALTER TABLE `feedback_subhall`
+  ADD CONSTRAINT `feedback_subhall_ibfk_1` FOREIGN KEY (`hall_id`) REFERENCES `subhalls` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `images`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`subhall_id`) REFERENCES `subhalls` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `reservations`
+--
+ALTER TABLE `reservations`
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `subhalls`
