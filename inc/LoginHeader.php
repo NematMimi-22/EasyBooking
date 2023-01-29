@@ -124,6 +124,7 @@ if($_SESSION['usertype'] =='user'){?>
    <ul class="submenu">
                      <li><a>Welcome <?php echo  $_SESSION['username'];?>!</a></li>
                      <li><a href="admin/showhallowner.php">My Halls</a></li>
+                    
 
                      
                     <li><a href="logout.php">Logout</a></li>

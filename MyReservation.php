@@ -3,26 +3,37 @@ session_start();
 $user_id= $_SESSION['userId']; 
 
 require ('inc/head.php');
+//(reservations.date > NOW() OR reservations.date = NOW()) 
 require("admin/handlers/db.php");
-$sql1="SELECT  subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time
-FROM reservations
-JOIN subhalls ON reservations.hall_id = subhalls.id
+
+$sql1="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time 
+FROM reservations 
+JOIN subhalls ON reservations.hall_id = subhalls.id 
+WHERE reservations.user_id =$user_id and  reservations.status='approved'
+ORDER BY reservations.date DESC;
+
 ";
 
 $sqlResult=mysqli_query($conn,$sql1);
 
 $feedbackData=mysqli_fetch_all($sqlResult);
 
-$sql="SELECT  subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time
-FROM reservations
+$sql="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time 
+FROM reservations 
 JOIN subhalls ON reservations.hall_id = subhalls.id
-WHERE reservations.user_id =$user_id ";
+WHERE  reservations.status='approved' and  reservations.user_id =$user_id
+ORDER BY reservations.date DESC
+
+ ";
 $query=mysqli_query($conn,$sql);
 if(mysqli_num_rows($query)>0){
 $feedback=mysqli_fetch_all($query,MYSQLI_ASSOC);
 
 }
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,67 +75,79 @@ require ('inc/LoginHeader.php');
         </div>
     </div>
     <!-- ========== Breadcumb end============= -->
+
+
     <!-- ========== Room & Suits start============= -->
     <div class="contact-page mb-120  overflow-hidden">
         <div class="container-fluid px-0">
      
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <br>
-                        <br>
-                        <br>
-                
-
-                        <h1>My Reservations</h1>
-                        <br>
-    <table>
-      <tr>
-     
-        <th>Hall Name</th>
-        <th>Reservation Date</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-      </tr>
-      
- 
-<?php
+   
+                <div class="container">
+                    <br>
+                    <br>
+  <h2>My Reservations</h2>
+  <br>
+  <br>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Hall Name</div>
+  
+      <div class="col col-2">Reservation Date</div>
+      <div class="col col-3">Start Time</div>
+      <div class="col col-4">End Time</div>
+    
+      <div class="col col-5">Cancel Book</div>
+    </li>
+    <?php
 
 if(isset($feedback)){
-
+$current_date = date("Y-m-d");
 
 
 foreach($feedbackData as $index=>$feedback){?>
-
-
-    <tr>
-    <td><?=$feedback[0];?></td>
-    <td><?=$feedback[1];?></td>
-    <td><?=$feedback[2];?></td>
-    <td><?=$feedback[3];?></td>
- 
-    </tr>
-<?php }
-
-
-
+    <li class="table-row">
+      <div class="col col-1" data-label="Hallname"><?=$feedback[0];?></div>
+      <div class="col col-2" data-label="Date"><?=$feedback[1];?></div>
+      <div class="col col-3" data-label="Staer_time"><?=$feedback[2];?></div>
+      <div class="col col-4" data-label="End_time"><?=$feedback[3];?></div>
+      <?php
+      if($feedback[1]>=$current_date){
+       ?> 
+          <div class="col col-5 d-flex justify-content-center">
+        
+          <button  class="font-weight-bold btn btn-outline-Dark" type="submit" >CANCEL</button>
+                                    
+                            </div>
+     <?php }else?>
+     <div class="col col-5" data-label="Cancel">    </div>
+     
+      
+    </li>
+    <?php }
+?>  </ul>
+<?php
 }
 else{?>
   <tr>
-    <td colspan="6" class="text-center">No Feedback Added</td>
+  <div class="col col-5" data-label="Cancel">            No Reservations</div>
+   
   </tr>
   <?php
 } ?>
-    
-    </table>
-                    </div>
+</div>
     
                 </div>
-            </div>
-        </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
     <!-- ========== Room & Suits end============= -->
     <?php require ('inc/footer.php'); 
 

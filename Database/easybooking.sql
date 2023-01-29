@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 28, 2023 at 09:37 PM
+-- Generation Time: Jan 29, 2023 at 10:18 AM
 -- Server version: 8.0.21
 -- PHP Version: 8.1.12
 
@@ -180,15 +180,13 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`) VALUES
-(1, '2', 2, '2023-01-10', '09:00:00', '05:00:00', '', 61, 37, 'pending'),
-(3, '3', 5, '2023-01-18', '14:00:00', '16:00:00', 'my party', 61, 35, 'approved'),
-(4, '3', 10, '2023-01-21', '16:00:00', '18:00:00', 'birthday', 63, 35, 'approved'),
-(5, '3', 50, '2023-01-22', '12:00:00', '15:00:00', '', 63, 35, 'approved'),
-(6, '2', 20, '2023-01-26', '02:00:00', '09:00:00', '', 66, 35, 'approved'),
-(8, '2', 50, '2023-01-27', '16:00:00', '20:00:00', 'nqaa wedding', 65, 35, 'approved'),
-(9, '2', 50, '2023-01-28', '14:00:00', '16:00:00', 'nemat wedding', 66, 41, 'approved'),
-(10, '5', 100, '2023-01-27', '20:00:00', '22:00:00', '', 65, 41, 'approved'),
-(11, '3', 200, '2023-01-28', '19:40:00', '20:40:00', 'm', 65, 38, 'approved');
+(13, '9', 100, '2023-01-28', '11:35:00', '14:35:00', 'my meeting', 67, 35, 'approved'),
+(14, '5', 100, '2023-02-08', '17:36:00', '14:36:00', 'shower', 61, 35, 'approved'),
+(15, '3', 100, '2023-02-22', '15:39:00', '17:39:00', ',', 65, 32, 'approved'),
+(16, '10', 100, '2023-02-23', '10:43:00', '17:43:00', ',', 67, 24, 'approved'),
+(17, '4', 100, '2023-01-31', '08:44:00', '01:44:00', 'm', 61, 24, 'approved'),
+(18, '7', 500, '2023-01-29', '11:45:00', '14:45:00', ',,', 65, 24, 'approved'),
+(19, '5', 200, '2023-01-31', '15:51:00', '22:51:00', ',', 61, 30, 'approved');
 
 -- --------------------------------------------------------
 
@@ -263,7 +261,8 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`, `type`, `status`, `creat
 (38, 'raya', '$2y$10$736vC9QBmOlM4WLS5tNO0eDnku.ueVloJvcRgzGftA4jtFn5JR86i', 'raya@gmail.com', 'owner', 1, '2022-12-29 00:33:36'),
 (39, 'status', '$2y$10$NDm9fSWBuuBkgVKlqfxjb.DS7tINhOCfvmcgL1wzNgq5qt6w1DPO2', 'status@gmail.com', 'user', 0, '2023-01-01 00:26:27'),
 (40, 'Dina', '$2y$10$Eh87rJiQY8cOdtSInrkDDujSDSnk4sHX/P4hQ3i0aOOxVas32/cKK', 'dina@gmail.com', 'user', 1, '2023-01-02 14:40:05'),
-(41, 'lara', '$2y$10$c3x57hXt35UTb1cdBjrSaOD8Unc/2CUukH7ofyu0Dhk4JLLAqCqrK', 'lara@gmail.com', 'user', 1, '2023-01-25 13:58:48');
+(41, 'lara', '$2y$10$c3x57hXt35UTb1cdBjrSaOD8Unc/2CUukH7ofyu0Dhk4JLLAqCqrK', 'lara@gmail.com', 'user', 1, '2023-01-25 13:58:48'),
+(42, 'Nemat', '$2y$10$F5wM.Xu/7QMRAu/9z/4n7eQBXo4pZPDQxlFNep8GrAwB2IQyyFZQC', 'testttt@gmail.com', 'user', 1, '2023-01-29 12:17:41');
 
 --
 -- Indexes for dumped tables
@@ -314,7 +313,8 @@ ALTER TABLE `images`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `hall_id` (`hall_id`);
 
 --
 -- Indexes for table `subhalls`
@@ -373,7 +373,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `subhalls`
@@ -385,7 +385,7 @@ ALTER TABLE `subhalls`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Constraints for dumped tables
@@ -413,7 +413,8 @@ ALTER TABLE `images`
 -- Constraints for table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`hall_id`) REFERENCES `subhalls` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `subhalls`
