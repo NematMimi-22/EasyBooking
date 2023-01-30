@@ -95,7 +95,7 @@ if(empty($_FILES['image_view']['name'])){
 {
 $errors[]="image size more than 1Mb";
 
-}elseif(! in_array($extv,['png','jpg','jpeg'])){
+}elseif(! in_array($extv,['png','jpg','jpeg','PNG'])){
 
 $errors[]="This is not an image";
 

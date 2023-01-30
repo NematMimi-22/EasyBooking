@@ -24,7 +24,7 @@ header("location:index.php");
     ?>
     
     <!-- ========== Breadcumb start============= -->
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-login">
         
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center text-center">
@@ -99,19 +99,30 @@ if(isset($_SESSION['errors'])){
                     
                     <div class="swiper room-details-slider mb-30">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+
+                        <div class="swiper-slide">
                                 <div class="rooms-imeges">
-                                    <img class="img-fluid"  src="assets\images\bg\test4.jpg">
+                                    <img class="img-fluid" src="assets\images\bg\wedding6.jpg" alt="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="rooms-imeges">
-                                    <img class="img-fluid" src="assets\images\bg\test3.jpg" alt="">
+                                    <img class="img-fluid"  src="assets\images\bg\meeting8.jpg">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="rooms-imeges">
-                                    <img class="img-fluid" src="assets\images\bg\test2.jpg" alt="">
+                                    <img class="img-fluid" src="assets\images\bg\wedding8.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="rooms-imeges">
+                                    <img class="img-fluid" src="assets\images\bg\meeting5.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="rooms-imeges">
+                                    <img class="img-fluid" src="assets\images\bg\wedding5.jpg" alt="">
                                 </div>
                             </div>
                         </div>

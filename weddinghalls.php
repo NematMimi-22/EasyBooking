@@ -37,7 +37,7 @@ $query=mysqli_query($conn,$sql);
 ?>
 
     <!-- ========== Breadcumb start============= -->
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-wedding">
         <div class="container">
             
             <div class="row d-flex justify-content-center align-items-center text-center">
@@ -138,7 +138,7 @@ if(isset($_POST['cities'])){
                             </div>
                         </div>
                         <div class="book-btn">
-                    <a class="btn--primary2" href="hall.php?hallId=<?= $hall['id'];?>">View More</a>
+                    <a class="btn--primary2" href="hall-details.php?hallId=<?= $hall['id'];?>">View More</a>
                         </div>
                     </div>
                 </div>

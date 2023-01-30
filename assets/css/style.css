@@ -10609,8 +10609,9 @@ header.style-4 .search-btn .bi {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/inner-banner.png);
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/pay.png);
 }
+
 @media (max-width: 1399px) {
   .breadcrumb-section {
     min-height: 420px;
@@ -10668,7 +10669,559 @@ header.style-4 .search-btn .bi {
   top: 11px;
   left: 0;
 }
+/************ABOUT****************/
+.breadcrumb-section-about {
+  min-height: 500px;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/aboutUs.jpg);
+}
+@media (max-width: 1399px) {
+  .breadcrumb-section-about {
+    min-height: 420px;
+  }
+}
+@media (max-width: 1199px) {
+  .breadcrumb-section-about {
+    min-height: 400px;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb-section-about {
+    min-height: 370px;
+  }
+}
+.breadcrumb-section-about .breadcrumb-title {
+  font-family: var(--font-yeseva);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .breadcrumb-section-about .breadcrumb-title {
+    font-size: 48px;
+  }
+}
+.breadcrumb-section-about nav ol {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+.breadcrumb-section-about nav ol .breadcrumb-item {
+  color: var(--primary-color1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-jost);
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumb-section-about nav ol .breadcrumb-item:first-child {
+  padding-left: 0;
+}
+.breadcrumb-section-about nav ol .breadcrumb-item.active {
+  color: var(--white);
+}
+.breadcrumb-section-about nav ol .breadcrumb-item.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color1);
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+/************ABOUT2****************/
+.breadcrumb-section-about2 {
+  min-height: 500px;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/about7.jpg);
+}
+@media (max-width: 1399px) {
+  .breadcrumb-section-about2 {
+    min-height: 420px;
+  }
+}
+@media (max-width: 1199px) {
+  .breadcrumb-section-about2 {
+    min-height: 400px;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb-section-about2 {
+    min-height: 370px;
+  }
+}
+.breadcrumb-section-about2 .breadcrumb-title {
+  font-family: var(--font-yeseva);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .breadcrumb-section-about2 .breadcrumb-title {
+    font-size: 48px;
+  }
+}
+.breadcrumb-section-about2 nav ol {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+.breadcrumb-section-about2 nav ol .breadcrumb-item {
+  color: var(--primary-color1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-jost);
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumb-section-about2 nav ol .breadcrumb-item:first-child {
+  padding-left: 0;
+}
+.breadcrumb-section-about2 nav ol .breadcrumb-item.active {
+  color: var(--white);
+}
+.breadcrumb-section-about2 nav ol .breadcrumb-item.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color1);
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+/******************WEDDING*************************/
+.breadcrumb-section-wedding {
+  min-height: 500px;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/wedding2.jpg);
+}
+@media (max-width: 1399px) {
+  .breadcrumb-section-wedding {
+    min-height: 420px;
+  }
+}
+@media (max-width: 1199px) {
+  .breadcrumb-section-wedding {
+    min-height: 400px;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb-section-wedding {
+    min-height: 370px;
+  }
+}
+.breadcrumb-section-wedding .breadcrumb-title {
+  font-family: var(--font-yeseva);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .breadcrumb-section-wedding .breadcrumb-title {
+    font-size: 48px;
+  }
+}
+.breadcrumb-section-wedding nav ol {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+.breadcrumb-section-wedding nav ol .breadcrumb-item {
+  color: var(--primary-color1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-jost);
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumb-section-wedding nav ol .breadcrumb-item:first-child {
+  padding-left: 0;
+}
+.breadcrumb-section-wedding nav ol .breadcrumb-item.active {
+  color: var(--white);
+}
+.breadcrumb-section-wedding nav ol .breadcrumb-item.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color1);
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+/**********************END OF WEDDING***********************/
 
+
+
+/******************WEDDING AND MEETING*************************/
+.breadcrumb-section-wedding2 {
+  min-height: 500px;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/meeting.jpg);
+}
+@media (max-width: 1399px) {
+  .breadcrumb-section-wedding2 {
+    min-height: 420px;
+  }
+}
+@media (max-width: 1199px) {
+  .breadcrumb-section-wedding2 {
+    min-height: 400px;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb-section-wedding2 {
+    min-height: 370px;
+  }
+}
+.breadcrumb-section-wedding2 .breadcrumb-title {
+  font-family: var(--font-yeseva);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .breadcrumb-section-wedding2 .breadcrumb-title {
+    font-size: 48px;
+  }
+}
+.breadcrumb-section-wedding2 nav ol {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+.breadcrumb-section-wedding2 nav ol .breadcrumb-item {
+  color: var(--primary-color1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-jost);
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumb-section-wedding2 nav ol .breadcrumb-item:first-child {
+  padding-left: 0;
+}
+.breadcrumb-section-wedding2 nav ol .breadcrumb-item.active {
+  color: var(--white);
+}
+.breadcrumb-section-wedding2 nav ol .breadcrumb-item.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color1);
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+
+/*********************END OF WEDDING AND MEETING*********************/
+/******************WEDDING2*************************/
+.breadcrumb-section-wedding3 {
+  min-height: 500px;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/wedding7.jpg);
+}
+@media (max-width: 1399px) {
+  .breadcrumb-section-wedding3 {
+    min-height: 420px;
+  }
+}
+@media (max-width: 1199px) {
+  .breadcrumb-section-wedding3 {
+    min-height: 400px;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb-section-wedding3 {
+    min-height: 370px;
+  }
+}
+.breadcrumb-section-wedding3 .breadcrumb-title {
+  font-family: var(--font-yeseva);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .breadcrumb-section-wedding3 .breadcrumb-title {
+    font-size: 48px;
+  }
+}
+.breadcrumb-section-wedding3 nav ol {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+.breadcrumb-section-wedding3 nav ol .breadcrumb-item {
+  color: var(--primary-color1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-jost);
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumb-section-wedding3 nav ol .breadcrumb-item:first-child {
+  padding-left: 0;
+}
+.breadcrumb-section-wedding3 nav ol .breadcrumb-item.active {
+  color: var(--white);
+}
+.breadcrumb-section-wedding3 nav ol .breadcrumb-item.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color1);
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+
+/*********************END OF WEDDING 2*********************/
+
+/******************WEDDING2*************************/
+.breadcrumb-section-booking {
+  min-height: 500px;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/table.jpg);
+}
+@media (max-width: 1399px) {
+  .breadcrumb-section-booking {
+    min-height: 420px;
+  }
+}
+@media (max-width: 1199px) {
+  .breadcrumb-section-booking {
+    min-height: 400px;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb-section-booking {
+    min-height: 370px;
+  }
+}
+.breadcrumb-section-booking .breadcrumb-title {
+  font-family: var(--font-yeseva);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .breadcrumb-section-booking .breadcrumb-title {
+    font-size: 48px;
+  }
+}
+.breadcrumb-section-booking nav ol {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+.breadcrumb-section-booking nav ol .breadcrumb-item {
+  color: var(--primary-color1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-jost);
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumb-section-booking nav ol .breadcrumb-item:first-child {
+  padding-left: 0;
+}
+.breadcrumb-section-booking nav ol .breadcrumb-item.active {
+  color: var(--white);
+}
+.breadcrumb-section-booking nav ol .breadcrumb-item.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color1);
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+
+/*********************END OF WEDDING 2*********************/
+
+/******************LOGIN*************************/
+.breadcrumb-section-login {
+  min-height: 500px;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/rose.jpg);
+}
+@media (max-width: 1399px) {
+  .breadcrumb-section-login {
+    min-height: 420px;
+  }
+}
+@media (max-width: 1199px) {
+  .breadcrumb-section-login {
+    min-height: 400px;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb-section-login {
+    min-height: 370px;
+  }
+}
+.breadcrumb-section-login .breadcrumb-title {
+  font-family: var(--font-yeseva);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .breadcrumb-section-login .breadcrumb-title {
+    font-size: 48px;
+  }
+}
+.breadcrumb-section-login nav ol {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+.breadcrumb-section-login nav ol .breadcrumb-item {
+  color: var(--primary-color1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-jost);
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumb-section-login nav ol .breadcrumb-item:first-child {
+  padding-left: 0;
+}
+.breadcrumb-section-login nav ol .breadcrumb-item.active {
+  color: var(--white);
+}
+.breadcrumb-section-login nav ol .breadcrumb-item.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color1);
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+
+/*********************END OF LOGIN*********************/
+
+/******************SIGNUP*************************/
+.breadcrumb-section-signup {
+  min-height: 500px;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(../images/bg/meeting2.jpg);
+}
+@media (max-width: 1399px) {
+  .breadcrumb-section-signup {
+    min-height: 420px;
+  }
+}
+@media (max-width: 1199px) {
+  .breadcrumb-section-signup {
+    min-height: 400px;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb-section-signup {
+    min-height: 370px;
+  }
+}
+.breadcrumb-section-signup .breadcrumb-title {
+  font-family: var(--font-yeseva);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .breadcrumb-section-signup .breadcrumb-title {
+    font-size: 48px;
+  }
+}
+.breadcrumb-section-signup nav ol {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+.breadcrumb-section-signup nav ol .breadcrumb-item {
+  color: var(--primary-color1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-jost);
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumb-section-signup nav ol .breadcrumb-item:first-child {
+  padding-left: 0;
+}
+.breadcrumb-section-signup nav ol .breadcrumb-item.active {
+  color: var(--white);
+}
+.breadcrumb-section-signup nav ol .breadcrumb-item.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color1);
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+
+/*********************END OF SIGNUP*********************/
 /*=======================================
 52. Inner page
 =======================================*/

@@ -31,7 +31,9 @@ require ('inc/head.php'); ?>
   
     
     $shallId=$_GET['shallId'];
+    
     require('admin/handlers/db.php');
+    
     $sql= "SELECT * FROM images where subhall_id=$shallId";
     $query = mysqli_query($conn,$sql);
 
@@ -49,7 +51,7 @@ require ('inc/head.php'); ?>
   
     
 
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-login">
         
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center text-center">
@@ -205,36 +207,23 @@ require ('inc/head.php'); ?>
                 </div>
                 <div class="col-lg-7">
                     
-                <div class="swiper room-details-slider mb-30">
-                        <div class="swiper-wrapper">
-                            
-                                <?php   
-                                if($query->num_rows>0){
-                                while($row=mysqli_fetch_array($query)){
-                                
-                                ?>
-                                <div class="swiper-slide">
-                                    <div class="rooms-imeges">
-                                    <img class="img-fluid" src="admin/HallsImages/<?php echo $row["image"]; ?>" alt="">
-                                    </div>
-                                </div>
-                                    <?php
-                                }
-                                }else{?>
-                                
-                                <p>No image(s) found...</p>
-                                <?php
-                                }
-                                ?> 
-                               
-                           
-                        </div>
-                        <div class="swiper-btns d-flex align-items-center justify-content-between">
-                            <div class="swiper-button-prev-m"><i class="bi bi-chevron-left"></i></div>
-                            <div class="swiper-button-next-m"><i class="bi bi-chevron-right"></i></div>
-                        </div>
-                    </div>
-                    
+                <div id='calendar'></div>
+    <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.0/index.global.min.js "></script>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+
+    events: 'getreservation.php'
+
+  });
+  calendar.render();
+});
+
+</script>
                  
                    
                 </div>

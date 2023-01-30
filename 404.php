@@ -28,7 +28,7 @@ require ('inc/LoginHeader.php');
 
 
     <!-- ========== Breadcumb start============= -->
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-login">
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center text-center">
                 <div class="col-lg-8">
@@ -50,12 +50,13 @@ require ('inc/LoginHeader.php');
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="error-wrrap">
-                        <div class="error-img">
-                            <img class="img-fluid" src="assets/images/bg/error.png" alt="error">
-                        </div>
+                        
                         <div class="error-content text-center">
-                            <h2>Something Went Wrong</h2>
-                            <p>Donec bibendum enim ut elit porta ullamcorper. Vestibulum Nai quam nulla, venenatis eget dapibus ac, catali topuny wekemdini iaculis vitae nulla.</p>
+                            <h2>Something Went Wrong!</h2>
+                            <p>Sorry, we couldn't find what you were looking for or the page no longer exists.
+                            Please return back to homepage and see if you can find what you are looking for.
+                            </p>
+
                             <a class="btn--primary" href="index.php"><i class="bx bx-home"></i>Back To Home</a>
                         </div>
                     </div>

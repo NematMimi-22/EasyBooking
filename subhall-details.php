@@ -58,7 +58,7 @@
     
     ?>
     <!-- ========== Breadcumb start============= -->
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-wedding">
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center text-center">
                 <div class="col-lg-8">
@@ -78,7 +78,7 @@
     <div class="room-suits-details-page pt-120 mb-120">
         <div class="container">
             <div class="row mb-120 g-5">
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <div class="swiper room-details-slider mb-30">
                         <div class="swiper-wrapper">
                             
@@ -130,7 +130,7 @@
                     
                     </ul>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-5">
                     <div class="widget-area2">
                         <div class="widget-title">
                             <h5>Want A Reservation?</h5>
@@ -143,6 +143,28 @@
                             
                         </div>
                     </div>
+<br>
+<br>
+<br>
+<br>
+<h3>Halls Calendar</h3>
+                    <div id='calendar'></div>
+    <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.0/index.global.min.js "></script>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+
+    events: 'getreservation.php'
+
+  });
+  calendar.render();
+});
+
+</script>
      
                 </div>
             </div>

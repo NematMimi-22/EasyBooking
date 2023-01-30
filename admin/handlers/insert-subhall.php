@@ -58,15 +58,15 @@ if($type=='0'){
  
 
             if(empty($hall_describtion)){
-                $errors[]="Hall describtion are required";
-                }elseif(strlen($hall_describtion)<= 20 || strlen($hall_describtion)>500 ){
-                    $errors[]="Hall describtion must be more that 20 letters and less than 100";
+                $errors[]="Hall description are required";
+                }elseif(strlen($hall_describtion)<= 10 || strlen($hall_describtion)>500 ){
+                    $errors[]="Hall description must be more than 10 letters and less than 100";
                 
                 }    
                 if(empty($services)){
                     $errors[]="Services are required";
-                    }elseif(strlen($services)<= 20 || strlen($services)>500 ){
-                        $errors[]="Hall describtion must be more that 20 letters and less than 100";
+                    }elseif(strlen($services)<= 10 || strlen($services)>500 ){
+                        $errors[]="Hall description must be more than 10 letters and less than 100";
                     
                     }
 
@@ -80,7 +80,7 @@ if(empty($_FILES['image_view']['name'])){
 {
 $errors[]="image size more than 1Mb";
 
-}elseif(! in_array($extv,['png','jpg','jpeg'])){
+}elseif(! in_array($extv,['png','jpg','jpeg','PNG'])){
 
 $errors[]="This is not an image";
 

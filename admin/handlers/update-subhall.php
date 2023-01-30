@@ -5,7 +5,7 @@ require("db.php");
 $hallId=$_POST['hallId'];
 
 $mainhallid=$_SESSION['hall_id'];
-echo $mainhallid;
+//echo $mainhallid;
 
 $sql="SELECT * FROM subhalls where id=$hallId";
 $query = mysqli_query($conn,$sql);

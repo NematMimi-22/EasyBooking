@@ -117,36 +117,17 @@ require ('inc/LoginHeader.php');
                 <div class="col-lg-6">
                     <div class="about-content">
                         <div class="section-title1">
-                            <span>The Easy Booking.</span>
+                            <span>EasyBooking</span>
                             <h2>Find The Best Halls For Your Event.</h2>
                         </div>
-                        <p>Welcome to the best five- luxury halls in New York. Hotel is veryes  elementum sesue the aucan vestibulum aliquam justo in sapien on thi rutrum volutpat. Donec in quis the pellentesque velit. Donec id velitel ac arcu posuere blane.</p>
-                        <p>hallsut nisl quam nestibulum ac quam nec odio elementum oneni sceisuen the aucan ligula. Orci varius natoque penatibus ethemen magnis discustent parturient monte nascete ridiculus musclineorto nellentesque habitant forminy morbine.</p>
-                        <div class="author-area d-flex align-items-center">
-                            <div class="author-img">
-                                <img class="img-fluid" src="assets/images/bg/manager.png" alt="">
-                            </div>
-                            <div class="author-details">
-                                <h5>Website Manager</h5>
-                                <img src="assets/images/bg/manager-name.png" alt="">
-                            </div>
-                        </div>
+                <p> Hey everyone! Nemat, Raneen and Nqaa are here. We're the creators of Easybooking website. The site was created after a lengthy review to help two categories of people mainly. If you are planning for any event, even if it is a wedding party, Birthday party, Consolation...etc, and you need to search for a hall for this event, or you're a hall's owner who is trying to find an easy way to take the reservations and get good advertising to your hall, this site is FOR YOU!</p>
+                        
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-img">
-                        <img class="img-fluid" src="assets/images/bg/home-about-img.png" alt="">
-                        <div class="reviews">
-                            <h2>5.0</h2>
-                            <ul class="stars d-flex align-items-center">
-                                <li><i class="bi bi-star-fill"></i></li>
-                                <li><i class="bi bi-star-fill"></i></li>
-                                <li><i class="bi bi-star-fill"></i></li>
-                                <li><i class="bi bi-star-fill"></i></li>
-                                <li><i class="bi bi-star-fill"></i></li>
-                            </ul>
-                            <span>2000, Reviews</span>
-                        </div>
+                        <img class="img-fluid" src="assets/images/bg/event2.jpg" alt="">
+                       
                     </div>
                 </div>
             </div>
@@ -324,7 +305,7 @@ require ('inc/LoginHeader.php');
                 <div class="col-12">
                     <div class="section-title1 text-center">
                         <span>Testimonial</span>
-                        <h2>What Our Guest Say</h2>
+                        <h2>What Our Guests Say</h2>
                     </div>
                 </div>
             </div>
@@ -511,49 +492,7 @@ foreach($feedbackData as $index=>$users){?>
         </div>
     </div>
     <!-- ========== Home1 Gallery End============= -->
-    <!-- ========== Home1 Blog Start============= -->
-    <div class="home-one-blog mb-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title1 text-center">
-                        <span>Blog Post</span>
-                        <h2>Our Update Article.</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-wrrap">
-                        <div class="blog-img">
-                            <img src="assets/images/blog/blog1.png" alt="">
-                            <div class="batch">
-                                <a href="blog.php">June 21, 2022</a>
-                            </div>
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-meta">
-                                <a href="blog.php">By, Admin -</a> <a href="blog.php">Halls</a>
-                            </div>
-                            <div class="blog-title">
-                                <h4><a href="blog-details.php">veryes  elementum sesuren then aucan vestibu.</a></h4>
-                            </div>
-                            <div class="read-more-btn">
-                                <a href="blog-details.php">
-                                    <svg width="43" height="10" viewBox="0 0 43 10" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 5H41" stroke-width="1.5" stroke-linecap="round" />
-                                        <path d="M36 9L41 5L36 1" stroke-width="1.5" stroke-linecap="round" />
-                                    </svg>
-                                     Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-        </div>
-    </div>
-    <!-- ========== Home1 Blog End============= -->
+   
     <?php require ('inc/footer.php'); 
 
     require('inc/js_file_link.php'); ?>

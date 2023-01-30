@@ -27,7 +27,7 @@ require ('inc/LoginHeader.php');
 
 ?>
     <!-- ========== Breadcumb start============= -->
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-wedding">
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center text-center">
                 <div class="col-lg-8">
@@ -56,7 +56,7 @@ require ('inc/LoginHeader.php');
                         <li>
                             <div class="text">
                                 <h4>Location</h4>
-                                <p>168/170, Ave 01,Old York Drive Rich Mirpur, Dhaka, Bangladesh</p>
+                                <p>Birzeit University, Birzeit, Palestine</p>
                             </div>
                         </li>
                         <li>

@@ -50,7 +50,7 @@
     
     ?>
     <!-- ========== Breadcumb start============= -->
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-wedding3">
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center text-center">
                 <div class="col-lg-8">

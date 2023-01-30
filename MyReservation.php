@@ -17,7 +17,6 @@ ORDER BY reservations.date DESC;
 $sqlResult=mysqli_query($conn,$sql1);
 
 $feedbackData=mysqli_fetch_all($sqlResult);
-
 $sql="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time 
 FROM reservations 
 JOIN subhalls ON reservations.hall_id = subhalls.id

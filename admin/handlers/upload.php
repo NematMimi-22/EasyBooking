@@ -8,7 +8,7 @@ $mainhallid=$_SESSION['hall_id'];
 if(isset($_POST['submit'])){ 
 
 $targetDir = "../HallsImages/image"; 
-$allowTypes= array('jpg','png','jpeg','gif'); 
+$allowTypes= array('jpg','png','jpeg','gif','PNG'); 
 $error=[];
 $statusMsg=$errorMsg=$insertValuesSQL=$errorUpload=$errorUploadType=''; 
 $fileNames=array_filter($_FILES['image']['name']); 

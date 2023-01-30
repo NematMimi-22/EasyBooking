@@ -6,7 +6,7 @@
                     <div class="col-lg-4 order-lg-0 order-2">
                         <div class="footer-items footer-about">
                             <h4>About Easy Booking</h4>
-                            <p>Easy Booking ut nisl quam nestibulum ac quamtoloka nec odio elementum oneni sceisuen thensopol aucan ligula. Orci varius natoque.</p>
+                            <p>Easybooking is a website created especially for event organizers and halls' owners. Hoping to help these two categories in finding a suitable hall, and organizing their reservations, respectively. </p>
                             <div class="footer-btn">
                                 <a class="popup-youtube" href="https://goo.gl/maps/QkfwNHnSian4PfAt5">Our SiteMap <i class="bi bi-chevron-right"></i></a>
                                 <a href="#">Legal Notice</a>
@@ -72,8 +72,6 @@
                     <ul>
                         <li><a href="about.php">About Us</a></li>
                         <li><a href="room-suits1.php">Halls</a></li>
-                        <li><a href="hotel-facilities.php">Halls Facilites</a></li>
-                        <li><a href="blog-standard.html">Blog Standard</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
                         <li><a href="contact.php">Contact Us</a></li>
                     </ul>
@@ -84,17 +82,15 @@
                     <div class="row g-4">
                         <div class="col-xl-6">
                             <div class="devlopar-area">
-                                <p>Copyright 2022 <a href="#">Easy Booking</a> </p>
+                                <p>Copyright 2023 <a href="#">Easy Booking</a> </p>
                             </div>
                         </div>
                         <div class="col-xl-6 d-flex justify-content-xl-end justify-content-center">
                             <div class="payment-mathort">
                                 <ul>
                                     <li>Pay with us:</li>
-                                    <li><a href="#"><img src="assets/images/bg/visa.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/images/bg/mastercard.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/images/bg/amagonpay.png" alt=""></a></li>
-                                    <li><a href="#"><img src="assets/images/bg/paypal.png" alt=""></a></li>
+                                    
+                                    <li><a href="#"><img src="assets/images/bg/pay.png" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 29, 2023 at 10:18 AM
+-- Generation Time: Jan 30, 2023 at 12:10 PM
 -- Server version: 8.0.21
 -- PHP Version: 8.1.12
 
@@ -55,6 +55,27 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`, `type`, `created_at`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `calendar`
+--
+
+CREATE TABLE `calendar` (
+  `id` int NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `calendar`
+--
+
+INSERT INTO `calendar` (`id`, `title`, `start`, `end`) VALUES
+(1, 'event1', '2023-01-31', '2023-01-31'),
+(2, 'event1', '2023-01-31', '2023-01-31');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `features`
 --
 
@@ -92,7 +113,8 @@ CREATE TABLE `feedbacks` (
 
 INSERT INTO `feedbacks` (`id`, `FeedBack`, `user_id`) VALUES
 (27, 'What can I say?\r\n\r\nI have celebrated my birthday at the Deluxe Banquet Hall, Deluxe Lounge or Olivia for the last three years! I have celebrated other family and friend functions at this location including my children’s Christening and my family only plans their events at Deluxe! Thank you for making our events so special. You food is great, your service is the best and your hall is beautiful! The spinning chandelier is one of a kind for sure! Second to none!\r\n\r\nThank you! ', 32),
-(28, 'We celebrated our moms-grandmas 90th birthday at De Luxe and we are so grateful for Albert & Raffis help for making that celebration a very memorable. Three weeks later and everyone is still raving about it! The venue is beautiful, our friends and families kept taking pictures in front of the curtains and wall decor. Everyone enjoyed the delicious food and the staff was very attentive and kind as well. We look forward to working with them again in the near future.', 40);
+(28, 'We celebrated our moms-grandmas 90th birthday at De Luxe and we are so grateful for Albert & Raffis help for making that celebration a very memorable. Three weeks later and everyone is still raving about it! The venue is beautiful, our friends and families kept taking pictures in front of the curtains and wall decor. Everyone enjoyed the delicious food and the staff was very attentive and kind as well. We look forward to working with them again in the near future.', 40),
+(29, 'I had my engagement party at De Luxe and let me tell you everybody fell in love with the hall. The food was delicious, the service was outstanding, and the decor was so lush and elegant. People will not stop telling me how gorgeous everything was. Thank you De Luxe for making my occasion so beautiful and fun!!!! I will definitely be having more parties here to come!!!', 19);
 
 -- --------------------------------------------------------
 
@@ -106,6 +128,21 @@ CREATE TABLE `feedback_subhall` (
   `user_id` int NOT NULL,
   `hall_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `feedback_subhall`
+--
+
+INSERT INTO `feedback_subhall` (`id`, `feedback`, `user_id`, `hall_id`) VALUES
+(1, 'NICE Hall', 35, 63),
+(3, 'wow', 12, 63),
+(4, 'Amazing!', 35, 63),
+(5, 'best hall ever', 35, 63),
+(6, 'not bad', 35, 63),
+(7, 'nice', 35, 65),
+(8, 'nice, nemat wedding was there', 41, 66),
+(9, 'Very nice hall The views and location are just phenomenal and cannot be beaten. It was the perfect venue where you can have a ceremony and reception, no travel required and not a moment guests are waiting around. They can be at the bar enjoying themselves while the bridal party is off for photos.', 35, 78),
+(10, 'Very nice Hall, I am very happy to try it!', 32, 78);
 
 -- --------------------------------------------------------
 
@@ -131,9 +168,12 @@ CREATE TABLE `halls` (
 --
 
 INSERT INTO `halls` (`id`, `name`, `type`, `city`, `address`, `hall_describtion`, `image`, `image_view`, `user_id`, `status`) VALUES
-(74, 'rayahall', 1, 'Ramallah', 'Ramallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b92f0708571.pdf', '63b92f070856e.jpg', 38, 'approved'),
-(75, 'Ownerhall', 2, 'Birzeit', 'near to Birzeit school', 'hall in Birzeit hall in Birzeit hall in Birzeit hall in Birzeit', '63b92f7ebcf4e.pdf', '63b92f7ebcf4b.jpg', 37, 'approved'),
-(77, 'test', 2, 'Ramallah', 'Ramallah', 'test test test test test test test test test test test test test test test test test test test test test test test test', '63d54c8214532.pdf', '63d54c8214522.jpg', 37, 'approved');
+(79, 'Elya Venues', 1, 'Al-Bireh', 'Al-Bireh', '- Illuminated Dance Floor\r\n- Air-conditioning System\r\n- Separate entrances for both men and  women\r\n- Different options of decorations', '63d6e3a211735.pdf', '63d6e3a21171a.jpg', 42, 'approved'),
+(80, 'Royal Halls', 1, 'Birzeit', 'Birzeit-Jiffna', 'It has 4 halls (2 indoor halls for women and 2 outdoor halls for men). \r\n\r\nContact info: 0599221720', '63d718e83c1cf.pdf', '63d718e83c1a1.png', 43, 'approved'),
+(81, 'Ramallah Cultural Palace', 2, 'Ramallah', 'Industrial Zone', 'It can accommodate 200 people and enjoys the maximum specifications, comprehensive audio-to-visual technology, heating and cooling systems, and tables that can be moved and set as needed.', '63d72051b9c68.pdf', '63d72051b9c36.jpg', 44, 'approved'),
+(82, 'Carmel Hotel', 3, 'Ramallah', 'Al-Masyoon', 'Has two halls, one is for weddings and the other is for meetings.', '63d7339724ee0.pdf', '63d7339724ce1.png', 45, 'approved'),
+(83, 'Gloria Venues', 1, 'Ramallah', 'Al-Irsal', 'Two halls (one for men and one for women).', '63d739af19adc.pdf', '63d739af19ab7.png', 37, 'approved'),
+(84, 'Ceaser Hotel', 3, 'Al-Bireh', 'Al-Masyoon', 'Two wedding halls for men and women and group of halls for meetings and other events.', '63d73d619d31c.pdf', '63d73d619d309.png', 37, 'approved');
 
 -- --------------------------------------------------------
 
@@ -153,8 +193,32 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `image`, `uploaded_on`, `subhall_id`) VALUES
-(64, '63b92f215eda4.jpg', '2023-01-07 10:36:49', 61),
-(68, '63b9c6c2d4bf9.jpg', '2023-01-07 21:23:46', 65);
+(79, '63d70a3c55695.PNG', '2023-01-30 02:07:24', 72),
+(80, '63d70a54bdb64.PNG', '2023-01-30 02:07:48', 72),
+(81, '63d70a666ba4e.PNG', '2023-01-30 02:08:06', 72),
+(82, '63d70a7d8b457.PNG', '2023-01-30 02:08:29', 72),
+(83, '63d70a8c551b3.PNG', '2023-01-30 02:08:44', 72),
+(84, '63d70a9cbd60d.PNG', '2023-01-30 02:09:00', 72),
+(85, '63d70aac4bdb5.PNG', '2023-01-30 02:09:16', 72),
+(86, '63d70abbccf10.PNG', '2023-01-30 02:09:31', 72),
+(87, '63d70acb2f3c1.PNG', '2023-01-30 02:09:47', 72),
+(88, '63d70ade688bb.PNG', '2023-01-30 02:10:06', 72),
+(89, '63d70aebbd69a.PNG', '2023-01-30 02:10:19', 72),
+(90, '63d70b0b8c780.PNG', '2023-01-30 02:10:51', 72),
+(91, '63d71badeff2e.PNG', '2023-01-30 03:21:49', 73),
+(92, '63d71bc257291.PNG', '2023-01-30 03:22:10', 73),
+(93, '63d71bd1dbc91.PNG', '2023-01-30 03:22:25', 73),
+(94, '63d71bde06838.PNG', '2023-01-30 03:22:38', 73),
+(95, '63d721a32f2f6.jpg', '2023-01-30 03:47:15', 74),
+(96, '63d721c8c9fdd.jpg', '2023-01-30 03:47:52', 74),
+(97, '63d7220712698.jpg', '2023-01-30 03:48:55', 74),
+(98, '63d73b8dae655.jpg', '2023-01-30 05:37:49', 78),
+(99, '63d73b9e1dd87.jpg', '2023-01-30 05:38:06', 78),
+(100, '63d73ba8bfdd6.jpg', '2023-01-30 05:38:16', 78),
+(101, '63d73bb53c1ab.jpg', '2023-01-30 05:38:29', 78),
+(102, '63d73fda0451d.jpg', '2023-01-30 05:56:10', 79),
+(103, '63d73fe570641.jpg', '2023-01-30 05:56:21', 79),
+(104, '63d740140403d.jpg', '2023-01-30 05:57:08', 79);
 
 -- --------------------------------------------------------
 
@@ -180,13 +244,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`) VALUES
-(13, '9', 100, '2023-01-28', '11:35:00', '14:35:00', 'my meeting', 67, 35, 'approved'),
-(14, '5', 100, '2023-02-08', '17:36:00', '14:36:00', 'shower', 61, 35, 'approved'),
-(15, '3', 100, '2023-02-22', '15:39:00', '17:39:00', ',', 65, 32, 'approved'),
-(16, '10', 100, '2023-02-23', '10:43:00', '17:43:00', ',', 67, 24, 'approved'),
-(17, '4', 100, '2023-01-31', '08:44:00', '01:44:00', 'm', 61, 24, 'approved'),
-(18, '7', 500, '2023-01-29', '11:45:00', '14:45:00', ',,', 65, 24, 'approved'),
-(19, '5', 200, '2023-01-31', '15:51:00', '22:51:00', ',', 61, 30, 'approved');
+(20, '2', 100, '2023-01-31', '11:12:00', '15:12:00', 'test', 78, 35, 'approved'),
+(21, '3', 100, '2023-02-07', '09:19:00', '14:19:00', ',', 78, 32, 'approved');
 
 -- --------------------------------------------------------
 
@@ -212,9 +271,13 @@ CREATE TABLE `subhalls` (
 --
 
 INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `price`, `hall_describtion`, `services`, `image_view`, `hall_id`, `num_of_reservation`) VALUES
-(61, 'rayahall--1--', 1, 500, 6000, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steatRamallah em alsharayet steat', '63b92f1722916.jpg', 74, 0),
-(65, 'ownerhall2', 1, 5007, 600, 'Ramallah em alsharayet steatRamallah em alsharayet steat', 'Ramallah em alsharayet steatRamallah em alsharayet steat', '63b9c6b5c9fb2.jpg', 75, 1),
-(67, 'test1', 2, 100, 1000, 'test test test test test test test test test test test', 'test test test test test test test test test', '63d54d2f09a8d.jpg', 77, 0);
+(72, 'Elya Venues-Women hall', 1, 1000, 15000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System\r\n- Ample Parking\r\n- Separate Entrance\r\n- Security Group\r\n- Special Hospitality \r\n- Waiting Room For the Bride\r\n- Electrical Elevators \r\n- DJ and huge monitors\r\n- Different options for decorations', '63d70a1843c7b.png', 79, 2),
+(73, 'Royal Hall-Indoor Women Hall', 1, 500, 8000, 'Address: Jifna near Birzeit\r\nContact info: 0599221720', 'Cake, flowers decorations, drinks, DJ, Dinner, and lighting. In addition, Security cameras, sound systems, and huge monitors.', '63d71a756e22d.png', 80, 0),
+(74, 'Ramallah Cultural Palace', 2, 200, 2000, 'It can accommodate 200 people and enjoys the maximum specifications.', 'Comprehensive audio-to-visual technology, heating, and cooling systems, and tables that can be moved and set as needed.', '63d721051bc75.jpg', 81, 4),
+(76, 'Elya Venues-Men hall', 1, 1000, 15000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System - Ample Parking - Separate Entrance - Security Group - Electrical Elevators - DJ and huge monitors - Different options for decorations', '63d723f09ff41.jpg', 79, 1),
+(77, 'Carmel Hotel-Wedding Hall', 1, 500, 25000, 'Contact info: 02 297 2222', 'Dinner , decoration, DJ , cake , parking, and Pool in the hall', '63d735a857c62.png', 82, 6),
+(78, 'Gloria Venues-Women Hall', 1, 500, 24000, 'Contact info:  0568650650  //  022955700', 'Full service , dinner is available , many decorations, condition system (high quality ), special lighting system, special sound system, 3 screens, lighting dance floor.', '63d73a8cd2203.png', 83, 3),
+(79, 'Ceaser Hotel-Meeting Hall', 2, 100, 3000, 'Address: Al-Masyoon\r\nService depends on the event and its organizers\r\nContact info: 0595111331', 'Drinks and lunch.', '63d73f7831c78.png', 84, 0);
 
 -- --------------------------------------------------------
 
@@ -262,7 +325,13 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`, `type`, `status`, `creat
 (39, 'status', '$2y$10$NDm9fSWBuuBkgVKlqfxjb.DS7tINhOCfvmcgL1wzNgq5qt6w1DPO2', 'status@gmail.com', 'user', 0, '2023-01-01 00:26:27'),
 (40, 'Dina', '$2y$10$Eh87rJiQY8cOdtSInrkDDujSDSnk4sHX/P4hQ3i0aOOxVas32/cKK', 'dina@gmail.com', 'user', 1, '2023-01-02 14:40:05'),
 (41, 'lara', '$2y$10$c3x57hXt35UTb1cdBjrSaOD8Unc/2CUukH7ofyu0Dhk4JLLAqCqrK', 'lara@gmail.com', 'user', 1, '2023-01-25 13:58:48'),
-(42, 'Nemat', '$2y$10$F5wM.Xu/7QMRAu/9z/4n7eQBXo4pZPDQxlFNep8GrAwB2IQyyFZQC', 'testttt@gmail.com', 'user', 1, '2023-01-29 12:17:41');
+(42, 'NqaaOwner', '$2y$10$AT9SOs3PTP14GqM2/xKOW.ayIBmx5phyC3VRp.omo2lsIGxg6cFh6', 'nqaaowner@gmail.com', 'owner', 1, '2023-01-29 22:32:23'),
+(43, 'Royal', '$2y$10$DAHXALeBbqexQkQV.ln9o.dk2skCXwXZx3y4wZBOMw5hy8wKAhOGS', 'royal@gmail.com', 'owner', 1, '2023-01-30 02:50:57'),
+(44, 'RamallahPalace', '$2y$10$EctJGcwFIwduk6Cg.QgTeuvNG4Uig7IY656hEf4UxefHkK2buInA2', 'palace@gmail.com', 'owner', 1, '2023-01-30 03:33:41'),
+(45, 'Carmel Hotel', '$2y$10$8cSzUtesztom9nB6fsUWROccQ1qnj4oD36lwlp/UBy6cfeXXk3Te2', 'carmel@gmail.com', 'owner', 1, '2023-01-30 05:00:24'),
+(46, 'Gloria Venues', '$2y$10$BchaqoFkUqId/6pTq4Ospe0YkMlrwv2lsx/iTYO.K9Vhlml2j047.', 'gloria@gmail.com', 'owner', 1, '2023-01-30 05:25:23'),
+(47, 'Ceaser  Hotel', '$2y$10$iNQ6GTJFv.PBD5TvS18CGuSynOF6XJGt8RB7SCPZai.c/MZgm.XsG', 'ceaser@gmail.com', 'user', 1, '2023-01-30 05:43:06'),
+(48, 'Ceaser  Hotel', '$2y$10$5qlsSchg7xE7xBv.XLUBzuZ6QN0h6vm7pnnJtlaSgv.DO9P1VDQFO', 'ceaser2@gmail.com', 'owner', 1, '2023-01-30 05:43:42');
 
 --
 -- Indexes for dumped tables
@@ -272,6 +341,12 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`, `type`, `status`, `creat
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `calendar`
+--
+ALTER TABLE `calendar`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -291,8 +366,7 @@ ALTER TABLE `feedbacks`
 -- Indexes for table `feedback_subhall`
 --
 ALTER TABLE `feedback_subhall`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `hall_id` (`hall_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `halls`
@@ -340,6 +414,12 @@ ALTER TABLE `admins`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
+-- AUTO_INCREMENT for table `calendar`
+--
+ALTER TABLE `calendar`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
@@ -355,37 +435,37 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `feedback_subhall`
 --
 ALTER TABLE `feedback_subhall`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `halls`
 --
 ALTER TABLE `halls`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `subhalls`
 --
 ALTER TABLE `subhalls`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Constraints for dumped tables
@@ -396,12 +476,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `feedbacks`
   ADD CONSTRAINT `feedbacks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
-
---
--- Constraints for table `feedback_subhall`
---
-ALTER TABLE `feedback_subhall`
-  ADD CONSTRAINT `feedback_subhall_ibfk_1` FOREIGN KEY (`hall_id`) REFERENCES `subhalls` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `images`

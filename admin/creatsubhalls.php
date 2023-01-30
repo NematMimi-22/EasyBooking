@@ -63,10 +63,7 @@ $sql="SELECT * FROM halls where id='$id'";
 
 
 
-    <option value="100">from 50-100</option>
-    <option value="200">from 100-200</option>
-                                   <option value="500">from 200-500</option>
-                                   <option value="1000">from 500-1000</option>
+  
 
 
 
