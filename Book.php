@@ -45,7 +45,7 @@ require ('inc/head.php'); ?>
    $sql="SELECT * FROM halls where id=$hallid";
    $sqlResult=mysqli_query($conn,$sql);
    $hall=mysqli_fetch_assoc($sqlResult);
-    
+    echo $shallId;
     ?>
     <!-- ========== Breadcumb start============= -->
   
@@ -210,16 +210,34 @@ require ('inc/head.php'); ?>
                 <div id='calendar'></div>
     <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.0/index.global.min.js "></script>
 
-<script>
+    <style>
+  .fc-event-approved {
+    background-color: #378006;
+    border-color: #378006;
+  }
 
+  .fc-event-pending {
+    background-color: #FF0000;
+    border-color: #FF0000;
+  }
+</style>
+
+<script>
+    
+  var shallId = <?php echo json_encode($shallId); ?>;
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
 
-    events: 'getreservation.php'
+    events: 'getreservation.php?shallId='+shallId,
+   
+    eventColor:  function(event) {
+  return (event.status === 'approved') ? '#378006' : '#FF0000';
+},
+  
+});
 
-  });
   calendar.render();
 });
 
@@ -230,7 +248,10 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
 
         </div>
+        
     </div>
+
+    
     <!-- ========== Room & Suits end============= -->
     <?php require ('inc/footer.php'); 
 

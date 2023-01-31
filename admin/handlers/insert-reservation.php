@@ -55,6 +55,12 @@ if($number_of_guests=='1'){
    
 
 
+// Check for conflicting reservations
+$checkSql = "SELECT * FROM reservations WHERE hall_id = '$shallId' AND date = '$newDate' AND (('$start_time' BETWEEN start_time AND end_time) OR ('$end_time' BETWEEN start_time AND end_time))";
+$checkResult = mysqli_query($conn, $checkSql);
+if (mysqli_num_rows($checkResult) > 0) {
+  $errors[] = "Sorry, the selected hall is already reserved for that date and time.";
+}
 
 if (empty($errors)){
     
