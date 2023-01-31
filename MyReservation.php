@@ -6,7 +6,7 @@ require ('inc/head.php');
 //(reservations.date > NOW() OR reservations.date = NOW()) 
 require("admin/handlers/db.php");
 
-$sql1="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time 
+$sql1="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time ,reservations.hall_id 
 FROM reservations 
 JOIN subhalls ON reservations.hall_id = subhalls.id 
 WHERE reservations.user_id =$user_id and  reservations.status='approved'
@@ -17,7 +17,7 @@ ORDER BY reservations.date DESC;
 $sqlResult=mysqli_query($conn,$sql1);
 
 $feedbackData=mysqli_fetch_all($sqlResult);
-$sql="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time 
+$sql="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time ,reservations.hall_id 
 FROM reservations 
 JOIN subhalls ON reservations.hall_id = subhalls.id
 WHERE  reservations.status='approved' and  reservations.user_id =$user_id
@@ -106,7 +106,7 @@ $current_date = date("Y-m-d");
 
 foreach($feedbackData as $index=>$feedback){?>
     <li class="table-row">
-      <div class="col col-1" data-label="Hallname"><?=$feedback[0];?></div>
+      <div class="col col-1" data-label="Hallname"><a href="subhall-details.php?shallId=<?=$feedback[4];?>"><?=$feedback[0];?></a></div>
       <div class="col col-2" data-label="Date"><?=$feedback[1];?></div>
       <div class="col col-3" data-label="Staer_time"><?=$feedback[2];?></div>
       <div class="col col-4" data-label="End_time"><?=$feedback[3];?></div>
@@ -118,12 +118,17 @@ foreach($feedbackData as $index=>$feedback){?>
           <button  class="font-weight-bold btn btn-outline-Dark" type="submit" >CANCEL</button>
                                     
                             </div>
-     <?php }else?>
-     <div class="col col-5" data-label="Cancel">    </div>
+     <?php }else{?>
+     <div class="col col-5" data-label="Cancel">    
+
+     <button  class="font-weight-bold btn btn-outline-Dark" onclick="window.location.href='FeedBack_subhall.php?shallId=<?= $feedback[4]; ?>';" >
+          FeedBack
+        </button>  
+     </div>
      
       
     </li>
-    <?php }
+    <?php }}
 ?>  </ul>
 <?php
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 31, 2023 at 03:34 PM
+-- Generation Time: Jan 31, 2023 at 09:04 PM
 -- Server version: 8.0.21
 -- PHP Version: 8.1.12
 
@@ -124,6 +124,10 @@ INSERT INTO `feedbacks` (`id`, `FeedBack`, `user_id`) VALUES
 
 CREATE TABLE `feedback_subhall` (
   `id` int NOT NULL,
+  `experience` varchar(200) NOT NULL,
+  `Recommendation` varchar(200) NOT NULL,
+  `halls_images_useful` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `payment_process` varchar(200) NOT NULL,
   `feedback` varchar(500) NOT NULL,
   `user_id` int NOT NULL,
   `hall_id` int NOT NULL
@@ -133,16 +137,23 @@ CREATE TABLE `feedback_subhall` (
 -- Dumping data for table `feedback_subhall`
 --
 
-INSERT INTO `feedback_subhall` (`id`, `feedback`, `user_id`, `hall_id`) VALUES
-(1, 'NICE Hall', 35, 63),
-(3, 'wow', 12, 63),
-(4, 'Amazing!', 35, 63),
-(5, 'best hall ever', 35, 63),
-(6, 'not bad', 35, 63),
-(7, 'nice', 35, 65),
-(8, 'nice, nemat wedding was there', 41, 66),
-(9, 'Very nice hall The views and location are just phenomenal and cannot be beaten. It was the perfect venue where you can have a ceremony and reception, no travel required and not a moment guests are waiting around. They can be at the bar enjoying themselves while the bridal party is off for photos.', 35, 78),
-(10, 'Very nice Hall, I am very happy to try it!', 32, 78);
+INSERT INTO `feedback_subhall` (`id`, `experience`, `Recommendation`, `halls_images_useful`, `payment_process`, `feedback`, `user_id`, `hall_id`) VALUES
+(1, '', '', '', '', 'NICE Hall', 35, 63),
+(3, '', '', '', '', 'wow', 12, 63),
+(4, '', '', '', '', 'Amazing!', 35, 63),
+(5, '', '', '', '', 'best hall ever', 35, 63),
+(6, '', '', '', '', 'not bad', 35, 63),
+(7, '', '', '', '', 'nice', 35, 65),
+(8, '', '', '', '', 'nice, nemat wedding was there', 41, 66),
+(9, '', '', '', '', 'Very nice hall The views and location are just phenomenal and cannot be beaten. It was the perfect venue where you can have a ceremony and reception, no travel required and not a moment guests are waiting around. They can be at the bar enjoying themselves while the bridal party is off for photos.', 35, 78),
+(10, '', '', '', '', 'Very nice Hall, I am very happy to try it!', 32, 78),
+(11, 'Excellent', 'test', 'test', 'test', 'mm', 35, 78),
+(12, 'Good', '', 'Yes', 'Good', ',', 35, 78),
+(15, 'Excellent', 'Highly Recommend', 'Good', 'Good', ',,', 32, 78),
+(16, 'Excellent', 'Highly Recommend', 'Good', 'Bad', 'rr', 32, 74),
+(17, 'Good', 'Recommend', 'Bad', 'Bad', ',,,', 32, 74),
+(18, 'Good', 'Recommend', 'Good', 'Good', 'm', 32, 74),
+(19, 'Excellent', 'Recommend', 'Bad', 'Bad', 'n', 32, 74);
 
 -- --------------------------------------------------------
 
@@ -246,7 +257,7 @@ CREATE TABLE `reservations` (
 INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`) VALUES
 (20, '2', 100, '2023-01-31', '11:12:00', '15:12:00', 'test', 78, 35, 'approved'),
 (21, '3', 100, '2023-02-07', '09:19:00', '14:19:00', ',', 78, 32, 'approved'),
-(22, '9', 100, '2023-01-31', '10:11:00', '22:11:00', '.', 74, 32, 'approved'),
+(22, '9', 100, '2023-01-30', '10:11:00', '22:11:00', '.', 74, 32, 'approved'),
 (23, '10', 200, '2023-02-16', '14:12:00', '16:12:00', ',,', 74, 32, 'approved'),
 (24, '9', 100, '2023-02-05', '12:32:00', '14:32:00', '12-2', 74, 32, 'pending'),
 (25, '10', 100, '2023-02-05', '17:33:00', '19:33:00', '17-19', 74, 32, 'pending'),
@@ -441,7 +452,7 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `feedback_subhall`
 --
 ALTER TABLE `feedback_subhall`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `halls`

@@ -1,6 +1,11 @@
 <?php session_start();
 require("handlers/db.php");
-$sql1="SELECT feedback_subhall.id ,users.name as uname, subhalls.name, feedback_subhall.feedback
+$sql1="SELECT feedback_subhall.id ,users.name as uname, subhalls.name, 
+feedback_subhall.experience,
+feedback_subhall.Recommendation,
+feedback_subhall.halls_images_useful,
+feedback_subhall.payment_process,
+feedback_subhall.feedback
 FROM feedback_subhall
 JOIN users ON feedback_subhall.user_id = users.id
 JOIN subhalls ON feedback_subhall.hall_id = subhalls.id
@@ -61,8 +66,14 @@ require("inc/header.php");
                     <tr>
                     <th scope="col">Subhall name</th>
                     <th scope="col">User name</th>
-                    <th scope="col">FeedBack</th>  
-             
+                    <th >Experience</th>  
+                    <th>Recommendation</th>  
+                    <th >Halls images </th>  
+                    <th >Payment process</th>  
+                    <th >Feedback</th>  
+
+
+
                     <th scope="col">Delete</th>  
 
                     
@@ -85,6 +96,11 @@ foreach($feedbackData as $index=>$feedback){?>
     <td><?=$feedback[1];?></td>
     
     <td><?=$feedback[3];?></td>
+    <td><?=$feedback[4];?></td>
+    <td><?=$feedback[5];?></td>
+    <td><?=$feedback[6];?></td>
+    <td><?=$feedback[7];?></td>
+
    <td><a href="handlers/deletefeedbacksub.php?feedbackId=<?= $feedback[0];?>"class="btn btn-dark">delete</a></td>
  
     </tr>

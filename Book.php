@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initialView: 'dayGridMonth',
 
     events: 'getreservation.php?shallId='+shallId,
-   
+         
     eventColor:  function(event) {
   return (event.status === 'approved') ? '#378006' : '#FF0000';
 },

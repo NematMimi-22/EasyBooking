@@ -31,7 +31,13 @@ require("inc/header.php");
                     <tr>
                     <th>Sub hall name</th>
     <th>User name</th>
-    <th>FeedBack</th>
+    <th >Experience</th>  
+                    <th>Recommendation</th>  
+                    <th >Halls images </th>  
+                    <th >Payment process</th>  
+                    <th >Feedback</th>  
+
+ 
  
   
   
@@ -48,7 +54,12 @@ require("inc/header.php");
        
        foreach($hallData as $inner_array) {
            foreach($inner_array as $element) {
-             $sql="SELECT users.name as Uname, subhalls.name, feedback_subhall.feedback
+             $sql="SELECT users.name as Uname, subhalls.name, 
+             feedback_subhall.experience,
+feedback_subhall.Recommendation,
+feedback_subhall.halls_images_useful,
+feedback_subhall.payment_process,
+feedback_subhall.feedback
              FROM feedback_subhall
              JOIN users ON feedback_subhall.user_id = users.id
              JOIN subhalls ON feedback_subhall.hall_id = subhalls.id
@@ -62,15 +73,22 @@ require("inc/header.php");
         
        ?>
         
-         <?php    foreach($halls1 as $event ) {?>
+         <?php
+         if(isset($feedback)){
+
+
+         foreach($halls1 as $event ) {?>
        
        
                <tr>
                <td><?php echo $event['name']; ?></td>
                <td><?php echo $event['Uname']; ?></td>
+               <td><?php echo $event['experience']; ?></td>
+               <td><?php echo $event['Recommendation']; ?></td>
+               <td><?php echo $event['halls_images_useful']; ?></td>
+               <td><?php echo $event['payment_process']; ?></td>
               
                <td><?php echo $event['feedback']; ?></td>
-             
          
              
 
@@ -81,12 +99,18 @@ require("inc/header.php");
                </tr>
            <?php }
        
-       
+      }
+      else{?>
+        <tr>
+          <td colspan="6" class="text-center">No Feedback Added</td>
+        </tr>
+        <?php
+      }} ?>
     
              
-           }
+           
              
-         ?>
+         
       
 
 
