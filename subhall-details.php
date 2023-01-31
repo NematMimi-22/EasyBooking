@@ -276,7 +276,6 @@ foreach($feedbackData as $index=>$users){?>
 
             <div class="col-13">
                     <div class="section-title1 text-center">
-                      <span> <a class="btn--primary6" href="admin/handlers/feedback_subhall_chlogin.php?shallId=<?= $shallId ?>"> Give FeedBack </a> </span>
                     </div>
                     <div class="section-title1 text-center">
                     <?php if(isset( $_SESSION['errors_h'])){?>
