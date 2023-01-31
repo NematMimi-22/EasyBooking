@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 30, 2023 at 12:10 PM
+-- Generation Time: Jan 31, 2023 at 03:34 PM
 -- Server version: 8.0.21
 -- PHP Version: 8.1.12
 
@@ -245,7 +245,13 @@ CREATE TABLE `reservations` (
 
 INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`) VALUES
 (20, '2', 100, '2023-01-31', '11:12:00', '15:12:00', 'test', 78, 35, 'approved'),
-(21, '3', 100, '2023-02-07', '09:19:00', '14:19:00', ',', 78, 32, 'approved');
+(21, '3', 100, '2023-02-07', '09:19:00', '14:19:00', ',', 78, 32, 'approved'),
+(22, '9', 100, '2023-01-31', '10:11:00', '22:11:00', '.', 74, 32, 'approved'),
+(23, '10', 200, '2023-02-16', '14:12:00', '16:12:00', ',,', 74, 32, 'approved'),
+(24, '9', 100, '2023-02-05', '12:32:00', '14:32:00', '12-2', 74, 32, 'pending'),
+(25, '10', 100, '2023-02-05', '17:33:00', '19:33:00', '17-19', 74, 32, 'pending'),
+(26, '9', 200, '2023-02-05', '15:33:00', '16:33:00', ',', 74, 32, 'pending'),
+(27, '9', 100, '2023-02-02', '13:02:00', '13:30:00', ',,,', 74, 35, 'pending');
 
 -- --------------------------------------------------------
 
@@ -453,7 +459,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `subhalls`
