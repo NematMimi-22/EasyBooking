@@ -234,7 +234,12 @@ display: inline-block;
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
+    initialView: 'timeGridWeek',
+    headerToolbar: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'timeGridWeek,timeGridDay' // user can switch between the two
+  },
 
     events: 'getreservation.php?shallId='+shallId,
         
@@ -246,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
+<br>
 <div class="btn-group">
 <div style="width: 25px; height: 25px; background-color:#00D700; border-radius: 15px;"></div>
 <p> &nbsp;Approved Reservation&nbsp;&nbsp;</p>

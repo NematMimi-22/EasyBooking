@@ -5,14 +5,12 @@ require('admin/handlers/db.php');
 $shallId = $_GET['shallId'];
 
 
-  $query = "SELECT date as start,date as end, start_time, end_time, hall_id,CASE 
-  WHEN status = 'approved' THEN '#00D700' 
-  ELSE '#D70000' 
-END AS color , concat('Event from ', start_time, ' to ', end_time) as title
+$query = "SELECT cast(concat(date, ' ', start_time) as datetime) as start,cast(concat(date, ' ', end_time) as datetime)as end, start_time, end_time, hall_id,case when status='approved' then '#00D700' 
+  else '#D70000'END as color, concat('Event from ', start_time, ' to ', end_time) as title
   FROM reservations
   WHERE hall_id=$shallId and (status='approved' or status='pending')
   ORDER BY end_time;
-
+  
 
   ";
   $result = mysqli_query($conn, $query);
