@@ -159,7 +159,7 @@ $hall=mysqli_fetch_assoc($sqlResult);
 <br>
 <br>
 
-  <h4><img src="bullet-point.png" height="20px"> Do you have any comments, questions, or suggestions?</h4>
+  <h4><img src="assets/images/bg/bullet-point.png" height="20px"> Do you have any comments, questions, or suggestions?</h4>
   <br>
   <textarea  name="FeedBack" id="FeedBack" placeholder="Your message" rows="4" cols="80"></textarea>
     

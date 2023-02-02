@@ -61,6 +61,15 @@ $checkResult = mysqli_query($conn, $checkSql);
 if (mysqli_num_rows($checkResult) > 0) {
   $errors[] = "Sorry, the selected hall is already reserved for that date and time.";
 }
+$checkSql2 = "SELECT * FROM reservations
+WHERE TIMESTAMPDIFF(MINUTE, start_time, end_time) <= 60 
+";
+;
+$checkResult2 = mysqli_query($conn, $checkSql2);
+if (mysqli_num_rows($checkResult2) > 0) {
+    $errors[] = "Sorry, You can not make a reservation less than 1 hour";
+
+}
 
 if (empty($errors)){
     

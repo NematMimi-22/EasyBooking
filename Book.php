@@ -180,9 +180,14 @@ require ('inc/head.php'); ?>
                                     <input type="text" id="e3_input"  name="end_time" placeholder="Ending Time">
                                     </div>
                                     <script>
-                                    let e3TP = new fg.Timepicker({
-                                    bindInput: document.getElementById('e3_input'),
-                                    animatePopup: true});
+                                   let e3TP = new fg.Timepicker({
+  bindInput: document.getElementById('e3_input'),
+  animatePopup: true,
+
+
+
+});
+
                                     </script>
                                     </div>
                                         
@@ -206,21 +211,22 @@ require ('inc/head.php'); ?>
      
                 </div>
                 <div class="col-lg-7">
-                    
+                <style>
+
+.dot {
+height: 15px;
+width: 15px;
+background-color: #00D700;
+border-radius: 40%;
+display: inline-block;
+}
+
+</style>
+
                 <div id='calendar'></div>
     <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.0/index.global.min.js "></script>
 
-    <style>
-  .fc-event-approved {
-    background-color: #378006;
-    border-color: #378006;
-  }
 
-  .fc-event-pending {
-    background-color: #FF0000;
-    border-color: #FF0000;
-  }
-</style>
 
 <script>
     
@@ -231,18 +237,23 @@ document.addEventListener('DOMContentLoaded', function() {
     initialView: 'dayGridMonth',
 
     events: 'getreservation.php?shallId='+shallId,
-         
-    eventColor:  function(event) {
-  return (event.status === 'approved') ? '#378006' : '#FF0000';
-},
+        
   
+
 });
 
   calendar.render();
 });
 
 </script>
-                 
+<div class="btn-group">
+<div style="width: 25px; height: 25px; background-color:#00D700; border-radius: 15px;"></div>
+<p> &nbsp;Approved Reservation&nbsp;&nbsp;</p>
+<div style="width: 25px; height: 25px; background-color:#D70000; border-radius: 15px;"></div>
+<p> &nbsp;Pendding Reservation</p>
+</div>
+<br>
+                
                    
                 </div>
             </div>

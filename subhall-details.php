@@ -151,20 +151,25 @@
                     <div id='calendar'></div>
     <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.0/index.global.min.js "></script>
 
-<script>
- var shallId = <?php echo json_encode($shallId); ?>;
-  console.log(shallId);
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
 
-    events: 'getreservation.php?shallId='+shallId
+    <script>
+    
+    var shallId = <?php echo json_encode($shallId); ?>;
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+  
+      events: 'getreservation.php?shallId='+shallId,
+          
+    
+  
   });
-  calendar.render();
-});
-
-</script>
+  
+    calendar.render();
+  });
+  
+  </script>
      
                 </div>
             </div>

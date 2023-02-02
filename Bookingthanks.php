@@ -39,7 +39,9 @@ require ('inc/LoginHeader.php');
                    
                         <div class="error-content text-center">
                             <div class="contents">
-                        <p style="font-size:40px">We’re so happy to help you make your reservations</p>
+                        <p style="font-size:40px">We’re so happy to help you make your</p>
+                        <p style="font-size:40px">reservations.</p>
+
                         <p style="font-size:40px">please come back soon!</p>
                     </div>
                             <a class="btn--primary" href="index.php"><i class="bx bx-home"></i>Back To Home</a>
