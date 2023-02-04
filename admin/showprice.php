@@ -1,9 +1,20 @@
 <?php session_start();
 require("handlers/db.php");
-$hallId = $_GET['hallId'];
-require("handlers/get-subhall.php");
-$_SESSION['hall_id']=$hallId;
-$sql="SELECT h.id,h.name,h.type,h.number_of_guests,h.hall_describtion,h.services FROM subhalls h where h.hall_id = '$hallId' ";
+
+$hall_id=$_GET['hallId'];
+
+
+
+$sql="SELECT * FROM prices  where hall_id ='$hall_id'";
+
+//here query that get data from sql
+//sqlResult that going to database and put data in it
+$sqlResult=mysqli_query($conn,$sql);
+//to get data from sql, here just get the first data i can use fetch all to get all or use for loop with assoc
+// we use sssoc when we return one coloumn
+$hallData=mysqli_fetch_all($sqlResult);
+$_SESSION['hall_id']=$hall_id;
+$sql="SELECT * FROM prices  where hall_id = '$hall_id' ";
 $query=mysqli_query($conn,$sql);
 
 
@@ -51,18 +62,16 @@ require("inc/header.php");
                 <thead  class="table-dark">
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col"  style="width:10%">Hall name</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Number of guests</th>
-                    <th scope="col"style="width:40%">Hall describtion</th>
-                    <th scope="col"> services</th>
-                    <th scope="col"> Show Price</th>
+                    <th scope="col"> Sunday</th>
+                    <th scope="col"  >Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
 
-                    <th scope="col">Add Images for hall</th>
-                    <th scope="col">Show Images for hall</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
 
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Saturday</th>
+                  
                   
                     </tr>
                 </thead>
@@ -79,29 +88,14 @@ foreach($hallData as $index=>$halls){?>
 
     <tr>
     <td><?=$index+1;?></td>
-    <td><?=$halls[1];?></td>
-    <td><?php
-    if ($halls[2]=='1'){
-echo "Weddings";
-}else if ($halls[2]=='2'){
-    echo "Meetings";
-
-}
-else if ($halls[2]=='3'){
-    echo "Weddings and Meetings";
-
-}
-?></td>
+    <td><?=$halls[2];?></td>
     <td><?=$halls[3];?></td>
     <td><?=$halls[4];?></td>
     <td><?=$halls[5];?></td>
-    <td><a href="showprice.php?hallId=<?= $halls[0];?>"class="btn btn-dark">Show Price</a></td>
+    <td><?=$halls[6];?></td>
+    <td><?=$halls[7];?></td>
+    <td><?=$halls[8];?></td>
 
-    <td><a href="hallimages.php?hallId=<?= $halls[0];?>"class="btn btn-dark">Add Images for hall</a></td>
-    <td><a href="showimages.php?hallId=<?= $halls[0];?>"class="btn btn-dark">Show hall images</a></td>
-
-   <td><a href="handlers/deletesubhall.php?hallId=<?= $halls[0];?>"class="btn btn-dark">delete</a></td>
-   <td><a href="edit-subhall.php?hallId=<?= $halls[0];?>"class="btn btn-dark">Edit</a></td>
     </tr>
 <?php }
 
@@ -109,7 +103,7 @@ else if ($halls[2]=='3'){
 }
 else{?>
   <tr>
-    <td colspan="6" class="text-center">No SubHalls</td>
+    <td colspan="6" class="text-center">No Data</td>
   </tr>
   <?php
 } ?>
@@ -123,6 +117,8 @@ else{?>
        
 
            </ul>
+           <button class="btn btn-dark" onclick="history.back()">Go Back</button>
+
         </div>
 
     </main>

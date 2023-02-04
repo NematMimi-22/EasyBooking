@@ -3,7 +3,7 @@ require("handlers/db.php");
 require("handlers/get-subhall.php");
 $hallId=$_GET['hallId'];
 
-$sql="SELECT h.id,h.name,h.type,h.number_of_guests,h.price,h.hall_describtion,h.services,h.num_of_reservation FROM subhalls h where h.hall_id = '$hallId' ";
+$sql="SELECT h.id,h.name,h.type,h.number_of_guests,h.hall_describtion,h.services,h.num_of_reservation FROM subhalls h where h.hall_id = '$hallId' ";
 $query=mysqli_query($conn,$sql);
 
 
@@ -56,12 +56,12 @@ require("inc/header.php");
                     <th scope="col"  style="width:10%">Hall name</th>
                     <th scope="col">Type</th>
                     <th scope="col">Number of guests</th>
-                    <th scope="col">Price</th>
                     <th scope="col"style="width:40%">Hall describtion</th>
                     <th scope="col"> services</th>
                     <th scope="col"> Number of Reservations</th>
                     
-                 
+                    <th scope="col"> Show Price</th>
+
                     <th scope="col">Show Images for hall</th>
 
                     <th scope="col">Delete</th>
@@ -98,7 +98,8 @@ else if ($halls[2]=='3'){
     <td><?=$halls[4];?></td>
     <td><?=$halls[5];?></td>
     <td><?=$halls[6];?></td>
-    <td><?=$halls[7];?></td>
+    <td><a href="showprice.php?hallId=<?= $halls[0];?>"class="btn btn-dark">Show Price</a></td>
+
     <td><a href="showimages.php?hallId=<?= $halls[0];?>"class="btn btn-dark">Show hall images</a></td>
 
    <td><a href="handlers/deletesubhall.php?hallId=<?= $halls[0];?>"class="btn btn-dark">delete</a></td>

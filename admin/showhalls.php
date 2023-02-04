@@ -56,7 +56,6 @@ require("inc/header.php");
                     <th scope="col"style="width:17%">status</th>
                     <th scope="col"style="width:10%">Show Subhall</th>
                     <th scope="col">Delete</th>
-                    <th scope="col"style="width:40%">Action</th>
                    
 
                     </tr>

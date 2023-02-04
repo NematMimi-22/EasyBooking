@@ -53,31 +53,33 @@ if($number_of_guests=='1'){
 
             }
    
+            $day = date("l", strtotime($date));
+            echo $day;
+            $pricesql= "SELECT $day
+            FROM prices
+            WHERE hall_id = $shallId
+            ";
+            $priceResult = mysqli_query($conn,  $pricesql);
+          
+            $price = mysqli_fetch_assoc($priceResult);
+            $price = $price[$day];
 
-
+       echo $price;   
 // Check for conflicting reservations
 $checkSql = "SELECT * FROM reservations WHERE hall_id = '$shallId' AND date = '$newDate' AND (('$start_time' BETWEEN start_time AND end_time) OR ('$end_time' BETWEEN start_time AND end_time))";
 $checkResult = mysqli_query($conn, $checkSql);
 if (mysqli_num_rows($checkResult) > 0) {
   $errors[] = "Sorry, the selected hall is already reserved for that date and time.";
 }
-$checkSql2 = "SELECT * FROM reservations
-WHERE TIMESTAMPDIFF(MINUTE, start_time, end_time) <= 60 
-";
-;
-$checkResult2 = mysqli_query($conn, $checkSql2);
-if (mysqli_num_rows($checkResult2) > 0) {
-    $errors[] = "Sorry, You can not make a reservation less than 1 hour";
 
-}
 
 if (empty($errors)){
     
    
    
     //insert data in database
-    $sql="INSERT INTO reservations(event_type, number_guests,date,start_time, end_time, notes, hall_id,user_id) 
-    VALUES ('$type','$number_of_guests','$newDate','$start_time','$end_time','$notes','$shallId','$userId')";
+    $sql="INSERT INTO reservations(event_type, number_guests,date,start_time, end_time, notes, hall_id,user_id,price) 
+    VALUES ('$type','$number_of_guests','$newDate','$start_time','$end_time','$notes','$shallId','$userId','$price')";
 //check if added and make alert that tell user that added and return to insert bage
 if($sqlResult=mysqli_query($conn,$sql)){
     $_SESSION['success']="Reservation added successfully";
@@ -90,7 +92,7 @@ header("Refresh:0;URL=../../Bookingthanks.php");
 $_SESSION['errors']="error while inserted";
 
 $_SESSION['errors']=$errors;
-    header("Refresh:0;URL=../../book.php?shallId=$shallId");
+   header("Refresh:0;URL=../../book.php?shallId=$shallId");
 
 }
 

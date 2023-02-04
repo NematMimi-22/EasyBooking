@@ -123,7 +123,7 @@
                         </div>
                     </div>
                     <div class="price-tag">
-                        <span><?php echo $shallData['price'] ?>₪</span>
+                        <span><?php  ?>₪</span>//price
                         
                     </div>
                     <h2><?php echo $shallData['name'] ?></h2>

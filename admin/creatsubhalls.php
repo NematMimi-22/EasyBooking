@@ -75,11 +75,19 @@ $sql="SELECT * FROM halls where id='$id'";
   </select>
 </div>
                
+                
                 <div class="form-group">
                     <label for="name">Price</label>
-                    <input type="text" name="price"class="form-control" id="name" placeholder="Enter price " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>
-                </div>
-               
+                    <input type="text" name="Sunday"class="form-control" id="name" placeholder="Enter price in Sunday " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>
+                    <input type="text" name="Monday"class="form-control" id="name" placeholder="Enter price in Monday " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>
+                    <input type="text" name="Tuesday"class="form-control" id="name" placeholder="Enter price in Tuesday " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>
+                    <input type="text" name="Wednesday"class="form-control" id="name" placeholder="Enter price in Wednesday " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>
+                    <input type="text" name="Thursday"class="form-control" id="Thursday" placeholder="Enter price in Thursday  " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>
+                    <input type="text" name="Friday"class="form-control" id="Friday" placeholder="Enter price in Friday  " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>
+                    <input type="text" name="Saturday"class="form-control" id="Saturday" placeholder="Enter price in Saturday  " value= <?php if( isset($_SESSION['formhalldata']['price'])) echo $_SESSION['formhalldata']['price']?>>
+
+                  </div>
+          
                 <div class="form-group">
                     <label for="name">Hall description</label>
                     <textarea  placeholder="Enter a Hall description"  class="form-control" name="hall_describtion" rows="3" id="comment" ><?php if( isset($_SESSION['formhalldata']['hall_describtion'])) echo $_SESSION['formhalldata']['hall_describtion']?></textarea>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 03, 2023 at 08:43 PM
--- Server version: 8.0.13
--- PHP Version: 8.1.10
+-- Generation Time: Feb 04, 2023 at 03:29 PM
+-- Server version: 8.0.21
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` char(200) NOT NULL,
   `email` char(255) NOT NULL,
   `password` char(200) NOT NULL,
-  `type` tinyint(4) NOT NULL DEFAULT '1',
+  `type` tinyint NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -59,7 +59,7 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`, `type`, `created_at`) V
 --
 
 CREATE TABLE `calendar` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `title` varchar(200) NOT NULL,
   `start` date NOT NULL,
   `end` date NOT NULL
@@ -80,7 +80,7 @@ INSERT INTO `calendar` (`id`, `title`, `start`, `end`) VALUES
 --
 
 CREATE TABLE `features` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(200) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `icon` varchar(500) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
@@ -102,9 +102,9 @@ INSERT INTO `features` (`id`, `name`, `icon`) VALUES
 --
 
 CREATE TABLE `feedbacks` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `FeedBack` varchar(500) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -123,14 +123,14 @@ INSERT INTO `feedbacks` (`id`, `FeedBack`, `user_id`) VALUES
 --
 
 CREATE TABLE `feedback_subhall` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `experience` varchar(200) NOT NULL,
   `Recommendation` varchar(200) NOT NULL,
   `halls_images_useful` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `payment_process` varchar(200) NOT NULL,
   `feedback` varchar(500) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `hall_id` int(11) NOT NULL
+  `user_id` int NOT NULL,
+  `hall_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -154,28 +154,8 @@ INSERT INTO `feedback_subhall` (`id`, `experience`, `Recommendation`, `halls_ima
 (17, 'Good', 'Recommend', 'Bad', 'Bad', ',,,', 32, 74),
 (18, 'Good', 'Recommend', 'Good', 'Good', 'm', 32, 74),
 (19, 'Excellent', 'Recommend', 'Bad', 'Bad', 'n', 32, 74),
-(20, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(21, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(22, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(23, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(24, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(25, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(26, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(27, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(28, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(29, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(30, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(31, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 41, 77),
-(32, '', '', '', '', '', 35, 74),
-(33, '', '', '', '', '', 35, 74),
-(34, '', '', '', '', '', 35, 74),
-(35, '', '', '', '', '', 35, 74),
-(36, '', '', '', '', '', 35, 74),
-(37, '', '', '', '', '', 35, 74),
-(38, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 35, 78),
-(39, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 35, 78),
-(40, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 35, 78),
-(41, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 35, 78);
+(20, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 32, 74),
+(42, 'Excellent', 'Highly Recommend', 'Good', 'Good', '', 32, 74);
 
 -- --------------------------------------------------------
 
@@ -184,15 +164,15 @@ INSERT INTO `feedback_subhall` (`id`, `experience`, `Recommendation`, `halls_ima
 --
 
 CREATE TABLE `halls` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(200) NOT NULL,
-  `type` int(11) NOT NULL,
-  `city` enum('Birzeit','Jifna','Betonya','Kufur Aqab','Ramallah','Ramallah(Al-Masayif)','Ramallah(Al-Tireh)','Ramallah (Al-Irsal)','Ramallah(Al-Masyoun)','Al-Bireh','Al-Bireh(Nablus Street)','Al-Bireh(Al-Balou)','Al-Bireh(Um Al-Sharayet)','Al-Bireh(Al-Quds Street)') NOT NULL,
+  `type` int NOT NULL,
+  `city` enum('Ramallah','Al-Bireh','Birzeit') NOT NULL,
   `address` varchar(255) NOT NULL,
   `hall_describtion` varchar(500) NOT NULL,
   `image` varchar(500) NOT NULL,
   `image_view` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int NOT NULL,
   `status` enum('pending','approved','canceled') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -202,11 +182,11 @@ CREATE TABLE `halls` (
 
 INSERT INTO `halls` (`id`, `name`, `type`, `city`, `address`, `hall_describtion`, `image`, `image_view`, `user_id`, `status`) VALUES
 (79, 'Elya Venues', 1, 'Al-Bireh', 'Al-Bireh', '- Illuminated Dance Floor\r\n- Air-conditioning System\r\n- Separate entrances for both men and  women\r\n- Different options of decorations', '63d6e3a211735.pdf', '63d6e3a21171a.jpg', 42, 'approved'),
-(80, 'Royal Halls', 1, 'Jifna', 'Birzeit-Jiffna', 'It has 4 halls (2 indoor halls for women and 2 outdoor halls for men). \r\n\r\nContact info: 0599221720', '63d718e83c1cf.pdf', '63d718e83c1a1.png', 43, 'approved'),
+(80, 'Royal Halls', 1, 'Birzeit', 'Birzeit-Jiffna', 'It has 4 halls (2 indoor halls for women and 2 outdoor halls for men). \r\n\r\nContact info: 0599221720', '63d718e83c1cf.pdf', '63d718e83c1a1.png', 43, 'approved'),
 (81, 'Ramallah Cultural Palace', 2, 'Ramallah', 'Industrial Zone', 'It can accommodate 200 people and enjoys the maximum specifications, comprehensive audio-to-visual technology, heating and cooling systems, and tables that can be moved and set as needed.', '63d72051b9c68.pdf', '63d72051b9c36.jpg', 44, 'approved'),
-(82, 'Carmel Hotel', 3, 'Ramallah(Al-Masyoun)', 'Al-Masyoon', 'Has two halls, one is for weddings and the other is for meetings.', '63d7339724ee0.pdf', '63d7339724ce1.png', 45, 'approved'),
-(83, 'Gloria Venues', 1, 'Ramallah (Al-Irsal)', 'Al-Irsal', 'Two halls (one for men and one for women).', '63d739af19adc.pdf', '63d739af19ab7.png', 37, 'approved'),
-(84, 'Ceaser Hotel', 3, 'Ramallah(Al-Masyoun)', 'Al-Masyoon', 'Two wedding halls for men and women and group of halls for meetings and other events.', '63d73d619d31c.pdf', '63d73d619d309.png', 37, 'approved');
+(82, 'Carmel Hotel', 3, 'Ramallah', 'Al-Masyoon', 'Has two halls, one is for weddings and the other is for meetings.', '63d7339724ee0.pdf', '63d7339724ce1.png', 45, 'approved'),
+(83, 'Gloria Venues', 1, 'Ramallah', 'Al-Irsal', 'Two halls (one for men and one for women).', '63d739af19adc.pdf', '63d739af19ab7.png', 37, 'approved'),
+(84, 'Ceaser Hotel', 3, 'Al-Bireh', 'Al-Masyoon', 'Two wedding halls for men and women and group of halls for meetings and other events.', '63d73d619d31c.pdf', '63d73d619d309.png', 37, 'approved');
 
 -- --------------------------------------------------------
 
@@ -215,10 +195,10 @@ INSERT INTO `halls` (`id`, `name`, `type`, `city`, `address`, `hall_describtion`
 --
 
 CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `image` varchar(255) NOT NULL,
   `uploaded_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `subhall_id` int(11) NOT NULL
+  `subhall_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -256,14 +236,40 @@ INSERT INTO `images` (`id`, `image`, `uploaded_on`, `subhall_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `prices`
+--
+
+CREATE TABLE `prices` (
+  `id` int NOT NULL,
+  `hall_id` int NOT NULL,
+  `Sunday` int NOT NULL,
+  `Monday` int NOT NULL,
+  `Tuesday` int NOT NULL,
+  `Wednesday` int NOT NULL,
+  `Thursday` int NOT NULL,
+  `Friday` int NOT NULL,
+  `Saturday` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `prices`
+--
+
+INSERT INTO `prices` (`id`, `hall_id`, `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`) VALUES
+(2, 79, 7007, 200, 5000, 600, 700, 900, 1000),
+(4, 78, 100, 200, 600, 1000, 4000, 5000, 6000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rating`
 --
 
 CREATE TABLE `rating` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `hall_id` int(11) NOT NULL,
-  `rating_number` int(11) NOT NULL,
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `hall_id` int NOT NULL,
+  `rating_number` int NOT NULL,
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -278,7 +284,8 @@ INSERT INTO `rating` (`id`, `user_id`, `hall_id`, `rating_number`, `description`
 (4, 35, 74, 5, 'nice'),
 (5, 35, 74, 1, ''),
 (6, 35, 78, 2, ''),
-(7, 35, 78, 5, 'wow');
+(7, 35, 78, 5, 'wow'),
+(8, 32, 74, 3, 'nnn');
 
 -- --------------------------------------------------------
 
@@ -287,32 +294,35 @@ INSERT INTO `rating` (`id`, `user_id`, `hall_id`, `rating_number`, `description`
 --
 
 CREATE TABLE `reservations` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `event_type` varchar(255) NOT NULL,
-  `number_guests` int(11) NOT NULL,
+  `number_guests` int NOT NULL,
   `date` date NOT NULL,
   `start_time` time NOT NULL,
   `end_time` time NOT NULL,
   `notes` varchar(1000) NOT NULL,
-  `hall_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `status` enum('pending','approved','canceled') NOT NULL DEFAULT 'pending'
+  `hall_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `status` enum('pending','approved','canceled') NOT NULL DEFAULT 'pending',
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `price` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `reservations`
 --
 
-INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`) VALUES
-(20, '2', 100, '2023-01-31', '11:12:00', '15:12:00', 'test', 78, 35, 'approved'),
-(21, '3', 100, '2023-02-07', '09:19:00', '14:19:00', ',', 78, 32, 'approved'),
-(22, '9', 100, '2023-01-30', '10:11:00', '22:11:00', '.', 74, 32, 'approved'),
-(23, '10', 200, '2023-02-16', '14:12:00', '16:12:00', ',,', 74, 32, 'approved'),
-(24, '9', 100, '2023-02-05', '12:32:00', '14:32:00', '12-2', 74, 32, 'pending'),
-(25, '10', 100, '2023-02-05', '17:33:00', '19:33:00', '17-19', 74, 32, 'pending'),
-(26, '9', 200, '2023-02-05', '15:33:00', '16:33:00', ',', 74, 32, 'pending'),
-(27, '9', 100, '2023-02-02', '13:02:00', '13:30:00', ',,,', 74, 35, 'pending'),
-(28, '2', 100, '2023-01-01', '20:00:00', '22:21:00', '', 77, 41, 'approved');
+INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`, `created_at`, `price`) VALUES
+(20, '2', 100, '2023-01-31', '11:12:00', '15:12:00', 'test', 78, 35, 'approved', '2023-02-04 16:39:44', 500),
+(21, '3', 100, '2023-02-07', '09:19:00', '14:19:00', ',', 78, 32, 'approved', '2023-02-04 16:39:44', 600),
+(22, '9', 100, '2023-01-30', '10:11:00', '22:11:00', '.', 74, 32, 'approved', '2023-02-04 16:39:44', 700),
+(23, '10', 200, '2023-02-16', '14:12:00', '16:12:00', ',,', 74, 32, 'approved', '2023-02-04 16:39:44', 1000),
+(24, '9', 100, '2023-02-05', '12:32:00', '14:32:00', '12-2', 74, 32, 'pending', '2023-02-04 16:39:44', 1000),
+(25, '10', 100, '2023-02-05', '17:33:00', '19:33:00', '17-19', 74, 32, 'pending', '2023-02-04 16:39:44', 4000),
+(26, '9', 200, '2023-02-05', '15:33:00', '16:33:00', ',', 74, 32, 'pending', '2023-02-04 16:39:44', 400),
+(27, '9', 100, '2023-02-02', '13:02:00', '13:30:00', ',,,', 74, 35, 'pending', '2023-02-04 16:39:44', 500),
+(28, '2', 100, '2023-01-01', '20:00:00', '22:21:00', '', 77, 41, 'approved', '2023-02-04 16:39:44', 1000),
+(29, '2', 100, '2023-02-10', '16:13:00', '18:13:00', 'm', 78, 37, 'pending', '2023-02-04 17:13:24', 5000);
 
 -- --------------------------------------------------------
 
@@ -321,30 +331,29 @@ INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_
 --
 
 CREATE TABLE `subhalls` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(200) NOT NULL,
-  `type` int(11) NOT NULL,
-  `number_of_guests` int(11) NOT NULL,
-  `price` float NOT NULL,
+  `type` int NOT NULL,
+  `number_of_guests` int NOT NULL,
   `hall_describtion` varchar(500) NOT NULL,
   `services` varchar(500) NOT NULL,
   `image_view` varchar(300) NOT NULL,
-  `hall_id` int(11) NOT NULL,
-  `num_of_reservation` int(11) NOT NULL DEFAULT '0'
+  `hall_id` int NOT NULL,
+  `num_of_reservation` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `subhalls`
 --
 
-INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `price`, `hall_describtion`, `services`, `image_view`, `hall_id`, `num_of_reservation`) VALUES
-(72, 'Elya Venues-Women hall', 1, 1000, 15000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System\r\n- Ample Parking\r\n- Separate Entrance\r\n- Security Group\r\n- Special Hospitality \r\n- Waiting Room For the Bride\r\n- Electrical Elevators \r\n- DJ and huge monitors\r\n- Different options for decorations', '63d70a1843c7b.png', 79, 2),
-(73, 'Royal Hall-Indoor Women Hall', 1, 500, 8000, 'Address: Jifna near Birzeit\r\nContact info: 0599221720', 'Cake, flowers decorations, drinks, DJ, Dinner, and lighting. In addition, Security cameras, sound systems, and huge monitors.', '63d71a756e22d.png', 80, 0),
-(74, 'Ramallah Cultural Palace', 2, 200, 2000, 'It can accommodate 200 people and enjoys the maximum specifications.', 'Comprehensive audio-to-visual technology, heating, and cooling systems, and tables that can be moved and set as needed.', '63d721051bc75.jpg', 81, 4),
-(76, 'Elya Venues-Men hall', 1, 1000, 15000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System - Ample Parking - Separate Entrance - Security Group - Electrical Elevators - DJ and huge monitors - Different options for decorations', '63d723f09ff41.jpg', 79, 1),
-(77, 'Carmel Hotel-Wedding Hall', 1, 500, 25000, 'Contact info: 02 297 2222', 'Dinner , decoration, DJ , cake , parking, and Pool in the hall', '63d735a857c62.png', 82, 6),
-(78, 'Gloria Venues-Women Hall', 1, 500, 24000, 'Contact info:  0568650650  //  022955700', 'Full service , dinner is available , many decorations, condition system (high quality ), special lighting system, special sound system, 3 screens, lighting dance floor.', '63d73a8cd2203.png', 83, 3),
-(79, 'Ceaser Hotel-Meeting Hall', 2, 100, 3000, 'Address: Al-Masyoon\r\nService depends on the event and its organizers\r\nContact info: 0595111331', 'Drinks and lunch.', '63d73f7831c78.png', 84, 0);
+INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `hall_describtion`, `services`, `image_view`, `hall_id`, `num_of_reservation`) VALUES
+(72, 'Elya Venues-Women hall', 1, 1000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System\r\n- Ample Parking\r\n- Separate Entrance\r\n- Security Group\r\n- Special Hospitality \r\n- Waiting Room For the Bride\r\n- Electrical Elevators \r\n- DJ and huge monitors\r\n- Different options for decorations', '63d70a1843c7b.png', 79, 2),
+(73, 'Royal Hall-Indoor Women Hall', 1, 500, 'Address: Jifna near Birzeit\r\nContact info: 0599221720', 'Cake, flowers decorations, drinks, DJ, Dinner, and lighting. In addition, Security cameras, sound systems, and huge monitors.', '63d71a756e22d.png', 80, 0),
+(74, 'Ramallah Cultural Palace', 2, 200, 'It can accommodate 200 people and enjoys the maximum specifications.', 'Comprehensive audio-to-visual technology, heating, and cooling systems, and tables that can be moved and set as needed.', '63d721051bc75.jpg', 81, 4),
+(76, 'Elya Venues-Men hall', 1, 1000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System - Ample Parking - Separate Entrance - Security Group - Electrical Elevators - DJ and huge monitors - Different options for decorations', '63d723f09ff41.jpg', 79, 1),
+(77, 'Carmel Hotel-Wedding Hall', 1, 500, 'Contact info: 02 297 2222', 'Dinner , decoration, DJ , cake , parking, and Pool in the hall', '63d735a857c62.png', 82, 6),
+(78, 'Gloria Venues-Women Hall', 1, 500, 'Contact info:  0568650650  //  022955700', 'Full service , dinner is available , many decorations, condition system (high quality ), special lighting system, special sound system, 3 screens, lighting dance floor.', '63d73a8cd2203.png', 83, 3),
+(79, 'Ceaser Hotel-Meeting Hall', 2, 100, 'Address: Al-Masyoon\r\nService depends on the event and its organizers\r\nContact info: 0595111331', 'Drinks and lunch.', '63d73f7831c78.png', 84, 0);
 
 -- --------------------------------------------------------
 
@@ -353,7 +362,7 @@ INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `price`, `hall
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(200) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `password` varchar(200) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `email` varchar(200) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
@@ -450,6 +459,13 @@ ALTER TABLE `images`
   ADD KEY `subhall_id` (`subhall_id`);
 
 --
+-- Indexes for table `prices`
+--
+ALTER TABLE `prices`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_hall` (`hall_id`);
+
+--
 -- Indexes for table `rating`
 --
 ALTER TABLE `rating`
@@ -484,67 +500,73 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `calendar`
 --
 ALTER TABLE `calendar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `feedback_subhall`
 --
 ALTER TABLE `feedback_subhall`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `halls`
 --
 ALTER TABLE `halls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+
+--
+-- AUTO_INCREMENT for table `prices`
+--
+ALTER TABLE `prices`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `subhalls`
 --
 ALTER TABLE `subhalls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Constraints for dumped tables
@@ -561,6 +583,12 @@ ALTER TABLE `feedbacks`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`subhall_id`) REFERENCES `subhalls` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `prices`
+--
+ALTER TABLE `prices`
+  ADD CONSTRAINT `prices_ibfk_1` FOREIGN KEY (`hall_id`) REFERENCES `subhalls` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `reservations`

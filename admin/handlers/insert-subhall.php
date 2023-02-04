@@ -8,7 +8,24 @@ $type=strip_tags(trim($_POST['type']));
 $number_of_guests=strip_tags(trim($_POST['number_of_guests']));
 $services=strip_tags(trim($_POST['services']));
 $hall_describtion=strip_tags(trim($_POST['hall_describtion']));
-$price=strip_tags(trim($_POST['price']));
+
+
+$Sunday=strip_tags(trim($_POST['Sunday']));
+$Monday=strip_tags(trim($_POST['Monday']));
+$Tuesday=strip_tags(trim($_POST['Tuesday']));
+$Wednesday=strip_tags(trim($_POST['Wednesday']));
+$Thursday=strip_tags(trim($_POST['Thursday']));
+$Friday=strip_tags(trim($_POST['Friday']));
+$Saturday=strip_tags(trim($_POST['Saturday']));
+
+
+
+
+
+
+
+
+
 $hall_id=$_POST['hall_id'];
 
 $image_view= $_FILES['image_view'];
@@ -25,6 +42,58 @@ $_SESSION['formhalldata']= $_POST;
 $errors=[];
 //Validation
 //--1 for name
+if(empty($Sunday)){
+    $errors[]="price is required";
+    }elseif(!is_numeric($Sunday)){
+
+    $errors[]="price must be a number";
+    }
+    if(empty($Monday)){
+        $errors[]="price is required";
+        }elseif(!is_numeric($Monday)){
+    
+        $errors[]="price must be a number";
+        }
+    
+        if(empty($Tuesday)){
+            $errors[]="price is required";
+            }elseif(!is_numeric($Tuesday)){
+        
+            $errors[]="price must be a number";
+            }
+        
+            if(empty($Wednesday)){
+                $errors[]="price is required";
+                }elseif(!is_numeric($Wednesday)){
+            
+                $errors[]="price must be a number";
+                }
+                if(empty($Thursday)){
+                    $errors[]="price is required";
+                    }elseif(!is_numeric($Thursday)){
+                
+                    $errors[]="price must be a number";
+                    }
+                    if(empty($Friday)){
+                        $errors[]="price is required";
+                        }elseif(!is_numeric($Friday)){
+                    
+                        $errors[]="price must be a number";
+                        }
+                        if(empty($Saturday)){
+                            $errors[]="price is required";
+                            }elseif(!is_numeric($Saturday)){
+                        
+                            $errors[]="price must be a number";
+                            }
+                        
+                    
+                
+            
+
+
+
+
 if(empty($name)){
 $errors[]="Name is required";
 }elseif(is_numeric($name)){
@@ -48,12 +117,7 @@ if($type=='0'){
     
         $errors[]="Number of guests must be a number";
         }
-        if(empty($price)){
-            $errors[]="price is required";
-            }elseif(!is_numeric($price)){
-        
-            $errors[]="price must be a number";
-            }
+   
 
  
 
@@ -93,8 +157,8 @@ $errors[]="This is not an image";
 //$sql="SELECT id,name, city, number_of_guests,services,hall_describtion,price FROM halls";
 if (empty($errors)){
    
-$sql="INSERT INTO subhalls(name,type,number_of_guests,price, hall_describtion, services,image_view,hall_id) 
-VALUES ('$name','$type','$number_of_guests','$price','$hall_describtion','$services','$newNamev','$hall_id')";
+$sql="INSERT INTO subhalls(name,type,number_of_guests, hall_describtion, services,image_view,hall_id) 
+VALUES ('$name','$type','$number_of_guests','$hall_describtion','$services','$newNamev','$hall_id')";
 //check if added and make alert that tell user that added and return to insert bage
 
 if ($sqlResult=mysqli_query($conn,$sql)){
@@ -104,6 +168,12 @@ $_SESSION['hall_id2'] =$last_id2;
     $_SESSION['success']="Hall added successfully";
   
     echo $last_id2;
+
+    $sql2="INSERT INTO prices(hall_id,Sunday,Monday,Tuesday,Wednesday, Thursday, Friday,Saturday) 
+VALUES ( '$last_id2','$Sunday','$Monday','$Tuesday','$Wednesday', '$Thursday', '$Friday','$Saturday')";
+//check if added and make alert that tell user that added and return to insert bage
+$sqlResult2=mysqli_query($conn,$sql2);
+
 header("Refresh:0;URL=../hallimages.php?hallId=$last_id2");
 
 }}

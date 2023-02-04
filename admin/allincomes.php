@@ -228,7 +228,7 @@ foreach($halls as $inner_array) {
 
         foreach($halls as $inner_array) {
           foreach($inner_array as $element) {
-            $sql="SELECT *,subhalls.price,subhalls.name FROM reservations 
+            $sql="SELECT *,subhalls.name FROM reservations 
             JOIN subhalls ON reservations.hall_id = subhalls.id 
             WHERE reservations.hall_id = $element and reservations.status='approved'  
             ";
@@ -290,7 +290,7 @@ foreach($halls as $inner_array) {
 foreach($halls as $inner_array) {
 foreach($inner_array as $element) {
 
-$sql2="  SELECT subhalls.name as hall_name, SUM(subhalls.price) as total_price FROM reservations 
+$sql2="  SELECT subhalls.name as hall_name, SUM(reservations.price) as total_price FROM reservations 
 JOIN subhalls ON reservations.hall_id = subhalls.id 
 WHERE reservations.hall_id = $element and reservations.status='approved' 
 GROUP BY reservations.hall_id, subhalls.name

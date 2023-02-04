@@ -47,7 +47,13 @@ $test=   $_SESSION['usertype'];
                 </div>
                 <div class="form-group">
                     <label for="name">Price</label>
-                    <input type="text" name="price" class="form-control" id="price" value="<?= $hallData['price'];?>" placeholder="Enter price">
+                    <input type="text" name="Sunday" class="form-control" id="price" value="<?= $hallData['Sunday'];?>" placeholder="Enter price">
+                    <input type="text" name="Monday" class="form-control" id="price" value="<?= $hallData['Monday'];?>" placeholder="Enter price">
+                    <input type="text" name="Tuesday" class="form-control" id="price" value="<?= $hallData['Tuesday'];?>" placeholder="Enter price">
+                    <input type="text" name="Wednesday" class="form-control" id="price" value="<?= $hallData['Wednesday'];?>" placeholder="Enter price">
+                    <input type="text" name="Thursday" class="form-control" id="price" value="<?= $hallData['Thursday'];?>" placeholder="Enter price">
+                    <input type="text" name="Friday" class="form-control" id="price" value="<?= $hallData['Friday'];?>" placeholder="Enter price">
+                    <input type="text" name="Saturday" class="form-control" id="price" value="<?= $hallData['Saturday'];?>" placeholder="Enter price">
 
                 </div>
 

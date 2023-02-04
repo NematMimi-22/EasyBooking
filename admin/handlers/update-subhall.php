@@ -18,11 +18,67 @@ if(mysqli_num_rows($query)>0){
     $number_of_guests=strip_tags(trim($_POST['number_of_guests']));
     $services=strip_tags(trim($_POST['services']));
     $hall_describtion=strip_tags(trim($_POST['hall_describtion']));
-    $price=strip_tags(trim($_POST['price']));
    
+
+
+    $Sunday=strip_tags(trim($_POST['Sunday']));
+    $Monday=strip_tags(trim($_POST['Monday']));
+    $Tuesday=strip_tags(trim($_POST['Tuesday']));
+    $Wednesday=strip_tags(trim($_POST['Wednesday']));
+    $Thursday=strip_tags(trim($_POST['Thursday']));
+    $Friday=strip_tags(trim($_POST['Friday']));
+    $Saturday=strip_tags(trim($_POST['Saturday']));
+
+
 $errors=[];
 
+if(empty($Sunday)){
+    $errors[]="price is required";
+    }elseif(!is_numeric($Sunday)){
 
+    $errors[]="price must be a number";
+    }
+    if(empty($Monday)){
+        $errors[]="price is required";
+        }elseif(!is_numeric($Monday)){
+    
+        $errors[]="price must be a number";
+        }
+    
+        if(empty($Tuesday)){
+            $errors[]="price is required";
+            }elseif(!is_numeric($Tuesday)){
+        
+            $errors[]="price must be a number";
+            }
+        
+            if(empty($Wednesday)){
+                $errors[]="price is required";
+                }elseif(!is_numeric($Wednesday)){
+            
+                $errors[]="price must be a number";
+                }
+                if(empty($Thursday)){
+                    $errors[]="price is required";
+                    }elseif(!is_numeric($Thursday)){
+                
+                    $errors[]="price must be a number";
+                    }
+                    if(empty($Friday)){
+                        $errors[]="price is required";
+                        }elseif(!is_numeric($Friday)){
+                    
+                        $errors[]="price must be a number";
+                        }
+                        if(empty($Saturday)){
+                            $errors[]="price is required";
+                            }elseif(!is_numeric($Saturday)){
+                        
+                            $errors[]="price must be a number";
+                            }
+                        
+                    
+              
 if(empty($name)){
     $errors[]="Name is required";
     }elseif(is_numeric($name)){
@@ -39,13 +95,7 @@ if(empty($name)){
         
             $errors[]="Number of guests must be a number";
             }
-            if(empty($price)){
-                $errors[]="price is required";
-                }elseif(!is_numeric($price)){
-            
-                $errors[]="price must be a number";
-                }
-    
+
      
     
                 if(empty($hall_describtion)){
@@ -64,7 +114,7 @@ if(empty($name)){
 
 
 
-$sql="SELECT id,name,type,  number_of_guests,price,hall_describtion,services FROM subhalls";
+$sql="SELECT id,name,type,  number_of_guests,hall_describtion,services FROM subhalls";
 
 
 
@@ -73,12 +123,22 @@ $sql="UPDATE subhalls SET
 name='$name',
 type='$type',
 number_of_guests='$number_of_guests',
-price='$price',
+
 hall_describtion='$hall_describtion',
 services='$services'
 WHERE id=$hallId";
 if(mysqli_query($conn,$sql)){
-
+    $sql2="UPDATE prices SET
+    Sunday='$Sunday',
+    Monday='$Monday',
+    Tuesday='$Tuesday',
+    Wednesday='$Wednesday', 
+    Thursday='$Thursday', 
+    Friday='$Friday'
+    ,Saturday ='$Saturday'
+    WHERE hall_id=$hallId";
+    //check if added and make alert that tell user that added and return to insert bage
+    $sqlResult2=mysqli_query($conn,$sql2);
 $_SESSION['success1']="Hall updated succefully";
 $test=   $_SESSION['usertype'];
 

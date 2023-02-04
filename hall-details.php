@@ -41,7 +41,7 @@
     $query1=mysqli_query($conn,$sql1);
     $halls=mysqli_fetch_all($query1,MYSQLI_ASSOC);
     
-    $sql2="SELECT h.id,h.name,h.type,h.number_of_guests,h.price,h.hall_describtion,h.services FROM subhalls h where h.hall_id = '$hallId' ";
+    $sql2="SELECT h.id,h.name,h.type,h.number_of_guests,h.hall_describtion,h.services FROM subhalls h where h.hall_id = '$hallId' ";
     $query2=mysqli_query($conn,$sql2);
     $shalls=mysqli_fetch_all($query2,MYSQLI_ASSOC);
     
