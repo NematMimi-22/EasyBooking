@@ -294,9 +294,6 @@ $sql2="  SELECT subhalls.name as hall_name, SUM(reservations.price) as total_pri
 JOIN subhalls ON reservations.hall_id = subhalls.id 
 WHERE reservations.hall_id = $element and reservations.status='approved' 
 GROUP BY reservations.hall_id, subhalls.name
-
-
-
 ";  
 
 

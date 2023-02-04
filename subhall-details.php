@@ -56,7 +56,19 @@
     $query2=mysqli_query($conn,$sql2);
     $reservations=mysqli_fetch_all($query2,MYSQLI_ASSOC);
 
-  
+    $sql3="SELECT MIN(LEAST(Sunday, Monday,Tuesday,Wednesday,Thursday,Friday,Saturday)) as min_price,MAX(GREATEST(Sunday, Monday,Tuesday,Wednesday,Thursday,Friday,Saturday)) as max_price
+    FROM prices
+    WHERE hall_id = $shallId;
+    ";
+    $query3=mysqli_query($conn,$sql3);
+   
+    $price = mysqli_fetch_assoc($query3);
+   // $result = // result of the query
+
+    $min_price =  $price['min_price'];
+    $max_price =  $price['max_price'];
+    
+
 
 	include_once 'rating.php';
 
@@ -122,10 +134,7 @@
                             <div class="swiper-button-next-m"><i class="bi bi-chevron-right"></i></div>
                         </div>
                     </div>
-                    <div class="price-tag">
-                        <span><?php  ?>₪</span>//price
-                        
-                    </div>
+               
                     <h2><?php echo $shallData['name'] ?></h2>
                     <ul class="stars d-flex align-items-center">
                     <?php
@@ -147,12 +156,15 @@ echo	'<i class="fa fa-star '.$ratingClass. '"; aria-hidden="true"></i>';
 
 ?>
                     </ul>
-                    
+                
+                    <h4>Price</h4>
+                    <ul<p><?php echo $min_price?>₪ - <?php echo $max_price?>₪</p></ul>
+                 
                     <h4>Capacity</h4>
                     <ul<p><?php echo $shallData['number_of_guests']?> Guest</p></ul>
                  
                     <h4>Extra Services</h4>
-                    <ul<p><?php echo $shallData['hall_describtion']?></p>
+                    <ul<p><?php echo $shallData['services']?></p>
 
                     
                     </ul>

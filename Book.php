@@ -152,6 +152,8 @@ require ('inc/head.php'); ?>
                                         <input autocomplete="off" placeholder="Pick A Date" type="text" name="date" id="datepicker16" value="" class="claender">
                                     </div>
                                 </div>
+
+ 
                                 
                                 <div class="row">
                                     <div class="col-xl-6">
@@ -205,6 +207,8 @@ require ('inc/head.php'); ?>
                                 <button type="submit">Book Now</button>
                             </div> 
                         </form>
+
+
                         </div>
                    
                     </div>
