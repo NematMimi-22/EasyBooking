@@ -8,7 +8,7 @@ $user_id=$_POST['user_id'];
 $errors=[];
 
 if(empty($FeedBack)){
-    $errors[]="empty";    
+    $errors[]="Please Give your FeedBack!";    
     }
 
     if (empty($errors)){
@@ -18,8 +18,9 @@ VALUES ('$FeedBack','$user_id')";
 $sqlResult=mysqli_query($conn,$sql);
 header("Refresh:0;URL=../../Feedbackthanks.php");
     }else{
-
+      
         header("Refresh:0;URL=../../FeedBack.php");
+        $_SESSION['errors']= $errors;
     }
 ?>
 

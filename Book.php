@@ -164,6 +164,8 @@ require ('inc/head.php'); ?>
                                     </div>
                                     <script>
                                     let e2TP = new fg.Timepicker({
+                                    hoursStart:09,
+                                    hoursEnd: 24,
                                     bindInput: document.getElementById('e2_input'),
                                     animatePopup: true});
                                     </script>
@@ -181,12 +183,10 @@ require ('inc/head.php'); ?>
                                     </div>
                                     <script>
                                    let e3TP = new fg.Timepicker({
-  bindInput: document.getElementById('e3_input'),
-  animatePopup: true,
-
-
-
-});
+                                   hoursStart:09,
+                                   hoursEnd: 24,
+                                   bindInput: document.getElementById('e3_input'),
+                                   animatePopup: true,});
 
                                     </script>
                                     </div>

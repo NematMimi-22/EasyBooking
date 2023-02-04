@@ -47,16 +47,30 @@
     
     require("admin/handlers/get_feedback_subhall.php");
 
-    $sql1="SELECT * FROM feedback_subhall Where hall_id=$shallId ORDER BY id DESC";
+    $sql1="SELECT * FROM feedback_subhall WHERE feedback != '' AND hall_id=$shallId ORDER BY id DESC;
+    ";
     $query1=mysqli_query($conn,$sql1);
     $users=mysqli_fetch_all($query1,MYSQLI_ASSOC);
     
     $sql2="SELECT * From reservations where hall_id=$shallId and user_id=$userid";
     $query2=mysqli_query($conn,$sql2);
     $reservations=mysqli_fetch_all($query2,MYSQLI_ASSOC);
+
+  
+
+	include_once 'rating.php';
+
+	$rating = new Rating();
+	$average = $rating->getRatingAverage($shallId);
+	$count = $rating->getRatingTotal($shallId);
+	
     
     
     ?>
+
+<head>
+<link rel="stylesheet" href="assets/css/rating.css">
+</head>
     <!-- ========== Breadcumb start============= -->
     <div class="breadcrumb-section-wedding">
         <div class="container">
@@ -114,13 +128,26 @@
                     </div>
                     <h2><?php echo $shallData['name'] ?></h2>
                     <ul class="stars d-flex align-items-center">
-                        <li><i class="bi bi-star-fill"></i></li>
-                        <li><i class="bi bi-star-fill"></i></li>
-                        <li><i class="bi bi-star-fill"></i></li>
-                        <li><i class="bi bi-star-fill"></i></li>
-                        <li><i class="bi bi-star-fill"></i></li>
+                    <?php
+
+
+
+//$averageRating = round($average, 0);
+for ($i = 1; $i <= 5; $i++) {
+    $ratingClass = "star-grey";
+    if($i <= $average) {
+						$ratingClass = "star-highlight";
+					}
+   
+
+echo	'<i class="fa fa-star '.$ratingClass. '"; aria-hidden="true"></i>';
+
+ }
+ echo $count . ' Review/s';
+
+?>
                     </ul>
-                    <p><?php echo $shallData['hall_describtion'] ?></p>
+                    
                     <h4>Capacity</h4>
                     <ul<p><?php echo $shallData['number_of_guests']?> Guest</p></ul>
                  

@@ -26,6 +26,7 @@ require ('inc/LoginHeader.php');
 }
 
 $shallId=$_GET['shallId'];
+$_SESSION['hallId'] = $shallId;
 require('admin/handlers/db.php');
 $sql="SELECT * FROM subhalls where id=$shallId";
 $sqlResult=mysqli_query($conn,$sql);
@@ -177,6 +178,8 @@ $hall=mysqli_fetch_assoc($sqlResult);
                             </div>
                         </div>
                     </form>
+
+                    
 
                    
 

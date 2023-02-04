@@ -55,6 +55,13 @@ require ('inc/LoginHeader.php');
                     <div class="section-title text-center">
                         <br>
                         <br>
+                        <?php if(isset( $_SESSION['errors'])){
+            foreach($_SESSION['errors'] as $error){?>
+  <div class="alert alert-danger" role="alert"> <?php echo $error;?> </div>  
+
+    <?php        }
+            unset($_SESSION['errors']);
+          }?>
                         <br>
                         <h2>What do you think About Easy Booking?</h2>
                     </div>

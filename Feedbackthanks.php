@@ -19,11 +19,14 @@ if(isset($_SESSION['userId'])){
 $userid=$_SESSION['userId'];
 
 
+
 require ('inc/LoginHeader.php'); 
 }else{
 
      require ('inc/Header.php'); 
 }
+
+$shallId= $_SESSION['hallId'];
 
 ?>
 
@@ -42,6 +45,7 @@ require ('inc/LoginHeader.php');
                         <p style="font-size:40px">We’re so happy to hear from you!</p>
                         <p style="font-size:40px">Thank you for your valuable feedback.</p>
                     </div>
+                            <a class="btn--primary" href="rating_subhall.php?shallId=<?= $shallId;?>"><i class="bx bx-star"></i>Rate this Hall</a>
                             <a class="btn--primary" href="index.php"><i class="bx bx-home"></i>Back To Home</a>
                         <br/>
                         <br/><br/>
