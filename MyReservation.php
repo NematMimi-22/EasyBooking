@@ -120,27 +120,82 @@ foreach($feedbackData as $index=>$feedback){?>
       $afterTomorrow = date("Y-m-d", strtotime("+2 days", strtotime($olddate)));
      
       if ($current_date == $afterTomorrow) {
-        if($feedback[6]=='pending'){
+        if($feedback[6]=='pending' or ($feedback[6]=='canceled' and (!isset($_POST['cancel'])))){ 
             $sql="UPDATE reservations set status='canceled' where id='$feedback[7]'";
-            $query=mysqli_query($conn,$sql);
-            
-            
-        } ?>
+            if(mysqli_query($conn,$sql)){ ?>
 
-        <div class="col col-5 d-flex justify-content-center">
+            <div class="col col-5 d-flex justify-content-center">
         
              
-        <button  class="font-weight-bold btn btn-outline-Dark"  id="reason" >Reservation is canceled</button>
-                                  
-                          </div> 
-                          <script>
-    document.getElementById("reason").addEventListener("click", function(){
-        alert("<?php echo "Reservation has been canceled since you didn't pay"; ?>");
-    });
-</script>
-   
+            <button  class="font-weight-bold btn btn-outline-Dark"  id="reason" >Reservation is canceled</button>
+                                      
+                              </div> 
+                              <script>
+        document.getElementById("reason").addEventListener("click", function(){
+            alert("<?php echo "Reservation has been canceled since you didn't pay"; ?>");
+        }); <?php } ?>
+    </script>
+            
+         <?php   
+        } 
+        elseif($feedback[6]=='approved'){
+          
+          if($feedback[1]>=$current_date){
+            ?> 
+
+<?php if(isset($_POST['cancel'])){
+        
+        
+        $sql="UPDATE reservations set status='canceled' where id='$feedback[7]'";
+        $query=mysqli_query($conn,$sql);
+        ?> 
+        <div class="col col-5 d-flex justify-content-center">
+             
+             <i>CANCELED</i>
+                                       
+                               </div> 
 
         <?php
+       
+      
+      
+      } else { ?>
+              <div class="col col-5" data-label="Cancel"> 
+               <form action="" method="post">
+                
+             
+               <button  class="font-weight-bold btn btn-outline-Dark" type="submit" name="cancel" id="cancel" >CANCEL</button>
+                                         
+                                 
+          </form></div>
+
+           <?php }?>
+          <?php }else{?>
+          <div class="col col-5" data-label="Cancel">    
+     
+          <button  class="font-weight-bold btn btn-outline-Dark" onclick="window.location.href='FeedBack_subhall.php?shallId=<?= $feedback[4]; ?>';" >
+               FeedBack
+             </button>  
+          </div>
+          
+           
+         </li>
+         <?php }
+      } 
+      elseif($feedback[6]=='canceled'){ ?>
+
+        <div class="col col-5 d-flex justify-content-center">
+             
+             <i>CANCELED</i>
+                                       
+                               </div> <?php
+
+      }
+
+       
+   
+
+        
         
           //echo "Today is the specific date.";
       } else {
@@ -168,13 +223,13 @@ foreach($feedbackData as $index=>$feedback){?>
       
       } else { ?>
 
-               <form action="" method="post">
+               
                <div class="col col-5 d-flex justify-content-center">
-             
+              <form action="" method="post">
                <button  class="font-weight-bold btn btn-outline-Dark" type="submit" name="cancel" id="cancel" >CANCEL</button>
                                          
-                                 </div>
-          </form>
+                               
+          </form>  </div>
 
            <?php }?>
           <?php }else{?>
@@ -188,6 +243,23 @@ foreach($feedbackData as $index=>$feedback){?>
            
          </li>
          <?php }
+      } elseif($feedback[6]=='pending'){ ?>
+
+        <div class="col col-5 d-flex justify-content-center">
+             
+             <i>PENDING</i>
+                                       
+                               </div> <?php
+
+      }
+      elseif($feedback[6]=='canceled'){ ?>
+
+        <div class="col col-5 d-flex justify-content-center">
+             
+             <i>CANCELED</i>
+                                       
+                               </div> <?php
+
       }
     }
       
