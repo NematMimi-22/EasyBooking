@@ -167,26 +167,13 @@ echo	'<i class="fa fa-star '.$ratingClass. '"; aria-hidden="true"></i>';
                     <ul<p><?php echo $shallData['services']?></p>
 
                     
-                    </ul>
-                </div>
-                <div class="col-lg-5">
-                    <div class="widget-area2">
-                        <div class="widget-title">
-                            <h5>Want A Reservation?</h5>
-                        </div>
-                        <div class="single-widgets booking-widgets">
-                            
-                            <div class="section-title1 text-center">
-                               <span> <a class="btn--primary6" href="admin/handlers/bookchecklogin.php?shallId=<?= $shallId ?>">Book Now</a> </span>
-                            </div>
-                            
-                        </div>
-                    </div>
-<br>
-<br>
-<br>
-<br>
-<h3>Halls Calendar</h3>
+                    
+                </ul>
+                <br>
+  <br> <br>
+  <br>
+                    <h3><?php echo $shallData['name'] ?>  Calendar</h3>
+                    <br> <br>
                     <div id='calendar'></div>
     <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.0/index.global.min.js "></script>
 
@@ -222,6 +209,28 @@ echo	'<i class="fa fa-star '.$ratingClass. '"; aria-hidden="true"></i>';
 <p> &nbsp;Pendding Reservation</p>
 </div>
                 </div>
+                <div class="col-lg-5">
+               
+  <br>
+  <br>
+             <div class="widget-area2">
+                        <div class="widget-title">
+                            <h5>Want A Reservation?</h5>
+                        </div>
+                        <div class="single-widgets booking-widgets">
+                            
+                            <div class="section-title1 text-center">
+                               <span> <a class="btn--primary6" href="admin/handlers/bookchecklogin.php?shallId=<?= $shallId ?>">Book Now</a> </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+<br>
+<br>
+<br>
+<br>
+
+                </div>
                 
             </div>
            
@@ -232,8 +241,11 @@ echo	'<i class="fa fa-star '.$ratingClass. '"; aria-hidden="true"></i>';
     <div class="row">
 
         <div class="home-one-testimonial mb-120">
+            
         <div class="container">
+            
             <div class="row">
+                
                 <div class="col-12">
                     <div class="section-title1 text-center">
                         <span>Testimonial</span>
@@ -282,7 +294,10 @@ foreach($feedbackData as $index=>$users){?>
                         <?php }
 
 }?>
-                    </div>
+
+
+
+</div>
                 </div>
                 <div class="row align-items-center pt-80">
                 <div class="col-lg-4">

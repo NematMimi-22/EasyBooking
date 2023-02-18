@@ -6,7 +6,7 @@ require ('inc/head.php');
 //(reservations.date > NOW() OR reservations.date = NOW()) 
 require("admin/handlers/db.php");
 
-$sql1="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time ,reservations.hall_id,reservations.created_at,reservations.status,reservations.id
+$sql1="SELECT subhalls.name as hall_name, reservations.date, reservations.start_time, reservations.end_time ,reservations.hall_id,reservations.created_at,reservations.status,reservations.id,reservations.price,reservations.hall_id,reservations.user_id
 FROM reservations 
 JOIN subhalls ON reservations.hall_id = subhalls.id 
 WHERE reservations.user_id =$user_id 
@@ -114,158 +114,93 @@ foreach($feedbackData as $index=>$feedback){?>
       <div class="col col-2" data-label="Date"><?=$feedback[1];?></div>
       <div class="col col-3" data-label="Staer_time"><?=$feedback[2];?></div>
       <div class="col col-4" data-label="End_time"><?=$feedback[3];?></div>
+
+
+
       <?php
-
-      $olddate=$feedback[5];
-      $afterTomorrow = date("Y-m-d", strtotime("+2 days", strtotime($olddate)));
-     
-      if ($current_date == $afterTomorrow) {
-        if($feedback[6]=='pending' or ($feedback[6]=='canceled' and (!isset($_POST['cancel'])))){ 
-            $sql="UPDATE reservations set status='canceled' where id='$feedback[7]'";
-            if(mysqli_query($conn,$sql)){ ?>
-
-            <div class="col col-5 d-flex justify-content-center">
-        
-             
-            <button  class="font-weight-bold btn btn-outline-Dark"  id="reason" >Reservation is canceled</button>
-                                      
-                              </div> 
-                              <script>
-        document.getElementById("reason").addEventListener("click", function(){
-            alert("<?php echo "Reservation has been canceled since you didn't pay"; ?>");
-        }); <?php } ?>
-    </script>
-            
-         <?php   
-        } 
-        elseif($feedback[6]=='approved'){
-          
-          if($feedback[1]>=$current_date){
-            ?> 
-
-<?php if(isset($_POST['cancel'])){
-        
-        
-        $sql="UPDATE reservations set status='canceled' where id='$feedback[7]'";
-        $query=mysqli_query($conn,$sql);
-        ?> 
-        <div class="col col-5 d-flex justify-content-center">
-             
-             <i>CANCELED</i>
-                                       
-                               </div> 
-
-        <?php
-       
-      
-      
-      } else { ?>
-              <div class="col col-5" data-label="Cancel"> 
-               <form action="" method="post">
-                
-             
-               <button  class="font-weight-bold btn btn-outline-Dark" type="submit" name="cancel" id="cancel" >CANCEL</button>
-                                         
-                                 
-          </form></div>
-
-           <?php }?>
-          <?php }else{?>
-          <div class="col col-5" data-label="Cancel">    
-     
-          <button  class="font-weight-bold btn btn-outline-Dark" onclick="window.location.href='FeedBack_subhall.php?shallId=<?= $feedback[4]; ?>';" >
-               FeedBack
-             </button>  
-          </div>
-          
-           
-         </li>
-         <?php }
-      } 
-      elseif($feedback[6]=='canceled'){ ?>
-
-        <div class="col col-5 d-flex justify-content-center">
-             
-             <i>CANCELED</i>
-                                       
-                               </div> <?php
-
-      }
-
-       
-   
-
-        
-        
-          //echo "Today is the specific date.";
-      } else {
-        //echo "Today is not the specific date.";
-        if($feedback[6]=='approved'){
-          
-          if($feedback[1]>=$current_date){
-            ?> 
-
-<?php if(isset($_POST['cancel'])){
-        
-        
-        $sql="UPDATE reservations set status='canceled' where id='$feedback[7]'";
-        $query=mysqli_query($conn,$sql);
-        ?> 
-        <div class="col col-5 d-flex justify-content-center">
-             
-             <i>CANCELED</i>
-                                       
-                               </div> 
-
-        <?php
-       
-      
-      
-      } else { ?>
-
-               
-               <div class="col col-5 d-flex justify-content-center">
-              <form action="" method="post">
-               <button  class="font-weight-bold btn btn-outline-Dark" type="submit" name="cancel" id="cancel" >CANCEL</button>
-                                         
-                               
-          </form>  </div>
-
-           <?php }?>
-          <?php }else{?>
-          <div class="col col-5" data-label="Cancel">    
-     
-          <button  class="font-weight-bold btn btn-outline-Dark" onclick="window.location.href='FeedBack_subhall.php?shallId=<?= $feedback[4]; ?>';" >
-               FeedBack
-             </button>  
-          </div>
-          
-           
-         </li>
-         <?php }
-      } elseif($feedback[6]=='pending'){ ?>
-
-        <div class="col col-5 d-flex justify-content-center">
-             
-             <i>PENDING</i>
-                                       
-                               </div> <?php
-
-      }
-      elseif($feedback[6]=='canceled'){ ?>
-
-        <div class="col col-5 d-flex justify-content-center">
-             
-             <i>CANCELED</i>
-                                       
-                               </div> <?php
-
-      }
+if ($feedback[6]=="approved"){
+  if ($feedback[1]< $current_date){
+?> 
+    <div class="col col-5" data-label="Feedback">    
+      <button class="font-weight-bold btn btn-outline-Dark" onclick="window.location.href='FeedBack_subhall.php?shallId=<?= $feedback[4]; ?>';">
+        Feedback
+      </button>  
+    </div>
+<?php
+  } else {
+    if(isset($_POST['cancel' . $feedback[7]])) {
+      $sql="UPDATE reservations set status='canceled' where id='" . $feedback[7] . "'";
+      $query=mysqli_query($conn,$sql);
+      // Display a success message to the user
+      echo "Reservation successfully canceled.";
     }
-      
-   
+?>
+    <div class="col col-5" data-label="Cancel"> 
+      <form action="" method="post">
+        <button class="font-weight-bold btn btn-outline-Dark" type="submit" name="cancel<?= $feedback[7] ?>" id="cancel<?= $feedback[7] ?>" >CANCEL</button>
+      </form>
+    </div>
+<?php
+  }
+}
 
-      
+
+
+
+if ($feedback[6]=="canceled"){
+  ?>
+  <div class="col col-5 d-flex justify-content-center">
+    <i>CANCELED</i>
+  </div> 
+  <?php
+} else {
+  if ($feedback[6]=="pending"){
+  
+    $olddate=$feedback[1];
+    $afterTomorrow = date("Y-m-d", strtotime("+2 days", strtotime($olddate)));
+    if ($current_date==$afterTomorrow){
+      $sql="UPDATE reservations set status='canceled' where id='$feedback[7]'";
+      $query=mysqli_query($conn,$sql);
+      // update the $feedback array with the new status
+      $feedback[6] = 'canceled';
+      ?>
+      <div class="col col-5 d-flex justify-content-center">
+        <i>CANCELED due to not pay</i>
+      </div>
+      <?php
+    }
+  }
+}
+
+if ($feedback[6]=="pending" && $feedback[1]>$current_date ){
+  
+   if(isset($_POST['cancel' . $feedback[7]])) {
+      $sql="UPDATE reservations set status='canceled' where id='" . $feedback[7] . "'";
+      $query=mysqli_query($conn,$sql);
+      // Display a success message to the user
+      echo "Reservation successfully canceled.";
+    }
+?>
+
+  
+  <div class="col col-5 d-flex justify-content-center">
+  <button style="height:39px;"  class="font-weight-bold btn btn-outline-Dark" type="submit" name="payment" id="payment"onclick="window.location.href='payment.php?price=<?= $feedback[8]; ?>&hall_id=<?= $feedback[10]; ?>&user_id=<?= $feedback[9]; ?>&reservation_id=<?= $feedback[7]; ?>';" >Payment</button>
+
+  <form action="" method="post">
+     
+  <button class="font-weight-bold btn btn-outline-Dark" type="submit" name="cancel<?= $feedback[7] ?>" id="cancel<?= $feedback[7] ?>" >CANCEL</button>
+      </form>
+                                 
+                         </div>
+                         <div class="col col-5" data-label="Cancel"> 
+
+    </div>
+  <?php
+  
+  }
+
+
+
 
 }
 ?>  </ul>
@@ -280,7 +215,7 @@ else{?>
 } ?>
 </div>
     
-                </div>
+                
 
 
 

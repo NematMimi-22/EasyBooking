@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 04, 2023 at 03:29 PM
+-- Generation Time: Feb 18, 2023 at 06:18 PM
 -- Server version: 8.0.21
 -- PHP Version: 8.1.12
 
@@ -236,6 +236,37 @@ INSERT INTO `images` (`id`, `image`, `uploaded_on`, `subhall_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int NOT NULL,
+  `payment_id` varchar(200) NOT NULL,
+  `user_id` int NOT NULL,
+  `hall_id` int NOT NULL,
+  `price` int NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `payment_id`, `user_id`, `hall_id`, `price`, `name`, `created_at`) VALUES
+(1, '5CP000792Y9352448', 32, 74, 40, 'nemat', '2023-02-17 23:05:14'),
+(2, '4PK05472W0928571K', 32, 74, 200, 'Nemat', '2023-02-17 23:08:30'),
+(3, '3U338711DS0899407', 32, 74, 800, 'Andalus', '2023-02-17 23:09:50'),
+(4, '20X209340A8241109', 74, 32, 800, 'Nemat', '2023-02-17 23:33:52'),
+(5, '5JK461042R608135D', 74, 32, 1000, 'nemat', '2023-02-18 11:31:01'),
+(6, '1XA969467E729242F', 74, 32, 40, 'Nemat', '2023-02-18 11:42:50'),
+(7, '93695735SF889001A', 78, 32, 40, 'Nemat', '2023-02-18 12:04:10'),
+(8, '07B50693SM6803521', 32, 78, 140, 'jana', '2023-02-18 19:08:31'),
+(9, '60694006CP0215638', 78, 32, 120, 'Nemat', '2023-02-18 19:39:54');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `prices`
 --
 
@@ -256,8 +287,8 @@ CREATE TABLE `prices` (
 --
 
 INSERT INTO `prices` (`id`, `hall_id`, `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`) VALUES
-(2, 79, 7007, 200, 5000, 600, 700, 900, 1000),
-(4, 78, 100, 200, 600, 1000, 4000, 5000, 6000);
+(2, 78, 7007, 200, 5000, 600, 700, 900, 1000),
+(4, 74, 100, 200, 600, 1000, 4000, 5000, 6000);
 
 -- --------------------------------------------------------
 
@@ -313,16 +344,12 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `event_type`, `number_guests`, `date`, `start_time`, `end_time`, `notes`, `hall_id`, `user_id`, `status`, `created_at`, `price`) VALUES
-(20, '2', 100, '2023-01-31', '11:12:00', '15:12:00', 'test', 78, 35, 'approved', '2023-02-04 16:39:44', 500),
-(21, '3', 100, '2023-02-07', '09:19:00', '14:19:00', ',', 78, 32, 'approved', '2023-02-04 16:39:44', 600),
-(22, '9', 100, '2023-01-30', '10:11:00', '22:11:00', '.', 74, 32, 'approved', '2023-02-04 16:39:44', 700),
-(23, '10', 200, '2023-02-16', '14:12:00', '16:12:00', ',,', 74, 32, 'approved', '2023-02-04 16:39:44', 1000),
-(24, '9', 100, '2023-02-05', '12:32:00', '14:32:00', '12-2', 74, 32, 'pending', '2023-02-04 16:39:44', 1000),
-(25, '10', 100, '2023-02-05', '17:33:00', '19:33:00', '17-19', 74, 32, 'pending', '2023-02-04 16:39:44', 4000),
-(26, '9', 200, '2023-02-05', '15:33:00', '16:33:00', ',', 74, 32, 'pending', '2023-02-04 16:39:44', 400),
-(27, '9', 100, '2023-02-02', '13:02:00', '13:30:00', ',,,', 74, 35, 'pending', '2023-02-04 16:39:44', 500),
-(28, '2', 100, '2023-01-01', '20:00:00', '22:21:00', '', 77, 41, 'approved', '2023-02-04 16:39:44', 1000),
-(29, '2', 100, '2023-02-10', '16:13:00', '18:13:00', 'm', 78, 37, 'pending', '2023-02-04 17:13:24', 5000);
+(41, '2', 100, '2023-02-22', '16:57:00', '18:57:00', '', 78, 32, 'canceled', '2023-02-18 11:58:07', 600),
+(42, '3', 100, '2023-02-27', '13:59:00', '21:59:00', 'm', 78, 32, 'approved', '2023-02-18 11:59:53', 200),
+(43, '3', 200, '2023-02-28', '20:59:00', '21:59:00', 'm', 78, 32, 'canceled', '2023-02-18 12:00:13', 5000),
+(44, '2', 100, '2023-02-23', '19:07:00', '20:07:00', ',', 78, 32, 'pending', '2023-02-18 19:07:49', 700),
+(45, '3', 200, '2023-02-22', '19:37:00', '21:37:00', ',', 78, 32, 'approved', '2023-02-18 19:38:05', 600),
+(46, '2', 200, '2023-02-28', '14:13:00', '16:13:00', 'nm', 78, 37, 'canceled', '2023-02-18 20:13:46', 5000);
 
 -- --------------------------------------------------------
 
@@ -459,6 +486,12 @@ ALTER TABLE `images`
   ADD KEY `subhall_id` (`subhall_id`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `prices`
 --
 ALTER TABLE `prices`
@@ -539,6 +572,12 @@ ALTER TABLE `images`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `prices`
 --
 ALTER TABLE `prices`
@@ -554,7 +593,7 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `subhalls`
