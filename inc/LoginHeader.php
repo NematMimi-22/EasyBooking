@@ -1,10 +1,41 @@
 <!-- ========== header start============= -->
+
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" >
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+</head>
 <header class="header-area style-2">
     
 
-<?php
+<?php 
 
- ?>
+
+$notifications=[];
+define("SERVERNAME1","localhost");
+define("USERSERV1","root");
+define("PASSSERV1","1234");
+define("DBNAME1","easybooking");
+$conn=mysqli_connect(SERVERNAME1,USERSERV1,PASSSERV1,DBNAME1);
+$sql31="SELECT reservations.*, subhalls.name as name
+FROM reservations
+JOIN subhalls ON reservations.hall_id = subhalls.id 
+WHERE reservations.user_id = 35
+AND reservations.status = 'approved' 
+AND reservations.date = DATE(NOW() + INTERVAL 1 DAY)";
+    $query31=mysqli_query($conn,$sql31);
+    $reservations31=mysqli_fetch_all($query31,MYSQLI_ASSOC);
+    foreach($reservations31 as $index=> $reservations31){
+    $notifications[]="<b>Reservation at {$reservations31["name"]} Tomorrow </b>";
+    } 
+?>
+ 
         <div class="container-lg container-fluid">
             <div class="row">
                 <div class="col-12 d-flex align-items-center justify-content-between">
@@ -85,13 +116,9 @@
             
                         </div>
                     </div>
+                    
                     <div class="nav-right d-flex align-items-center">
-                        <div class="bookmark-icon">
-                            <a href="#"><i class="bi bi-bookmark"></i></a>
-                            <div class="batch">
-                                <a href="#">02</a>
-                            </div>
-                        </div>
+                       
                         <div class="header-btn">
                             <a class="btn--primary eg-btn" href="room-suits1.php">Book Now</a>
                         </div>
@@ -106,8 +133,19 @@
                     </div>
 
                 </div>
+               
+                
+
+	
+	
+
+
+
+               
                 <div class="main-menu">
                 <ul class="menu-list">
+               
+
                 <li class="menu-item-has-children">
                             <img  width="50" height="50" src="assets/images/icons/user2.svg">
 <?php
@@ -125,15 +163,31 @@ if($_SESSION['usertype'] =='user'){?>
                      <li><a>Welcome <?php echo  $_SESSION['username'];?>!</a></li>
                      <li><a href="admin/showhallowner.php">My Halls</a></li>
                      <li><a  href="MyReservation.php">My Reservations</a></li>
-
-
-                     
                     <li><a href="logout.php">Logout</a></li>
                                 </ul>
                                 <?php }?>
                             </li>
                             </div>    
 </ul>   
+
+
+<ul class="navbar-nav ml-auto">
+    
+    <li class=" dropdown">
+        <a class="dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
+            <span class='bi bi-bookmark' style="font-size:30px;"></span><a href="#">(<?php echo count($notifications);?></a>)         
+        </a>
+     
+        <?php if(count($notifications)>0): ?>
+            <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="navbarDropdown">
+                <?php foreach($notifications as $row):?>
+                    <a class="dropdown-item pt-3 pb-3 alert alert-success" href="#"><?php echo $row; ?></a>
+                <?php endforeach;?>
+            </div>
+        <?php endif; ?>
+    </li>
+    
+</ul>
 
             </div>
         </div>
