@@ -12,8 +12,8 @@ $price = $_GET['price'];
 $user_id = $_GET['user_id'];
 $hall_id = $_GET['hall_id'];
 $reservation_id=$_GET['reservation_id'];
-$newPrice=floatval($price)*.2;
- 
+$newPrice=floatval($price)*.2/3.3;
+$newPrice = round($newPrice);
 ?>
 
 <body>

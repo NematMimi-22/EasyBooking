@@ -148,12 +148,11 @@ require ('inc/head.php'); ?>
                             
                            
                                 <div class="cwp-block-text__inside-wrapper">
-                                    <div class="searchbox-input date-picker-input input__list">
-                                        <input autocomplete="off" placeholder="Pick A Date" type="text" name="date" id="datepicker16" value="" class="claender">
-                                    </div>
-                                </div>
+  <div class="searchbox-input date-picker-input input__list">
+    <input autocomplete="off" placeholder="Pick A Date" type="text" name="date" id="datepicker16" value="" class="claender">
+  </div>
 
- 
+
                                 
                                 <div class="row">
                                     <div class="col-xl-6">
@@ -203,6 +202,33 @@ require ('inc/head.php'); ?>
                             <div class="wp-block-text__inside-wrapper ">
                                 <textarea name="notes" placeholder="Note (If Any)"></textarea>
                             </div>
+                            
+                            
+                            <div id="results"></div>
+                            
+                            <br>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var hallId = <?php echo  $shallId; ?>;
+    $('#datepicker16').on('change', function() {
+      var date = $(this).val();
+      $.ajax({
+        type: 'POST',
+        url: 'price.php',
+        data: { date: date, hallId: hallId },
+        success: function(result) {
+          $('#results').html(result);
+        },
+        error: function() {
+          $('#results').html('An error occurred.');
+        }
+      });
+    });
+  });
+</script>
                             <div class="wp-block-text__inside-wrapper submit-btn">
                                 <button type="submit">Book Now</button>
                             </div> 
