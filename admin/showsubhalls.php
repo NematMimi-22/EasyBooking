@@ -60,9 +60,9 @@ require("inc/header.php");
 
                     <th scope="col">Add Images for hall</th>
                     <th scope="col">Show Images for hall</th>
-
-                    <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Add Reservation</th>
                   
                     </tr>
                 </thead>
@@ -102,6 +102,7 @@ else if ($halls[2]=='3'){
 
    <td><a href="handlers/deletesubhall.php?hallId=<?= $halls[0];?>"class="btn btn-dark">delete</a></td>
    <td><a href="edit-subhall.php?hallId=<?= $halls[0];?>"class="btn btn-dark">Edit</a></td>
+   <td><a href="AddReservations.php?hallId=<?= $halls[0];?>"class="btn btn-dark">Add Reservation</a></td>
     </tr>
 <?php }
 

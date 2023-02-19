@@ -45,7 +45,6 @@ require ('inc/head.php'); ?>
    $sql="SELECT * FROM halls where id=$hallid";
    $sqlResult=mysqli_query($conn,$sql);
    $hall=mysqli_fetch_assoc($sqlResult);
-    echo $shallId;
     ?>
     <!-- ========== Breadcumb start============= -->
   

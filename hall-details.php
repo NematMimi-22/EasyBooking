@@ -74,13 +74,7 @@
                    
                 
                     <h2><?php echo $hallData['name'] ?></h2>
-                    <ul class="stars d-flex align-items-center">
-                        <li><i class="bi bi-star-fill"></i></li>
-                        <li><i class="bi bi-star-fill"></i></li>
-                        <li><i class="bi bi-star-fill"></i></li>
-                        <li><i class="bi bi-star-fill"></i></li>
-                        <li><i class="bi bi-star-fill"></i></li>
-                    </ul>
+       
                     <p><?php echo $hallData['hall_describtion'] ?></p>
                     
                  

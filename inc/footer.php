@@ -18,7 +18,7 @@
                             <span class="dot1"></span>
                             <span class="dot2"></span>
                             <div class="footer-logo text-center">
-                                <img src="assets/images/footer-logo1.svg" alt="">
+                       <img  src="assets/images/bac.svg" alt="">
                                 <p>Easy Booking Lifestyle</p>
                                 <span></span>
                             </div>

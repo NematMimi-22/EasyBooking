@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="top-bar-icon">
-                            <a href="index.php"><img src="assets/images/header-logo2.svg" alt=""></a>
+                            <a href="index.php"><img width="139" height="34" viewBox="0 0 139 34" fill="none" xmlns="http://www.w3.org/2000/svg" src="assets/images/back.png" alt=""></a>
                         </div>
                         <div class="email d-flex align-items-center">
                             <div class="email-icon">

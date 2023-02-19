@@ -18,8 +18,7 @@ $Thursday=strip_tags(trim($_POST['Thursday']));
 $Friday=strip_tags(trim($_POST['Friday']));
 $Saturday=strip_tags(trim($_POST['Saturday']));
 
-
-
+$max_price = max($Sunday, $Monday, $Tuesday, $Wednesday, $Thursday, $Friday, $Saturday);
 
 
 
@@ -157,8 +156,8 @@ $errors[]="This is not an image";
 //$sql="SELECT id,name, city, number_of_guests,services,hall_describtion,price FROM halls";
 if (empty($errors)){
    
-$sql="INSERT INTO subhalls(name,type,number_of_guests, hall_describtion, services,image_view,hall_id) 
-VALUES ('$name','$type','$number_of_guests','$hall_describtion','$services','$newNamev','$hall_id')";
+$sql="INSERT INTO subhalls(name,type,number_of_guests, hall_describtion, services,image_view,hall_id,price) 
+VALUES ('$name','$type','$number_of_guests','$hall_describtion','$services','$newNamev','$hall_id','$max_price')";
 //check if added and make alert that tell user that added and return to insert bage
 
 if ($sqlResult=mysqli_query($conn,$sql)){

@@ -107,7 +107,7 @@ else{
                             </div>
                         </div>
                         <div class="tripadvisor-icon">
-                            <img src="assets/images/icons/tripadvisor-icon.svg" alt="">
+                            <img width="500" height="500" src="assets/images/about.png" alt="">
                         </div>
                     </div>
                 </div>

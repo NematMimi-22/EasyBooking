@@ -16,7 +16,7 @@
 
 <?php 
 
-
+$user_id= $_SESSION['userId'];
 $notifications=[];
 define("SERVERNAME1","localhost");
 define("USERSERV1","root");
@@ -26,7 +26,7 @@ $conn=mysqli_connect(SERVERNAME1,USERSERV1,PASSSERV1,DBNAME1);
 $sql31="SELECT reservations.*, subhalls.name as name
 FROM reservations
 JOIN subhalls ON reservations.hall_id = subhalls.id 
-WHERE reservations.user_id = 35
+WHERE reservations.user_id = $user_id
 AND reservations.status = 'approved' 
 AND reservations.date = DATE(NOW() + INTERVAL 1 DAY)";
     $query31=mysqli_query($conn,$sql31);
@@ -69,12 +69,9 @@ AND reservations.date = DATE(NOW() + INTERVAL 1 DAY)";
                             </li>
                        
                        
-                            <li class="menu-item-has-children">
-                                <a href="#">Halls</a><i class='bx bx-plus dropdown-icon'></i>
-                                <ul class="submenu">
-                                    <li><a href="weddinghalls.php">Wedding Halls</a></li>
-                                    <li><a href="meetingandweddinghalls.php">Meeting Halls</a></li>
-                                </ul>
+                            <li >
+                                <a href="hallsList.php">Halls</a>
+                           
                             </li>
                   
                             <li><a href="contact.php">Contact</a></li>
@@ -120,7 +117,7 @@ AND reservations.date = DATE(NOW() + INTERVAL 1 DAY)";
                     <div class="nav-right d-flex align-items-center">
                        
                         <div class="header-btn">
-                            <a class="btn--primary eg-btn" href="room-suits1.php">Book Now</a>
+                            <a class="btn--primary eg-btn" href="hallsList.php">Book Now</a>
                         </div>
                         <div class="header-btn">
                         <a method="post" href="admin/handlers/Feedbackchecklogin.php" class="btn--primary eg-btn" >Give FeedBack</a>
@@ -154,6 +151,7 @@ if($_SESSION['usertype'] =='user'){?>
                             <ul class="submenu">
                          <li><a>Welcome <?php echo  $_SESSION['username'];?>!</a></li>
                          <li><a  href="MyReservation.php">My Reservations</a></li>
+                         <li><a  href="profile.php">My Profile</a></li>
 
                                     <li><a href="logout.php">Logout</a></li>
                                 </ul>
@@ -163,6 +161,8 @@ if($_SESSION['usertype'] =='user'){?>
                      <li><a>Welcome <?php echo  $_SESSION['username'];?>!</a></li>
                      <li><a href="admin/showhallowner.php">My Halls</a></li>
                      <li><a  href="MyReservation.php">My Reservations</a></li>
+                     <li><a  href="profile.php">My Profile</a></li>
+
                     <li><a href="logout.php">Logout</a></li>
                                 </ul>
                                 <?php }?>

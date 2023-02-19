@@ -35,12 +35,9 @@
                             </li>
                         
    
-                            <li class="menu-item-has-children">
-                                <a href="#">Halls</a><i class='bx bx-plus dropdown-icon'></i>
-                                <ul class="submenu">
-                                    <li><a href="weddinghalls.php">Wedding Halls</a></li>
-                                    <li><a href="meetingandweddinghalls.php">Meeting Halls</a></li>
-                                </ul>
+                            <li >
+                            <a href="hallsList.php">Halls</a>
+
                             </li>
                   
                             <li><a href="contact.php">Contact</a></li>
@@ -95,15 +92,9 @@
                         </div>
                     </div>
                     <div class="nav-right d-flex align-items-center">
-                        <div class="bookmark-icon">
-                            <a href="#"><i class="bi bi-bookmark"></i></a>
-                            <div class="batch">
-                                <a href="#">02</a>
-                            </div>
-                        </div>
+                       
                         <div class="header-btn">
-                            <a class="btn--primary eg-btn" href="room-suits1.php">Book Now</a>
-                        </div>
+                        <a class="btn--primary eg-btn" href="hallsList.php">Book Now</a>                        </div>
                         <div class="header-btn">
                         <a method="post" href="admin/handlers/Feedbackchecklogin.php" class="btn--primary eg-btn" >Give FeedBack</a>
                         </div>

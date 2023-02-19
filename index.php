@@ -188,7 +188,7 @@ require ('inc/LoginHeader.php');
             </div>
              <div class="row pt-70">
                 <div class="col-12 d-flex justify-content-center">
-                    <a class="room-btn btn--primary eg-btn" href="room-suits1.php">Halls</a>
+                    <a class="room-btn btn--primary eg-btn" href="allHalls.php">Halls</a>
                 </div>
              </div>
         </div>
