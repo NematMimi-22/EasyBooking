@@ -69,12 +69,12 @@ feedback_subhall.feedback
              $query=mysqli_query($conn,$sql);
           //   $query2=mysqli_query($conn,$sql2);
              $halls1=mysqli_fetch_all($query,MYSQLI_ASSOC);
-       
+      // print_r($halls1);
         
        ?>
         
          <?php
-         if(isset($feedback)){
+         if(isset($halls1)){
 
 
          foreach($halls1 as $event ) {?>

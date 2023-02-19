@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE</title>
+  <title>Dashboard</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="assets/css/fontawesome.all.css">
@@ -41,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="#" class="brand-link">
       <img src="assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
     <!-- Sidebar -->
@@ -52,7 +52,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="assets/img/user-profile.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin user</a>
+        <?php  if (($_SESSION['usertype'] == 'owner') ){
+?>
+          <a href="#" class="d-block">Halls Owner</a>
+
+    <?php    }else {
+
+ if( ($_SESSION['adminType']=='1') ){?>
+  <a href="#" class="d-block">Admin</a>
+  ?>
+  <?php
+}
+if (($_SESSION['adminType']=='2')){
+
+  ?>
+  <a href="#" class="d-block">Super Admin</a>
+  <?php 
+      }
+            
+}?>
+
         </div>
       </div>
 
@@ -65,10 +84,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
+             <?php
+              if (($_SESSION['adminType']=='2')){
+
+                ?>
+                <p>
                 Admins Pages
                 <i class="right fas fa-angle-left"></i>
               </p>
+                <?php
+              }else if (($_SESSION['adminType']=='1')){
+?>
+   <p>
+                user Pages
+                <i class="right fas fa-angle-left"></i>
+              </p>
+
+  <?php            }
+             ?>
+             
+              
             </a>
 
             
@@ -78,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="showadmins.php" class="nav-link active ">
                   <i class="far fa-circle nav-icon "></i>
-                  <p>show Admins List</p>
+                  <p>show users List</p>
                 </a>
   
               </li>
