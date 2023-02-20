@@ -206,7 +206,7 @@ echo	'<i class="fa fa-star '.$ratingClass. '"; aria-hidden="true"></i>';
 <div style="width: 25px; height: 25px; background-color:#00D700; border-radius: 15px;"></div>
 <p> &nbsp;Approved Reservation&nbsp;&nbsp;</p>
 <div style="width: 25px; height: 25px; background-color:#D70000; border-radius: 15px;"></div>
-<p> &nbsp;Pendding Reservation</p>
+<p> &nbsp;Pended Reservation</p>
 </div>
                 </div>
                 <div class="col-lg-5">

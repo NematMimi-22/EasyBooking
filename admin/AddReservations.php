@@ -152,6 +152,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
+<div class="btn-group">
+<div style="width: 25px; height: 25px; background-color:#00D700; border-radius: 15px;"></div>
+<p> &nbsp;Approved Reservation&nbsp;&nbsp;</p>
+<div style="width: 25px; height: 25px; background-color:#D70000; border-radius: 15px;"></div>
+<p> &nbsp;Pended Reservation</p>
+</div>
 <br>       
          
        </div>  

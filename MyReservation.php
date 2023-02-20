@@ -61,7 +61,7 @@ require ('inc/LoginHeader.php');
 
 ?>
     <!-- ========== Breadcumb start============= -->
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-about ">
 
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center text-center">
@@ -156,7 +156,7 @@ if ($feedback[6]=="canceled"){
 } else {
   if ($feedback[6]=="pending"){
   
-    $olddate=$feedback[1];
+    $olddate=$feedback[5];
     $afterTomorrow = date("Y-m-d", strtotime("+2 days", strtotime($olddate)));
     if ($current_date==$afterTomorrow){
       $sql="UPDATE reservations set status='canceled' where id='$feedback[7]'";

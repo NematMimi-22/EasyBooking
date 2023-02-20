@@ -101,7 +101,7 @@ else{
     let name = $("#name").val();
     let email = $("#email").val();
     if (name.length == 0) {
-      alert("Please enter a your name");
+      alert("Please enter your name");
       return false;
     }
     if (email.length == 0) {
