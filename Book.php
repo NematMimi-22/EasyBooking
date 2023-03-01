@@ -75,7 +75,58 @@ require ('inc/head.php'); ?>
     <div class="room-suits-details-page pt-120 mb-120">
         <div class="container">
             <div class="row mb-80 g-8">
-             
+            <div class="col-lg-7">
+                <style>
+
+.dot {
+height: 15px;
+width: 15px;
+background-color: #00D700;
+border-radius: 40%;
+display: inline-block;
+}
+
+</style>
+
+                <div id='calendar'></div>
+    <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.0/index.global.min.js "></script>
+
+
+
+<script>
+    
+  var shallId = <?php echo json_encode($shallId); ?>;
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'timeGridWeek',
+    headerToolbar: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'timeGridWeek,timeGridDay' // user can switch between the two
+  },
+
+    events: 'getreservation.php?shallId='+shallId,
+        
+  
+
+});
+
+  calendar.render();
+});
+
+</script>
+<br>
+<div class="btn-group">
+<div style="width: 25px; height: 25px; background-color:#00D700; border-radius: 15px;"></div>
+<p> &nbsp;Approved Reservation&nbsp;&nbsp;</p>
+<div style="width: 25px; height: 25px; background-color:#D70000; border-radius: 15px;"></div>
+<p> &nbsp;Pended Reservation</p>
+</div>
+<br>
+                
+                   
+                </div>
                 <div class="col-lg-5">
                 <div class="widget-area2">
                 <?php if(isset( $_SESSION['errors'])){
@@ -239,58 +290,7 @@ require ('inc/head.php'); ?>
                     </div>
      
                 </div>
-                <div class="col-lg-7">
-                <style>
-
-.dot {
-height: 15px;
-width: 15px;
-background-color: #00D700;
-border-radius: 40%;
-display: inline-block;
-}
-
-</style>
-
-                <div id='calendar'></div>
-    <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.0/index.global.min.js "></script>
-
-
-
-<script>
-    
-  var shallId = <?php echo json_encode($shallId); ?>;
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'timeGridWeek',
-    headerToolbar: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'timeGridWeek,timeGridDay' // user can switch between the two
-  },
-
-    events: 'getreservation.php?shallId='+shallId,
-        
-  
-
-});
-
-  calendar.render();
-});
-
-</script>
-<br>
-<div class="btn-group">
-<div style="width: 25px; height: 25px; background-color:#00D700; border-radius: 15px;"></div>
-<p> &nbsp;Approved Reservation&nbsp;&nbsp;</p>
-<div style="width: 25px; height: 25px; background-color:#D70000; border-radius: 15px;"></div>
-<p> &nbsp;Pended Reservation</p>
-</div>
-<br>
-                
-                   
-                </div>
+               
             </div>
 
         </div>

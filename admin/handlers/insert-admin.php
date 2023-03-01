@@ -75,7 +75,7 @@ if (empty($errors)){
 //check if added and make alert that tell user that added and return to insert bage
 if($sqlResult=mysqli_query($conn,$sql)){
     $_SESSION['success']="Admin added successfully";
-header("Refresh:0;URL=../signup.php");
+header("Refresh:0;URL=../showadmins.php");
 
     }
 
@@ -84,7 +84,7 @@ header("Refresh:0;URL=../signup.php");
 $_SESSION['errors']="error while inserted";
 
 $_SESSION['errors']=$errors;
-    header("Refresh:0;URL=../signup.php");
+    header("Refresh:0;URL=../showadmins.php");
 
 }
 

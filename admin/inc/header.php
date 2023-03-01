@@ -113,7 +113,7 @@ if (($_SESSION['adminType']=='2')){
               <li class="nav-item">
                 <a href="showadmins.php" class="nav-link active ">
                   <i class="far fa-circle nav-icon "></i>
-                  <p>show users List</p>
+                  <p>show Admins List</p>
                 </a>
   
               </li>

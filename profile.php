@@ -37,7 +37,7 @@ require ('inc/LoginHeader.php');
 
 ?>
     <!-- ========== Breadcumb start============= -->
-    <div class="breadcrumb-section">
+    <div class="breadcrumb-section-wedding">
 
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center text-center">

@@ -71,10 +71,29 @@
         <div class="container">
             <div class="row mb-120 g-5">
                 <div class="col-lg-8">
-                   
-                
-                    <h2><?php echo $hallData['name'] ?></h2>
-       
+
+<?php 
+if ($hallData['video_view']!='Null') {
+?>
+<video   style="width: 100%; height: 300px; object-fit: cover;"autoplay loop="loop" muted preload="auto">
+
+<source src="admin/HallsImages/<?php echo $hallData['video_view']?>"  type="video/mp4">
+</video>
+<?php
+}else{
+    ?>
+    <img  style="width: 100%; height: 300px; object-fit: cover;" src="admin/HallsImages/<?php echo $hallData['image_view']?>" alt="Hall Image">
+
+<?php
+}
+?>
+         
+                <br>
+     <br>
+     <div style="text-align: left;">
+     
+                    <h1 ><?php echo $hallData['name'] ?></h1>
+                    </div>
                     <p><?php echo $hallData['hall_describtion'] ?></p>
                     
                  

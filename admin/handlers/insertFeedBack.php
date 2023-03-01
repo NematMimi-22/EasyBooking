@@ -16,7 +16,7 @@ if(empty($FeedBack)){
 $sql="INSERT INTO feedbacks(FeedBack,user_id) 
 VALUES ('$FeedBack','$user_id')";
 $sqlResult=mysqli_query($conn,$sql);
-header("Refresh:0;URL=../../Feedbackthanks.php");
+header("Refresh:0;URL=../../Feedbackthanks1.php");
     }else{
       
         header("Refresh:0;URL=../../FeedBack.php");

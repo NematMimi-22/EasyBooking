@@ -88,8 +88,15 @@ require("inc/header.php");
                   </div>
           
                   <div class="form-group">
-                    <label for="name">General Image 550x444</label>
+                    <label for="name">General Image</label>
                     <input type="file" name="image_view" class="form-control" placeholder="Enter image">
+
+                  </div>
+
+                      
+                  <div class="form-group">
+                    <label for="name">Video for the hall</label>
+                    <input type="file" name="video_view" class="form-control" placeholder="Enter Video">
 
                   </div>
      

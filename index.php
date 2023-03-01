@@ -389,7 +389,7 @@ foreach($feedbackData as $index=>$users){?>
     <div class="home-one-video mb-120">
     <div class="video-area">
         <video autoplay loop="loop" muted preload="auto">
-            <source src="assets/video/test4.mp4" type="video/mp4">
+            <source src="assets/video/home.mp4" type="video/mp4">
         </video>
         <div class="our-activitys">
             <div class="booking counter-item d-flex align-items-center">

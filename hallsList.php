@@ -177,6 +177,7 @@ if(!empty($subhalls)){
                 </a>
                 <div class="background"></div>
                 <div class="room-content">
+                    
                     <h3><a href="subhall-details.php?shallId=<?= $subhall['id'];?>"><?php echo $subhall['name']?></a></h3>
                     <div class="bed-and-person d-flex align-items-center">
                         <div class="persons">
@@ -213,16 +214,13 @@ if(!empty($subhalls)){
                         <div class="col">
                             <div class="single-room">
                                 <a href="hall-details.php?hallId=<?= $hall['id'];?>">
-                                    <img class="img-fluid" src="admin/HallsImages/<?php echo $hall['image_view']?>" alt="" style="width: 100%; height: 300px; object-fit: cover;">
-                                </a>
+ <img class="img-fluid" src="admin/HallsImages/<?php echo $hall['image_view']?>" alt="" style="width: 100%; height: 300px; object-fit: cover;">
+                     
+</a>
                                 <div class="background"></div>
                                 <div class="room-content">
                                     <h3><a href="hall-details.php?hallId=<?= $hall['id'];?>"><?php echo $hall['name']?></a></h3>
-                                    <!-- <div class="bed-and-person d-flex align-items-center">
-                                        <div class="persons">
-                                            <p><img src="assets/images/icons/location-svgrepo-com.svg" alt=""><?php echo $hall['city']?></p>
-                                        </div>
-                                    </div> -->
+                               
                                     
                                 </div>
                             </div>
