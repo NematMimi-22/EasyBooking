@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 01, 2023 at 06:14 PM
+-- Generation Time: Mar 01, 2023 at 09:04 PM
 -- Server version: 8.0.21
 -- PHP Version: 8.1.12
 
@@ -138,12 +138,19 @@ CREATE TABLE `halls` (
 --
 
 INSERT INTO `halls` (`id`, `name`, `type`, `city`, `address`, `hall_describtion`, `image`, `image_view`, `video_view`, `user_id`, `status`) VALUES
-(79, 'Elya Venues', 1, 'Al-Bireh', 'Al-Bireh', '- Illuminated Dance Floor\r\n- Air-conditioning System\r\n- Separate entrances for both men and  women\r\n- Different options of decorations', '63d6e3a211735.pdf', '63d6e3a21171a.jpg', 'Null', 42, 'approved'),
-(80, 'Royal Halls', 1, 'Jifna', 'Birzeit-Jiffna', 'It has 4 halls (2 indoor halls for women and 2 outdoor halls for men). \r\n\r\nContact info: 0599221720', '63d718e83c1cf.pdf', '63d718e83c1a1.png', 'Null', 43, 'approved'),
+(79, 'Elya Venues', 1, 'Al-Bireh', 'Al-Bireh', '- Illuminated Dance Floor\r\n- Air-conditioning System\r\n- Separate entrances for both men and  women\r\n- Different options of decorations', '63d6e3a211735.pdf', '63d6e3a21171a.jpg', 'elya.mp4', 42, 'approved'),
+(80, 'Royal Halls', 1, 'Jifna', 'Birzeit-Jiffna', 'It has 4 halls (2 indoor halls for women and 2 outdoor halls for men). \r\n\r\nContact info: 0599221720', '63d718e83c1cf.pdf', '63d718e83c1a1.png', 'royal.mp4', 43, 'approved'),
 (81, 'Ramallah Cultural Palace', 3, 'Ramallah', 'Industrial Zone', 'It can accommodate 200 people and enjoys the maximum specifications, comprehensive audio-to-visual technology, heating and cooling systems, and tables that can be moved and set as needed.', '63d72051b9c68.pdf', '63d72051b9c36.jpg', 'Null', 44, 'approved'),
-(82, 'Carmel Hotel', 2, 'Ramallah(Al-Masyoun)', 'Al-Masyoon', 'Has two halls, one is for weddings and the other is for meetings.', '63d7339724ee0.pdf', '63d7339724ce1.png', 'Null', 45, 'approved'),
-(83, 'Gloria Venues', 1, 'Ramallah (Al-Irsal)', 'Al-Irsal', 'Two halls (one for men and one for women).', '63d739af19adc.pdf', '63d739af19ab7.png', 'Null', 37, 'approved'),
-(84, 'Ceaser Hotel', 3, 'Ramallah(Al-Masyoun)', 'Al-Masyoon', 'Two wedding halls for men and women and group of halls for meetings and other events.', '63d73d619d31c.pdf', '63d73d619d309.png', 'Null', 37, 'approved');
+(82, 'Carmel Hotel', 2, 'Ramallah(Al-Masyoun)', 'Al-Masyoon', 'Has two halls, one is for weddings and the other is for meetings.', '63d7339724ee0.pdf', '63d7339724ce1.png', 'carmel.mp4', 45, 'approved'),
+(83, 'Gloria Venues', 1, 'Ramallah (Al-Irsal)', 'Al-Irsal', 'Two halls (one for men and one for women).', '63d739af19adc.pdf', '63d739af19ab7.png', 'gloria.mp4', 37, 'approved'),
+(84, 'Ceaser Hotel', 3, 'Ramallah(Al-Masyoun)', 'Al-Masyoon', 'Two wedding halls for men and women and group of halls for meetings and other events.', '63d73d619d31c.pdf', '63d73d619d309.png', 'ceaser.mp4', 37, 'approved'),
+(95, 'Ankars Hotel Hall ', 3, 'Ramallah(Al-Masyoun)', 'AL - Masyoon ', 'Outer hall', '', 'ankarz.png', 'Ankars.mp4', 42, 'approved'),
+(97, 'Al-Qusoor', 1, 'Al-Bireh(Um Al-Sharayet)', 'Um-Al Sharayet ', 'Two halls one for men and one for women ', '', 'qosor.png', 'qosor.mp4', 42, 'approved'),
+(99, 'AL Rahwan Hall', 1, 'Al-Bireh(Nablus Street)', 'ِAl-Bireh (Nablus street) ', 'Two halls one of them for men and the other for women ', '', 'rahwan.png', 'rahwan.mp4', 42, 'approved'),
+(107, 'Grand Palace Hall ', 1, 'Kufur Aqab', 'Kufur Aqab - Al matar street ', 'Two halls , one for men and one for women ', '', 'grandp.png', 'grandp.mp4', 42, 'approved'),
+(108, 'Grand Park Hotel Hall ', 1, 'Ramallah(Al-Masyoun)', 'Al -Masyoon ', 'One Hall', '', 'grandpark.png', 'grandpark.mp4', 42, 'approved'),
+(109, 'El Mirador Hotel Hall', 3, 'Ramallah(Al-Tireh)', 'Al -Tireh , Al-Manaa Center', 'Hall for women , outer hall for men ', '', 'mir.jpg', 'mir.mp4', 42, 'approved'),
+(110, 'ِAl Sufsaf', 3, 'Al-Bireh(Al-Balou)', 'Al-Berih- Balou', 'One inner hall for women  and garden for men ', '', 'safsaf.jpg', 'Null', 42, 'approved');
 
 -- --------------------------------------------------------
 
@@ -489,7 +496,7 @@ ALTER TABLE `feedback_subhall`
 -- AUTO_INCREMENT for table `halls`
 --
 ALTER TABLE `halls`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `images`

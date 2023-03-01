@@ -3,8 +3,12 @@ require("handlers/db.php");
 require("inc/header.php");
 
 
+require("handlers/get-hall.php");
 
+$sqlT="SELECT DISTINCT h.city FROM halls h";
+$queryT=mysqli_query($conn,$sqlT);
 
+$halls=mysqli_fetch_all($queryT,MYSQLI_ASSOC);
 ?>
 
     <main role="main" class="flex-shrink-0">
@@ -54,20 +58,17 @@ require("inc/header.php");
 
 
 
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">City Name</label>
+  </div>
+  <select class="person-select" name="city">
+    <?php foreach($halls as $hall):?>
+      <option value="<?php echo $hall['city'];?>"><?php echo $hall['city'];?> </option>
+    <?php endforeach; ?>
+  </select>
+</div>
 
-                <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">City Name</label>
-                </div>
-                <select name ="city"class="custom-select" id="inputGroupSelect01">
-                  <option value="0">Choose...</option>
-                  <option value="1" <?php if( isset($_SESSION['formhalldata']['city']))if($_SESSION['formhalldata']['city']==1) echo "selected"?> value="1">Ramallah</option>
-                  <option value="2" <?php if( isset($_SESSION['formhalldata']['city']))if($_SESSION['formhalldata']['city']==2) echo "selected" ?> value="2">Al-Bireh</option>
-                  <option value="3" <?php if( isset($_SESSION['formhalldata']['city']))if($_SESSION['formhalldata']['city']==3) echo "selected" ?> value="3">Birzeit</option>
-                
-                
-                </select>
-              </div>
 
 
 
