@@ -18,7 +18,7 @@ $query=mysqli_query($conn,$sql);
 $users=mysqli_fetch_all($query,MYSQLI_ASSOC);
 
 require("admin/handlers/get-hall.php");
-$sql="SELECT * FROM halls where status='approved'";
+$sql="SELECT * FROM halls where status='approved' limit 6";
 $query1=mysqli_query($conn,$sql);
 $halls=mysqli_fetch_all($query1,MYSQLI_ASSOC);
 
