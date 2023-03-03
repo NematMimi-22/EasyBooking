@@ -78,6 +78,8 @@ $halls=mysqli_fetch_all($query1,MYSQLI_ASSOC);
                                         <div class="searchbox-input two three">
                                             <label>City</label>
                                             <select class="person-select" name="cities">
+                                            <option value="">Choose a city</option>
+
                                                 <?php while($row1 = mysqli_fetch_array($query)):;?>
                                                 <option value="<?php echo $row1[0];?>"><?php echo $row1[0];?> </option>
                                                 <?php endwhile; ?>
@@ -88,7 +90,7 @@ $halls=mysqli_fetch_all($query1,MYSQLI_ASSOC);
                                         <div class="searchbox-input two three">
                                             <label>Type</label>
                                             <select class="person-select" name="types">
-                                            <option value="0">Choose Halls Type</option>
+                                            <option value="">Choose Halls Type</option>
                                                 <?php while($row1 = mysqli_fetch_array($queryT)):;?>
 
 
@@ -112,7 +114,7 @@ $halls=mysqli_fetch_all($query1,MYSQLI_ASSOC);
                                             <label>Price</label>
                                             <select name="prices">
                                                 <option value="">Choose a Price</option>
-                                                <option value="10000">₪10000 or less</option>
+                                                <option value="1000">₪10000 or less</option>
                                                 <option value="20000">₪20000 or less</option>
                                                 <option value="30000">₪30000 or less</option>
                                                 <option value="40000">₪40000 or less</option>
@@ -142,12 +144,20 @@ $halls=mysqli_fetch_all($query1,MYSQLI_ASSOC);
     // Check if city or price filter is applied for subhalls
     if(isset($_POST['cities']) || (isset($_POST['prices']) ) || (isset($_POST['types']) )){
         $sql = "SELECT subhalls.*, halls.city, halls.name AS hall_name FROM subhalls JOIN halls ON subhalls.hall_id = halls.id WHERE halls.status='approved'";
-if(isset($_POST['cities'])){
+if(isset($_POST['cities']) && !empty($_POST['cities'] ) ){
     $city = $_POST['cities'];
+  
+   
     $sql .= " AND halls.city='$city'";
+
+
+
+
+
 }
-if(isset($_POST['types']) && !empty(trim($_POST['types']))){
+if(isset($_POST['types']) && !empty($_POST['types'])){
     $types = $_POST['types'];
+  
     if ( $types==1){
     $sql .= " AND subhalls.type = '1' OR subhalls.type = '3'";
     }else{
@@ -155,11 +165,80 @@ if(isset($_POST['types']) && !empty(trim($_POST['types']))){
 
     }
 }
-if(isset($_POST['prices']) && !empty(trim($_POST['prices']))){
+if(isset($_POST['prices']) && !empty($_POST['prices'])){
     $price = floatval($_POST['prices']);
+  
     $sql .= " AND subhalls.price <= $price";
  
 }
+
+
+if((isset($_POST['cities']) && (!empty($_POST['cities'] )) ) && (isset($_POST['types']) && (!empty($_POST['types'])))){
+    $city = $_POST['cities'];
+   
+    $types = $_POST['types'];
+   
+    if ( $types==1){
+    $sql .= " AND halls.city='$city' AND (subhalls.type = '1' OR subhalls.type = '3')";
+    }else{
+        $sql .= " AND halls.city='$city' AND (subhalls.type = '2' OR subhalls.type = '3')";
+
+    }
+}
+
+
+
+if((isset($_POST['cities']) && (!empty($_POST['cities'] )) ) && (isset($_POST['prices']) && !empty($_POST['prices']))){
+    $city = $_POST['cities'];
+    $price = floatval($_POST['prices']);
+
+  
+        $sql .= " AND halls.city='$city'  AND subhalls.price <= $price";
+
+    
+}
+
+
+if((isset($_POST['types']) && (!empty($_POST['types']))) && (isset($_POST['prices']) && !empty($_POST['prices']))){
+ 
+    $price = floatval($_POST['prices']);
+    $types = $_POST['types'];
+  
+    
+    $sql .= "   AND (subhalls.type =  $types OR subhalls.type = '3') AND subhalls.price <= $price";
+   
+
+    
+}
+
+
+
+if((isset($_POST['cities']) && (!empty($_POST['cities'] )) )&&(isset($_POST['types']) && (!empty($_POST['types']))) && (isset($_POST['prices']) && !empty($_POST['prices']))){
+    $city = $_POST['cities'];
+    $price = floatval($_POST['prices']);
+    $types = $_POST['types'];
+ 
+    if ( $types==1){
+
+        
+    $sql .= "  AND halls.city='$city'   AND subhalls.price <= $price AND (subhalls.type = '1' OR subhalls.type = '3')";
+    }else{
+        $sql .= "  AND halls.city='$city'   AND subhalls.price <= $price AND (subhalls.type = '2' OR subhalls.type = '3')";
+
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
 $query = mysqli_query($conn, $sql);
 $subhalls = mysqli_fetch_all($query, MYSQLI_ASSOC);
 

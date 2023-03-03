@@ -40,13 +40,13 @@ AND reservations.date = DATE(NOW() + INTERVAL 1 DAY)";
             <div class="row">
                 <div class="col-12 d-flex align-items-center justify-content-between">
                     <div class="header-logo">
-                        <a href="index.php"><img alt="image" src="assets/images/header-logo2.svg" ></a>
+                    <a href="index.php"><img width="139" height="34" viewBox="0 0 139 34" fill="none" xmlns="http://www.w3.org/2000/svg" src="assets/images/back.png" alt=""></a>
                     </div>
                     
                     <div class="main-menu">
                         <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
                             <div class="mobile-logo-wrap ">
-                                <a href="index.php"><img alt="image" src="assets/images/header-logo2.svg" ></a>
+                            <a href="index.php"><img width="139" height="34" viewBox="0 0 139 34" fill="none" xmlns="http://www.w3.org/2000/svg" src="assets/images/back.png" alt=""></a>
             
                             </div>
                             <div class="menu-close-btn">
@@ -106,7 +106,7 @@ AND reservations.date = DATE(NOW() + INTERVAL 1 DAY)";
                                     </div>
                                     <div class="email-info">
                                         <span>Email Now</span>
-                                        <h6><a href="mailto:example@gmail.com">EasyBooking@gmail.com</a></h6>
+                                        <h6><a href="mailto:example@gmail.com">Easybooking@gmail.com</a></h6>
                                     </div>
                                 </div>
                             </form>

@@ -90,7 +90,7 @@
                                 <ul>
                                     <li>Pay with us:</li>
                                     
-                                    <li><a href="#"><img src="assets/images/bg/pay.png" alt=""></a></li>
+                                    <li><a href="#"><img src="assets/images/bg/pay2.png" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>

@@ -17,6 +17,7 @@ header("location:index.php");
 <script src="https://kit.fontawesome.com/0c7450fd77.js" crossorigin="anonymous"></script>
 
 <body>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-jZNDe/3WBp0G3SjKBxxqzIUpY3aGhVwN/5Q5G5+2TkI2j3X7SxIVJZExnyRV+x1r" crossorigin="anonymous">
     <?php require ('inc/preloader_area.php'); 
 
     require ('inc/top_Bar.php'); 
@@ -78,7 +79,8 @@ if(isset($_SESSION['errors'])){
                             </div>
           
                             <div class="wp-block-text__inside-wrapper ">
-                            <i class="fa-thin fa-lock"></i>
+                            <i class="fas fa-lock"></i>
+
                                 <input type="password" name="password"   placeholder="Your Password">
                             </div>
                  
