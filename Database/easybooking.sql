@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 03, 2023 at 11:16 AM
+-- Generation Time: Mar 03, 2023 at 12:58 PM
 -- Server version: 8.0.21
 -- PHP Version: 8.1.12
 
@@ -184,7 +184,7 @@ INSERT INTO `halls` (`id`, `name`, `type`, `city`, `address`, `hall_describtion`
 (81, 'Ramallah Cultural Palace', 2, 'Ramallah', 'Industrial Zone', 'It can accommodate 200 people and enjoys the maximum specifications, comprehensive audio-to-visual technology, heating and cooling systems, and tables that can be moved and set as needed.', '63d72051b9c68.pdf', '63d72051b9c36.jpg', 'Null', 44, 'approved'),
 (82, 'Carmel Hotel', 3, 'Ramallah(Al-Masyoun)', 'Al-Masyoun', 'We have two halls, the first one is for weddings and the other one is for meetings.', '63d7339724ee0.pdf', '63d7339724ce1.png', 'carmel.mp4', 45, 'approved'),
 (83, 'Gloria Venues', 1, 'Ramallah (Al-Irsal)', 'Al-Irsal', 'Two halls (one for men and one for women).', '63d739af19adc.pdf', '63d739af19ab7.png', 'gloria.mp4', 37, 'approved'),
-(84, 'Ceaser Hotel', 3, 'Ramallah(Al-Masyoun)', 'Al-Masyoon', 'Two wedding halls for men and women and group of halls for meetings and other events.', '63d73d619d31c.pdf', '63d73d619d309.png', 'ceaser.mp4', 37, 'approved'),
+(84, 'Ceaser Hotel', 3, 'Ramallah(Al-Masyoun)', 'Al-Masyoon', 'Two wedding halls for men and women and group of halls for meetings and other events.', '63d73d619d31c.pdf', '63d73d619d309.png', 'ceaser.mp4', 48, 'approved'),
 (97, 'Al-Qusoor', 1, 'Al-Bireh(Um Al-Sharayet)', 'Um-Al Sharayet ', 'Two halls one for men and one for women ', '', 'qosor.png', 'qosor.mp4', 42, 'approved'),
 (99, 'AL Rahwan Hall', 1, 'Al-Bireh(Nablus Street)', 'ِAl-Bireh (Nablus street) ', 'Two halls one of them for men and the other for women ', '', 'rahwan.png', 'rahwan.mp4', 42, 'approved'),
 (107, 'Grand Palace Hall ', 1, 'Kufur Aqab', 'Kufur Aqab - Al matar street ', 'Two halls , one for men and one for women ', '', 'grandp.png', 'grandp.mp4', 42, 'approved'),
@@ -362,7 +362,23 @@ INSERT INTO `images` (`id`, `image`, `uploaded_on`, `subhall_id`) VALUES
 (228, '63fffb5d35bc6.jpg', '2023-03-02 03:26:53', 100),
 (229, '63fffb5d36d9f.jpg', '2023-03-02 03:26:53', 100),
 (230, '63fffb5d38303.jpg', '2023-03-02 03:26:53', 100),
-(231, '63fffb5d3988d.jpg', '2023-03-02 03:26:53', 100);
+(231, '63fffb5d3988d.jpg', '2023-03-02 03:26:53', 100),
+(232, '6401eb61a1ccd.jpg', '2023-03-03 14:43:13', 76),
+(233, '6401eb61a2b39.jpg', '2023-03-03 14:43:13', 76),
+(234, '6401eb61a368a.jpg', '2023-03-03 14:43:13', 76),
+(235, '6401eb61a40dc.jpg', '2023-03-03 14:43:13', 76),
+(236, '6401eb61a4be0.jpg', '2023-03-03 14:43:13', 76),
+(237, '6401eb61a565a.jpg', '2023-03-03 14:43:13', 76),
+(238, '6401eb61a60b7.jpg', '2023-03-03 14:43:13', 76),
+(239, '6401eb61a6d02.jpg', '2023-03-03 14:43:13', 76),
+(240, '6401ee850e0c4.png', '2023-03-03 14:56:37', 101),
+(241, '6401ee850ec25.png', '2023-03-03 14:56:37', 101),
+(242, '6401ee850f770.png', '2023-03-03 14:56:37', 101),
+(243, '6401ee85102b8.png', '2023-03-03 14:56:37', 101),
+(244, '6401ee8510e02.png', '2023-03-03 14:56:37', 101),
+(245, '6401ee851198a.png', '2023-03-03 14:56:37', 101),
+(246, '6401ee851252f.png', '2023-03-03 14:56:37', 101),
+(247, '6401ee85130e0.png', '2023-03-03 14:56:37', 101);
 
 -- --------------------------------------------------------
 
@@ -419,12 +435,12 @@ CREATE TABLE `prices` (
 --
 
 INSERT INTO `prices` (`id`, `hall_id`, `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`) VALUES
-(2, 73, 7007, 200, 5000, 600, 700, 1050, 1000),
-(4, 74, 100, 200, 600, 1000, 4000, 15000, 6000),
-(7, 76, 100, 200, 16000, 1000, 4000, 20000, 6000),
+(2, 73, 7000, 8000, 5000, 6000, 9000, 13000, 10000),
+(4, 74, 1000, 2000, 6000, 1000, 4000, 15000, 6000),
+(7, 76, 5000, 15000, 16000, 15000, 20000, 20000, 6000),
 (8, 77, 25000, 25000, 25000, 25000, 25000, 25000, 25000),
-(9, 72, 10000, 200, 5000, 600, 700, 1050, 1000),
-(10, 78, 25000, 200, 600, 1000, 4000, 20000, 6001),
+(9, 72, 10000, 15000, 15000, 15000, 15000, 20000, 20000),
+(10, 78, 25000, 20000, 20000, 10000, 15000, 20000, 20000),
 (11, 79, 100, 30000, 600, 1000, 4000, 20000, 6000),
 (13, 84, 1200, 1200, 1200, 1200, 1500, 1800, 1800),
 (14, 85, 1200, 1200, 1200, 1200, 1500, 1800, 1800),
@@ -440,7 +456,8 @@ INSERT INTO `prices` (`id`, `hall_id`, `Sunday`, `Monday`, `Tuesday`, `Wednesday
 (26, 97, 5000, 5000, 5000, 5000, 8000, 8000, 8000),
 (27, 98, 10000, 10000, 10000, 10000, 12000, 12000, 12000),
 (28, 99, 5000, 5000, 5000, 6000, 7000, 7000, 7000),
-(29, 100, 5000, 5000, 5000, 6000, 6000, 7000, 7000);
+(29, 100, 5000, 5000, 5000, 6000, 6000, 7000, 7000),
+(30, 101, 14500, 14000, 14000, 14000, 14000, 15000, 14000);
 
 -- --------------------------------------------------------
 
@@ -463,12 +480,56 @@ CREATE TABLE `rating` (
 INSERT INTO `rating` (`id`, `user_id`, `hall_id`, `rating_number`, `description`) VALUES
 (1, 1, 74, 5, NULL),
 (2, 1, 74, 5, NULL),
-(3, 1, 72, 1, NULL),
+(3, 1, 72, 5, NULL),
 (4, 35, 74, 5, 'nice'),
 (5, 35, 74, 1, ''),
 (6, 35, 78, 2, ''),
 (7, 35, 78, 5, 'wow'),
-(8, 32, 74, 3, 'nnn');
+(8, 32, 74, 3, 'nnn'),
+(9, 35, 72, 4, NULL),
+(10, 35, 73, 4, NULL),
+(11, 35, 73, 3, NULL),
+(12, 35, 74, 5, NULL),
+(13, 35, 76, 4, NULL),
+(14, 35, 76, 3, NULL),
+(15, 35, 77, 3, NULL),
+(16, 35, 77, 5, NULL),
+(17, 35, 77, 5, NULL),
+(18, 35, 78, 4, NULL),
+(19, 35, 78, 2, NULL),
+(20, 35, 78, 4, NULL),
+(21, 35, 79, 3, NULL),
+(22, 35, 79, 3, NULL),
+(23, 35, 84, 5, NULL),
+(24, 35, 85, 3, NULL),
+(25, 35, 85, 4, NULL),
+(26, 35, 86, 5, NULL),
+(27, 35, 86, 5, NULL),
+(28, 35, 87, 3, NULL),
+(29, 35, 86, 4, NULL),
+(30, 35, 87, 4, NULL),
+(31, 35, 87, 4, NULL),
+(32, 35, 88, 3, NULL),
+(33, 35, 88, 1, NULL),
+(34, 35, 89, 5, NULL),
+(35, 35, 90, 5, NULL),
+(36, 35, 90, 4, NULL),
+(37, 35, 90, 5, NULL),
+(38, 35, 91, 5, NULL),
+(39, 35, 91, 4, NULL),
+(40, 35, 92, 4, NULL),
+(41, 35, 95, 5, NULL),
+(42, 35, 95, 4, NULL),
+(43, 35, 96, 3, NULL),
+(44, 35, 97, 5, NULL),
+(45, 35, 97, 4, NULL),
+(46, 35, 98, 3, NULL),
+(47, 35, 98, 4, NULL),
+(48, 35, 99, 5, NULL),
+(49, 35, 99, 5, NULL),
+(50, 35, 100, 5, NULL),
+(51, 35, 100, 4, NULL),
+(52, 35, 86, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -523,9 +584,9 @@ CREATE TABLE `subhalls` (
 --
 
 INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `hall_describtion`, `services`, `image_view`, `hall_id`, `num_of_reservation`, `price`) VALUES
-(72, 'Elya Venues-Women hall', 1, 1000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System\r\n- Ample Parking\r\n- Separate Entrance\r\n- Security Group\r\n- Special Hospitality \r\n- Waiting Room For the Bride\r\n- Electrical Elevators \r\n- DJ and huge monitors\r\n- Different options for decorations', '63d70a1843c7b.png', 79, 2, 0),
-(73, 'Royal Hall-Indoor Women Hall', 1, 500, 'Address: Jifna near Birzeit\r\nContact info: 0599221720', 'Cake, flowers decorations, drinks, DJ, Dinner, and lighting. In addition, Security cameras, sound systems, and huge monitors.', '63d71a756e22d.png', 80, 0, 0),
-(74, 'Ramallah Cultural Palace', 2, 200, 'It can accommodate 200 people and enjoys the maximum specifications.', 'Comprehensive audio-to-visual technology, heating, and cooling systems, and tables that can be moved and set as needed.', '63d721051bc75.jpg', 81, 4, 0),
+(72, 'Elya Venues-Women hall', 1, 1000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System\r\n- Ample Parking\r\n- Separate Entrance\r\n- Security Group\r\n- Special Hospitality \r\n- Waiting Room For the Bride\r\n- Electrical Elevators \r\n- DJ and huge monitors\r\n- Different options for decorations', '63d70a1843c7b.png', 79, 2, 20000),
+(73, 'Royal Hall-Indoor Women Hall', 1, 500, 'Address: Jifna near Birzeit\r\nContact info: 0599221720', 'Cake, flowers decorations, drinks, DJ, Dinner, and lighting. In addition, Security cameras, sound systems, and huge monitors.', '63d71a756e22d.png', 80, 0, 13000),
+(74, 'Ramallah Cultural Palace', 2, 200, 'It can accommodate 200 people and enjoys the maximum specifications.', 'Comprehensive audio-to-visual technology, heating, and cooling systems, and tables that can be moved and set as needed.', '63d721051bc75.jpg', 81, 4, 15000),
 (76, 'Elya Venues-Men hall', 1, 1000, '- Address: Al-Bireh, Al-Quds Street, near the southern entrance of Al-Bireh.\r\n- Contact info: 00970597311322', '- Air-conditioning System - Ample Parking - Separate Entrance - Security Group - Electrical Elevators - DJ and huge monitors - Different options for decorations', '63d723f09ff41.jpg', 79, 1, 20000),
 (77, 'Carmel Hotel-Wedding Hall', 1, 500, 'Contact info: 02 297 2222', 'Dinner, Decoration, DJ, Cake, Parking, and Pool in the hall', '63d735a857c62.png', 82, 6, 15000),
 (78, 'Gloria Venues-Women Hall', 1, 500, 'Contact info:  0568650650  //  022955700', 'Full service , dinner is available , many decorations, condition system (high quality ), special lighting system, special sound system, 3 screens, lighting dance floor.', '63d73a8cd2203.png', 83, 3, 30000),
@@ -544,7 +605,8 @@ INSERT INTO `subhalls` (`id`, `name`, `type`, `number_of_guests`, `hall_describt
 (97, 'El Mirador Hotel-Meetings Hall', 2, 100, 'Contact info: 0597071144', 'Drinks, Parking, and monitors', '63fff8ee9924e.jpg', 109, 0, 8000),
 (98, 'El Mirador Hotel-Parties Hall', 3, 100, 'Contact info: 0597071144', 'Drinks, Cake, Parking, and Decorations', '63fff95d7f23a.jpg', 109, 0, 12000),
 (99, 'Al Sufsaf-Women Hall', 1, 200, 'Contact info: 0598121180', 'Drinks, Cake, Parking, Photo Session, Decorations, and Dinner on demand', '63fffab817e35.jpg', 110, 0, 7000),
-(100, 'Al Sufsaf-Men Hall', 1, 200, 'Contact info: 0598121180', 'Drinks, Cake, Parking, Photo Session, Decorations, and Dinner on demand', '63fffb4781bd0.jpg', 110, 0, 7000);
+(100, 'Al Sufsaf-Men Hall', 1, 200, 'Contact info: 0598121180', 'Drinks, Cake, Parking, Photo Session, Decorations, and Dinner on demand', '63fffb4781bd0.jpg', 110, 0, 7000),
+(101, 'Ceaser Hotel-Wedding Hall', 1, 500, 'Two halls for men and women, 200 men in men hall  , 240 women in women hall\r\nContact info: 0595111331', 'Cake, Drinks, DJ and Parking', '6401ee3c5eb31.png', 84, 0, 15000);
 
 -- --------------------------------------------------------
 
@@ -699,7 +761,7 @@ ALTER TABLE `halls`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -711,13 +773,13 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `prices`
 --
 ALTER TABLE `prices`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `reservations`
@@ -729,7 +791,7 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT for table `subhalls`
 --
 ALTER TABLE `subhalls`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `users`

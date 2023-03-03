@@ -139,7 +139,7 @@ if(empty($_FILES['image_view']['name'])){
 
     $errors[]="image is required";
 
-  }elseif($sizeMbv>1)
+  }elseif($sizeMbv>20)
 {
 $errors[]="image size more than 1Mb";
 
