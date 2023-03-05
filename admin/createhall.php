@@ -13,8 +13,11 @@ $halls=mysqli_fetch_all($queryT,MYSQLI_ASSOC);
 
     <main role="main" class="flex-shrink-0">
         <div class="container">
-       
-            <h1>Add hall</h1>
+        <label><span style="color:red;font-weight:bold;">Hey Mr./Ms. Owner, please note that there will be a 5% deductible for the developers of this website for each booking process done for your hall.</span></label>
+        <br>
+        <br>
+        <h1>Add hall</h1>
+
             <?php if(isset( $_SESSION['errors'])){
             foreach($_SESSION['errors'] as $error){?>
   <div class="alert alert-danger" role="alert"> <?php echo $error;?> </div>  
@@ -104,12 +107,15 @@ $halls=mysqli_fetch_all($queryT,MYSQLI_ASSOC);
                   <div class="form-group">
                     <label for="name">Proof Of Ownership</label>
                     <input type="file" name="image" class="form-control" placeholder="Enter image">
-
+                    <br>
+                    
                   </div>
 
                 <button type="submit" class="btn btn-primary">Add Hall</button>
                 <a  href="showhallowner.php" class="btn btn-primary">Back to hall list </a>
                 <?php unset($_SESSION['formhalldata'])?>
+          
+
             </form>
         </div>
     </main>
