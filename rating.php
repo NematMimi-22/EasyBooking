@@ -1,8 +1,8 @@
 <?php
 class Rating{
-	private $host  = '127.0.0.1';
-    private $user  = 'root';
-    private $password   = "1234";
+	private $host  = '10.1.100.162';
+    private $user  = 'easy-booking';
+    private $password   = "#&Qkd0jg6jdsnb12";
     private $database  = "easybooking";
     private $RatingTable = 'rating';
 	private $dbConnect = false;
