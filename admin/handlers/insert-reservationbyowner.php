@@ -92,7 +92,7 @@ if (empty($errors)){
 if($sqlResult=mysqli_query($conn,$sql)){
     $reservation_id = mysqli_insert_id($conn);
     $_SESSION['success']="Reservation added successfully";
-header("Refresh:0;URL=../Showresowner.php");
+header("Refresh:0;URL=../showresowner.php");
 
     }
 
