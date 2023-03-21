@@ -145,7 +145,7 @@ else{
     data: data,
     success:function(response){
 
-window.location="/easybooking-main/Bookingthanks.php";
+window.location="Bookingthanks.php";
  
 }
  })
