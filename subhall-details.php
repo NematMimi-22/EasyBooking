@@ -30,7 +30,7 @@
 
         $userid='null';
     
-        require ('inc/Header.php'); 
+        require ('inc/header.php'); 
     }
     
   

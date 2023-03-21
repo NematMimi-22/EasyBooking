@@ -20,7 +20,7 @@ $userid=$_SESSION['userId'];
 require ('inc/LoginHeader.php'); 
 }else{
 
-     require ('inc/Header.php'); 
+     require ('inc/header.php'); 
 }
 
 ?>
