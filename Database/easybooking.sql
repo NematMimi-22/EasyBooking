@@ -26,7 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `admins`
 --
-
+CREATE DATABASE easybooking;
+use easybooking;
 CREATE TABLE `admins` (
   `id` int NOT NULL,
   `name` char(200) NOT NULL,

@@ -18,7 +18,7 @@
 
 $user_id= $_SESSION['userId'];
 $notifications=[];
-define("SERVERNAME1","10.1.100.162");
+define("SERVERNAME1","localhost");
 define("USERSERV1","easy-booking");
 define("PASSSERV1","#&Qkd0jg6jdsnb12");
 define("DBNAME1","easybooking");

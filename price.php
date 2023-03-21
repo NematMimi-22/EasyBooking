@@ -1,7 +1,7 @@
 <?php
 
 // Connect to database
-$servername = "10.1.100.162";
+$servername = "localhost";
 $username = "easy-booking";
 $password = "#&Qkd0jg6jdsnb12";
 $dbname = "easybooking";
