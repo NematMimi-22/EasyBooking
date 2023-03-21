@@ -38,7 +38,7 @@
 
   
     require("admin/handlers/db.php");
-    $sql="SELECT * FROM subhalls where id=$shallId ";
+    $sql="SELECT * FROM subhalls where id=$shallId";
     $sqlResult=mysqli_query($conn,$sql);
     $shallData=mysqli_fetch_assoc($sqlResult);
 
