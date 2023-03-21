@@ -38,27 +38,27 @@
 
   
     require("admin/handlers/db.php");
-    $sql="SELECT * FROM subhalls where id=$shallId";
+    $sql="SELECT * FROM subhalls where id=73";
     $sqlResult=mysqli_query($conn,$sql);
     $shallData=mysqli_fetch_assoc($sqlResult);
 
-    $sql= "SELECT * FROM images where subhall_id=$shallId";
+    $sql= "SELECT * FROM images where subhall_id=73";
     $query = mysqli_query($conn,$sql);
     
     require("admin/handlers/get_feedback_subhall.php");
 
-    $sql1="SELECT * FROM feedback_subhall WHERE feedback != '' AND hall_id=$shallId ORDER BY id DESC;
+    $sql1="SELECT * FROM feedback_subhall WHERE feedback != '' AND hall_id=73 ORDER BY id DESC;
     ";
     $query1=mysqli_query($conn,$sql1);
     $users=mysqli_fetch_all($query1,MYSQLI_ASSOC);
     
-    $sql2="SELECT * From reservations where hall_id=$shallId and user_id=$userid";
+    $sql2="SELECT * From reservations where hall_id=73 and user_id=$userid";
     $query2=mysqli_query($conn,$sql2);
     $reservations=mysqli_fetch_all($query2,MYSQLI_ASSOC);
 
     $sql3="SELECT MIN(LEAST(Sunday, Monday,Tuesday,Wednesday,Thursday,Friday,Saturday)) as min_price,MAX(GREATEST(Sunday, Monday,Tuesday,Wednesday,Thursday,Friday,Saturday)) as max_price
     FROM prices
-    WHERE hall_id = $shallId;
+    WHERE hall_id = 73;
     ";
     $query3=mysqli_query($conn,$sql3);
    
@@ -73,8 +73,8 @@
 	include_once 'rating.php';
 
 	$rating = new Rating();
-	$average = $rating->getRatingAverage($shallId);
-	$count = $rating->getRatingTotal($shallId);
+	$average = $rating->getRatingAverage(73);
+	$count = $rating->getRatingTotal(73);
 	
     
     
@@ -180,7 +180,7 @@ echo	'<i class="fa fa-star '.$ratingClass. '"; aria-hidden="true"></i>';
 
     <script>
     
-    var shallId = <?php echo json_encode($shallId); ?>;
+    var shallId = <?php echo json_encode(73); ?>;
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -220,7 +220,7 @@ echo	'<i class="fa fa-star '.$ratingClass. '"; aria-hidden="true"></i>';
                         <div class="single-widgets booking-widgets">
                             
                             <div class="section-title1 text-center">
-                               <span> <a class="btn--primary6" href="admin/handlers/bookchecklogin.php?shallId=<?= $shallId ?>">Book Now</a> </span>
+                               <span> <a class="btn--primary6" href="admin/handlers/bookchecklogin.php?shallId=<?= 73 ?>">Book Now</a> </span>
                             </div>
                             
                         </div>
