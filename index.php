@@ -1,10 +1,12 @@
+<?php 
+ session_start();
+require ('inc/head.php'); ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
 
-<?php 
- session_start();
-require ('inc/head.php'); ?>
+
 
 <body>
 <?php 
