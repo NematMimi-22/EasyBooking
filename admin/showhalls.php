@@ -103,7 +103,7 @@ else if ($halls[2]=='3'){
       
       <?php $flag=true; } ?>
     
-    <form action="Showhalls.php" method='post'>
+    <form action="showhalls.php" method='post'>
       
     <input type='hidden' name='id' value='<?php echo $halls[0]?>'>
     <?php if($flag==true){?>
