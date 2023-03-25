@@ -19,8 +19,8 @@
 
 $notifications=[];
 define("SERVERNAME1","localhost");
-define("USERSERV1","root");
-define("PASSSERV1","1234");
+define("USERSERV1","easy-booking");
+define("PASSSERV1","#&Qkd0jg6jdsnb12");
 define("DBNAME1","easybooking");
 $conn=mysqli_connect(SERVERNAME1,USERSERV1,PASSSERV1,DBNAME1);
 $sql31="SELECT reservations.*, subhalls.name as name

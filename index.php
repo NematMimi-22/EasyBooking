@@ -1,10 +1,12 @@
+<?php 
+ session_start();
+require ('inc/head.php'); ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
 
-<?php 
- session_start();
-require ('inc/head.php'); ?>
+
 
 <body>
 <?php 
@@ -79,7 +81,7 @@ $userid=$_SESSION['userId'];
 require ('inc/LoginHeader.php'); 
 }else{
 
-     require ('inc/Header.php'); 
+     require ('inc/header.php'); 
 }
 
 ?>

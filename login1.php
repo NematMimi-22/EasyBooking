@@ -21,7 +21,7 @@ header("location:index.php");
     <?php require ('inc/preloader_area.php'); 
 
     require ('inc/top_Bar.php'); 
-    require ('inc/Header.php'); 
+    require ('inc/header.php'); 
     ?>
     
     <!-- ========== Breadcumb start============= -->

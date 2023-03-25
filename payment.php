@@ -31,7 +31,7 @@ $userid=$_SESSION['userId'];
 require ('inc/LoginHeader.php'); 
 }
 else{
-    require ('inc/Header.php'); 
+    require ('inc/header.php'); 
 }
 
 ?>
@@ -145,7 +145,7 @@ else{
     data: data,
     success:function(response){
 
-window.location="/easybooking-main/Bookingthanks.php";
+window.location="Bookingthanks.php";
  
 }
  })

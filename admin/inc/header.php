@@ -199,7 +199,7 @@ if (($_SESSION['adminType']=='2')){
       
               
               <li class="nav-item">
-                <a href="Showresowner.php" class="nav-link  ">
+                <a href="showresowner.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon "></i>
                   <p>show Reservations</p>
                 </a>
