@@ -1,1 +1,1 @@
-# EasyBooking-main
+# EasyBooking
