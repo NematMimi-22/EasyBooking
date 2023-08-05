@@ -1,6 +1,6 @@
 <?php
 class Rating{
-	private $host  = 'localhost';
+	private $host  = 'easy-booking.link';
     private $user  = 'easy-booking';
     private $password   = "#&Qkd0jg6jdsnb12";
     private $database  = "easybooking";

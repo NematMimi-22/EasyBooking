@@ -18,7 +18,7 @@
 
 
 $notifications=[];
-define("SERVERNAME1","localhost");
+define("SERVERNAME1","easy-booking.link");
 define("USERSERV1","easy-booking");
 define("PASSSERV1","#&Qkd0jg6jdsnb12");
 define("DBNAME1","easybooking");
