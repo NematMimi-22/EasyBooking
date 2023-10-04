@@ -1,5 +1,5 @@
 <?php 
-define("SERVERNAME","localhost");
+define("SERVERNAME","easy-booking.link");
 define("USERSERV","easy-booking");
 define("PASSSERV","#&Qkd0jg6jdsnb12");
 define("DBNAME","easybooking");
